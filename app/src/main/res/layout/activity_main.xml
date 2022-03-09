@@ -10,30 +10,29 @@
         android:id="@+id/tryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="104dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/contentLayout"
         app:layout_constraintTop_toTopOf="@+id/contentLayout" />
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contentLayout"
+        android:name="com.application.kgtuapp.Fragmets.InfoFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mainMenuContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <fragment
-            android:id="@+id/scheduleContainer"
-            android:name="com.application.kgtuapp.Fragmets.InfoFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    </androidx.fragment.app.FragmentContainerView>
 
-    </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/mainMenuLayout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainMenuContainer"
+        android:name="com.application.kgtuapp.Fragmets.MainMenuFragment"
         android:layout_width="0dp"
         android:layout_height="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,56 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contentLayout">
 
-        <fragment
-            android:id="@+id/mainMenuContainer"
-            android:name="com.application.kgtuapp.Fragmets.MainMenuFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-        </fragment>
-    </FrameLayout>
-
-    <!--<Button
-        android:id="@+id/showFragmentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="32dp"
-        android:text="show fragment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/container"
-        app:layout_constraintTop_toBottomOf="@+id/showFragmentButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />-->
-
-    <!--<fragment
-        android:id="@+id/infoFragment"
-        android:name="com.application.kgtuapp.Fragmets.InfoFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/infoFragment2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-        <fragment
-            android:id="@+id/infoFragment2"
-            android:name="com.application.kgtuapp.Fragmets.InfoFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/infoFragment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />-->
+    </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

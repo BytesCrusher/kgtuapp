@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         dataModel.message.observe(this, {
             binding.tryButton.text = it
+
         })
 
         binding.tryButton.setOnClickListener {
