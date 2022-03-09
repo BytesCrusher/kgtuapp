@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="main_menu_button_icon_size" type="dimen">40dp</item>
+</resources>
