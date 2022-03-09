@@ -19,10 +19,7 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
         return binding.root
     }
 
-
-
     companion object {
-
         @JvmStatic
         fun newInstance() = ProfileFragment()
     }

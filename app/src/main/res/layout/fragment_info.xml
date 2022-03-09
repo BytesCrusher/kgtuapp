@@ -35,28 +35,34 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="409dp"
-            android:layout_height="87dp"
-            android:layout_marginTop="300dp"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/testEditText"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="Enter text" />
+        <EditText
+            android:id="@+id/testEditText"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="Enter text" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Information"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Information"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/checkTextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="click" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -64,16 +70,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="90dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="428dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
