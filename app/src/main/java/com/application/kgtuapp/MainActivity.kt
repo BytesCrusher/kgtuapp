@@ -5,8 +5,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
-import com.application.kgtuapp.Fragmets.InfoFragment
-import com.application.kgtuapp.Fragmets.MainMenuFragment
 import com.application.kgtuapp.Fragmets.ScheduleDayFragment
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.ActivityMainBinding
@@ -30,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.tryButton.setOnClickListener {
-            openFragment(R.id.contentLayout, ScheduleDayFragment.newInstance())
+            openFragment(R.id.contentContainer, ScheduleDayFragment.newInstance())
         }
 
     }

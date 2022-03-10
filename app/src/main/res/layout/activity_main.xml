@@ -13,11 +13,11 @@
         android:layout_marginStart="272dp"
         android:layout_marginTop="104dp"
         android:text="Button"
-        app:layout_constraintStart_toStartOf="@+id/contentLayout"
-        app:layout_constraintTop_toTopOf="@+id/contentLayout" />
+        app:layout_constraintStart_toStartOf="@+id/contentContainer"
+        app:layout_constraintTop_toTopOf="@+id/contentContainer" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/contentLayout"
+        android:id="@+id/contentContainer"
         android:name="com.application.kgtuapp.Fragmets.InfoFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contentLayout">
+        app:layout_constraintTop_toBottomOf="@+id/contentContainer">
 
     </androidx.fragment.app.FragmentContainerView>
 

@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.application.kgtuapp.MainActivity
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.FragmentMainMenuBinding
 
@@ -17,19 +15,34 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*binding.mainMenuButtonSchedule.setOnClickListener {
-            parentFragmentManager
-                .beginTransaction()
-                .addToBackStack(null)
-                .replace(R.id.contentLayout, ScheduleDayFragment.newInstance())
-                .commit()
-        }*/
-        /*binding.mainMenuButtonCalendar.setOnClickListener {  }
-        binding.mainMenuButtonUniversity.setOnClickListener {  }
-        binding.mainMenuButtonPerson.setOnClickListener {  }*/
-
         binding = FragmentMainMenuBinding.inflate(layoutInflater, container, false)
+
+        binding.mainMenuButtonSchedule.setOnClickListener {
+            changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleDayFragment.newInstance())
+        }
+        binding.mainMenuButtonCalendar.setOnClickListener{
+            changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
+        }
+        binding.mainMenuButtonUniversity.setOnClickListener {
+            changeContentFragmentByMainMenu(R.id.contentContainer, UniversityFragment.newInstance())
+        }
+        binding.mainMenuButtonPerson.setOnClickListener {
+            changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
+        }
+
         return binding.root
+    }
+
+    //Поменять текущий фрагмент внутри contentContainer
+    //(фрагмент для отображения основного контента)
+    //Аргументы:
+    //(R.id.contentContainer, ScheduleDayFragment.newInstance())
+    private fun changeContentFragmentByMainMenu(idContainer: Int, newFragment:Fragment){
+        parentFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(idContainer, newFragment)
+            .commit()
     }
 
 
