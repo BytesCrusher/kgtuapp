@@ -3,8 +3,17 @@
     <string name="app_name">kstuapp</string>
     <string name="exampleTextView_text">hello, world!</string>
     <string name="app_logo_text">KSTU App.</string>
+
     <string name="main_menu_button_schedule">Schedule</string>
     <string name="main_menu_button_calendar">Calendar</string>
     <string name="main_menu_button_university">University</string>
     <string name="main_menu_button_profile">Profile</string>
+
+    <string name="main_toolbar_description_schedule">Schedule</string>
+    <string name="main_toolbar_description_calendar">Calendar</string>
+    <string name="main_toolbar_description_university">University KSTU</string>
+    <string name="main_toolbar_description_profile">Profile</string>
+
+    <string name="tv_welcome_text">Welcome to the KSTU mobile app!</string>
+    <string name="tv_app_version_text">Application version:</string>
 </resources>

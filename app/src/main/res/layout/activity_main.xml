@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
+    <!--<Button
         android:id="@+id/tryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +14,18 @@
         android:layout_marginTop="104dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/contentContainer"
-        app:layout_constraintTop_toTopOf="@+id/contentContainer" />
+        app:layout_constraintTop_toTopOf="@+id/contentContainer" />-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainToolBar"
+        android:elevation="8dp"
+        app:title = "@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#14006399"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contentContainer"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contentContainer"
@@ -25,7 +36,7 @@
         app:layout_constraintBottom_toTopOf="@+id/mainMenuContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar">
 
     </androidx.fragment.app.FragmentContainerView>
 

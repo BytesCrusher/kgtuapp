@@ -1,11 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">kgtuapp</string>
     <string name="exampleTextView_text">Привет, мир!</string>
     <string name="app_logo_text">КГТУ Апп.</string>
+
     <string name="main_menu_button_schedule">Расписание</string>
     <string name="main_menu_button_calendar">Календарь</string>
     <string name="main_menu_button_university">Университет</string>
     <string name="main_menu_button_profile">Профиль</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="main_toolbar_description_schedule">Расписание</string>
+    <string name="main_toolbar_description_calendar">Календарь</string>
+    <string name="main_toolbar_description_university">Университет КГТУ</string>
+    <string name="main_toolbar_description_profile">Профиль</string>
+
+    <string name="tv_welcome_text">Добро пожаловать в мобильное приложение КГТУ!</string>
+    <string name="tv_app_version_text">Версия приложения:</string>
 </resources>

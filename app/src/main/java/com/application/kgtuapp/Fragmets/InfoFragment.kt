@@ -19,15 +19,16 @@ class InfoFragment: Fragment(R.layout.fragment_info) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentInfoBinding.inflate(layoutInflater)
+        dataModel.mainToolBarTitle.value = getString(R.string.app_name)
         return binding.root
     }
 
     //Отправка с помощью view модели информации из фрагмента в активити
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.checkTextButton.setOnClickListener{
-            dataModel.message.value = "hello from info Fragment"
+            dataModel.mainToolBarTitle.value = "hello from info Fragment"
         }
-    }
+    }*/
 
     companion object {
         @JvmStatic

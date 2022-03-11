@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
-import com.application.kgtuapp.Fragmets.ScheduleDayFragment
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.ActivityMainBinding
 
@@ -19,17 +18,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+        fun changeToolbarTitle(newTitle: String){
+            binding.mainToolBar.setTitle(newTitle)
+        }
+
         //openFragment(R.id.contentLayout, InfoFragment.newInstance())
         //openFragment(R.id.mainMenuContainer, MainMenuFragment.newInstance())
 
-        dataModel.message.observe(this, {
-            binding.tryButton.text = it
-
+        //Про view model важный код
+        dataModel.mainToolBarTitle.observe(this, {
+            binding.mainToolBar.setTitle(it)
         })
 
-        binding.tryButton.setOnClickListener {
+        /*binding.tryButton.setOnClickListener {
             openFragment(R.id.contentContainer, ScheduleDayFragment.newInstance())
-        }
+        }*/
 
     }
 

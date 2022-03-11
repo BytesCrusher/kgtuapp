@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.application.kgtuapp.R
+import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentMainMenuBinding
 
 class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
     private lateinit var binding: FragmentMainMenuBinding
+
+    private val dataModel : DataModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,19 +23,30 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
 
         binding.mainMenuButtonSchedule.setOnClickListener {
             changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleDayFragment.newInstance())
+            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
         }
         binding.mainMenuButtonCalendar.setOnClickListener{
             changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
+            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_calendar)
         }
         binding.mainMenuButtonUniversity.setOnClickListener {
             changeContentFragmentByMainMenu(R.id.contentContainer, UniversityFragment.newInstance())
+            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_university)
         }
         binding.mainMenuButtonPerson.setOnClickListener {
             changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
+            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_profile)
         }
 
         return binding.root
     }
+
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.checkTextButton.setOnClickListener{
+            dataModel.message.value = "hello from info Fragment"
+        }
+
+    }*/
 
     //Поменять текущий фрагмент внутри contentContainer
     //(фрагмент для отображения основного контента)
