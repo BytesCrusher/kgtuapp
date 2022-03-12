@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="fontFamily">@font/manrope_extralight"</item>-->
     </style>
 
     <style name="logoTextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -13,6 +14,12 @@
 
     <style name="mainMenuViewStyle" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textSize">10sp</item>
+        <item name="textFillColor">@android:color/black</item>
+    </style>
+
+    <style name="scheduleDayTitleStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">16sp</item>
+        <!--<item name="fontFamily">@font/manrope_semibold"</item>-->
         <item name="textFillColor">@android:color/black</item>
     </style>
 
