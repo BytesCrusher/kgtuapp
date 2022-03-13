@@ -22,20 +22,24 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
         binding = FragmentMainMenuBinding.inflate(layoutInflater, container, false)
 
         binding.mainMenuButtonSchedule.setOnClickListener {
-            changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleDayFragment.newInstance())
+            changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleFragment.newInstance())
             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+            /*binding.mainMenuButtonSchedule.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
         }
         binding.mainMenuButtonCalendar.setOnClickListener{
             changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_calendar)
+            /*binding.mainMenuButtonCalendar.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
         }
         binding.mainMenuButtonUniversity.setOnClickListener {
             changeContentFragmentByMainMenu(R.id.contentContainer, UniversityFragment.newInstance())
             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_university)
+            /*binding.mainMenuButtonUniversity.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
         }
         binding.mainMenuButtonPerson.setOnClickListener {
             changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_profile)
+            /*binding.mainMenuButtonPerson.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
         }
 
         return binding.root

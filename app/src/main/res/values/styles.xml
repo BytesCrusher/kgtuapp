@@ -1,11 +1,15 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--<item name="fontFamily">@font/manrope_extralight"</item>-->
+        <item name="fontFamily">@font/manrope</item>
+    </style>
+
+    <style name="navBarsStyle">
+        <item name="android:background">@color/navBarsBackgroudColors</item>
     </style>
 
     <style name="logoTextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -14,6 +18,9 @@
 
     <style name="mainMenuViewStyle" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textSize">10sp</item>
+        <!--<item name="backgroundTint">@color/choosedButtonOnBottomNavBar</item>-->
+        <!--<item name="android:buttonCornerRadius">6dp</item>-->
+        <!--<corners android:radius="6dp" >-->
         <item name="textFillColor">@android:color/black</item>
     </style>
 

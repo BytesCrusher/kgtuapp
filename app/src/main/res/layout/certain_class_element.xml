@@ -67,8 +67,10 @@
             android:layout_gravity="start"
             android:layout_weight="2"
             android:drawableStart="@drawable/ic_schedule_fragment_audience_button"
+
+
             android:text="384"
-            android:textSize="10sp" />
+            android:textSize="11sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

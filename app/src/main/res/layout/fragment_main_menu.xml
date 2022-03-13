@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#14006399"
     >
 
     <LinearLayout
+        style="@style/navBarsStyle"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:orientation="horizontal"
@@ -19,18 +19,20 @@
             android:id="@+id/mainMenuButtonSchedule"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:drawableTop="@drawable/ic_main_menu_button_schedule"
+
             android:text="@string/main_menu_button_schedule" />
 
         <Button
             android:id="@+id/mainMenuButtonCalendar"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
@@ -41,7 +43,7 @@
             android:id="@+id/mainMenuButtonUniversity"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
@@ -52,7 +54,7 @@
             android:id="@+id/mainMenuButtonPerson"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
