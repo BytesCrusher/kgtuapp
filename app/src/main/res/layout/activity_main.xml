@@ -6,29 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="199dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="64dp"
-        android:orientation="horizontal"
+    <!--<Button
+        android:id="@+id/tryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="104dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="@+id/contentContainer"
+        app:layout_constraintTop_toTopOf="@+id/contentContainer" />-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainToolBar"
+        android:elevation="8dp"
+        app:title = "@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#14006399"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contentContainer"/>
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/apk_logo_full_size" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/contentContainer"
+        android:name="com.application.kgtuapp.Fragmets.InfoFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mainMenuContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar">
 
-        <TextView
-            android:id="@+id/exampleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_logo_text"
-            android:textSize="20sp" />
+    </androidx.fragment.app.FragmentContainerView>
 
-    </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainMenuContainer"
+        android:name="com.application.kgtuapp.Fragmets.MainMenuFragment"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentContainer">
+
+    </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

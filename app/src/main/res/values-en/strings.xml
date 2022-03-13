@@ -3,4 +3,21 @@
     <string name="app_name">kstuapp</string>
     <string name="exampleTextView_text">hello, world!</string>
     <string name="app_logo_text">KSTU App.</string>
+
+    <string name="main_menu_button_schedule">Schedule</string>
+    <string name="main_menu_button_calendar">Navigator</string>
+    <string name="main_menu_button_university">University</string>
+    <string name="main_menu_button_profile">Profile</string>
+
+    <string name="main_toolbar_description_schedule">Schedule</string>
+    <string name="main_toolbar_description_navigator">Navigator</string>
+    <string name="main_toolbar_description_university">University KSTU</string>
+    <string name="main_toolbar_description_profile">Profile</string>
+
+    <string name="tv_welcome_text">Welcome to the KSTU mobile app!</string>
+    <string name="tv_app_version_text">Application version:</string>
+    <string name="kgtuapp_telegram_link">\@kgtuapp</string>
+    <string name="kgtuapp_telegram_word">telegram:</string>
+    <string name="not_done_yet_description_text">This section is under development. If you have any suggestions or complaints about the application, then write to us at</string>
+    <string name="not_done_yet_text_title">Not done yet...</string>
 </resources>
