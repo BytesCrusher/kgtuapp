@@ -61,14 +61,13 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         "Методы научных исследований")
 
     val classTypeMap = mapOf<Int, String>(
-        0 to "Лекция",
-        1 to "Практическое занятие",
-        2 to "Лабораторная работа"
+        0 to "лекции",
+        1 to "практические",
+        2 to "лабораторные"
     )
 
     val audienceList = listOf<String>("261.6", "261.17", "382", "266", "256", "230")
     //=============================(1)===================================
-
 
     //Реализация т.н. контроллера для того, чтобы генерировать виджеты расписания
     // в зависимости от этого самого расписания
@@ -78,7 +77,15 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         for (day in 0.. 13) {
             //название нового дна
+                // здесь есть косяк. Сейчас перед каждым списком пар выводится item
+                    // в котором лежит дата и название дня. На самом деле сам список пар и
+                        // этот заголовок дня должны лежать в одном контейнере (linerLayout-е)
+
             val newDay = layoutInflater.inflate(R.layout.certain_day_element, binding.scheduleDayContentContainer, false)
+            newDay.apply {
+                /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
+                tv_dayInfo.text = ""*/
+            }
             binding.scheduleDayContentContainer.addView(newDay)
 
             n=0

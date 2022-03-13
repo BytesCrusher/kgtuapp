@@ -27,9 +27,9 @@ class ScheduleTwoWeek() {
         "Методы научных исследований")
 
     val classTypeMap = mapOf<Int, String>(
-        0 to "Лекция",
-        1 to "Практическое занятие",
-        2 to "Лабораторная работа"
+        0 to "лекции",
+        1 to "практические",
+        2 to "лабораторные"
     )
 
     val audienceList = listOf<String>("261.6", "261.17", "382", "266", "256", "230")

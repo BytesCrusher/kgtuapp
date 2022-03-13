@@ -24,7 +24,9 @@
                 android:id="@+id/tv_class_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1." />
+                android:text="1."
+
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -48,29 +50,33 @@
                     android:id="@+id/tv_class_start_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="9:00" />
+                    android:paddingRight="15dp"
+                    android:text="9:00"
+                    android:textSize="11sp"
+                    android:textColor="@color/scheduleClassStartTimeText" />
 
                 <TextView
                     android:id="@+id/tv_class_type_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="лекции" />
+                    android:text="лекции"
+                    android:textColor="@color/scheduleClassTypeLectureText"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
         <Button
             android:id="@+id/b_audience"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_weight="2"
-            android:drawableStart="@drawable/ic_schedule_fragment_audience_button"
-
-
-            android:text="384"
-            android:textSize="11sp" />
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:strokeColor="@color/strokeAudienceInScheduleButton"
+            android:text="261.17"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_schedule_audience_button_door"
+            app:iconGravity="start"
+            app:iconPadding="0dp"
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

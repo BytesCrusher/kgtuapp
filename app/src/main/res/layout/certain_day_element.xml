@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/manrope_semibold"
             android:gravity="start"
-            android:paddingStart="15dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="Пятница, 23 февраля" />
     </LinearLayout>
 

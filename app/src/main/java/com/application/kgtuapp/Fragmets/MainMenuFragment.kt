@@ -28,7 +28,7 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
         }
         binding.mainMenuButtonCalendar.setOnClickListener{
             changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
-            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_calendar)
+            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_navigator)
             /*binding.mainMenuButtonCalendar.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
         }
         binding.mainMenuButtonUniversity.setOnClickListener {

@@ -6,4 +6,17 @@
 
     <color name="choosedButtonOnBottomNavBar">#C0E8FF</color>
     <color name="navBarsBackgroudColors">#14006399</color>
+
+    <color name="strokeAudienceInScheduleButton">#72787F</color>
+
+    <color name="linkText">#0193DE</color>
+    <color name="m3_button_outline_color_selector">@color/strokeAudienceInScheduleButton</color>
+
+    <!--цвета для виджетов конкретных пар из расписания-->
+    <color name="scheduleClassStartTimeText">#006D34</color>
+    <color name="scheduleClassTypeLectureText">#B08D0A</color>
+    <color name="scheduleClassTypePracticeText">#006399</color>
+    <color name="scheduleClassTypeLaboratoryWorkText">#BA1B1B</color>
+
+    <color name="scheduleCertainDayTitleText">#1A1C1E</color>
 </resources>

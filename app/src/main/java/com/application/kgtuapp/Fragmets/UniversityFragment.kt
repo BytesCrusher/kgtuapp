@@ -15,8 +15,14 @@ class UniversityFragment : Fragment(R.layout.fragment_university) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentUniversityBinding.inflate(layoutInflater, container, false)
+
+        val view = layoutInflater.inflate(
+            R.layout.item_not_done_yet,
+            binding.contentContainerFragmentUniversity,
+            false
+        )
+        binding.contentContainerFragmentUniversity.addView(view)
         return binding.root
     }
 

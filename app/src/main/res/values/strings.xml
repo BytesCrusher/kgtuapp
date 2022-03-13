@@ -5,15 +5,19 @@
     <string name="app_logo_text">КГТУ Апп.</string>
 
     <string name="main_menu_button_schedule">Расписание</string>
-    <string name="main_menu_button_calendar">Календарь</string>
+    <string name="main_menu_button_calendar">Навигатор</string>
     <string name="main_menu_button_university">Университет</string>
     <string name="main_menu_button_profile">Профиль</string>
 
     <string name="main_toolbar_description_schedule">Расписание</string>
-    <string name="main_toolbar_description_calendar">Календарь</string>
+    <string name="main_toolbar_description_navigator">Навигатор</string>
     <string name="main_toolbar_description_university">Университет КГТУ</string>
     <string name="main_toolbar_description_profile">Профиль</string>
 
     <string name="tv_welcome_text">Добро пожаловать в мобильное приложение КГТУ!</string>
-    <string name="tv_app_version_text">Версия приложения:</string>
+    <string name="tv_app_version_text">Версия приложения: </string>
+    <string name="kgtuapp_telegram_link">\@kgtuapp</string>
+    <string name="kgtuapp_telegram_word">телеграм:</string>
+    <string name="not_done_yet_description_text">Данный раздел находится в разработке. Если у тебя есть предложения или жалобы по приложению, то пиши нам в</string>
+    <string name="not_done_yet_text_title">Пока не сделано...</string>
 </resources>

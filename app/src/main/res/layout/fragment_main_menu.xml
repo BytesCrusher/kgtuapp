@@ -9,7 +9,8 @@
     <LinearLayout
         style="@style/navBarsStyle"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="65dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,48 +20,68 @@
             android:id="@+id/mainMenuButtonSchedule"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_margin="0dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_main_menu_button_schedule"
 
-            android:text="@string/main_menu_button_schedule" />
+            android:drawableTop="@drawable/ic_bottom_nav_bar_schedule"
+            android:foregroundGravity="center_vertical"
+            android:padding="2dp"
+            android:text="@string/main_menu_button_schedule"
+            app:iconPadding="0dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="0dp" />
 
         <Button
             android:id="@+id/mainMenuButtonCalendar"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_main_menu_button_calendar"
-            android:text="@string/main_menu_button_calendar" />
+            android:drawableTop="@drawable/ic_bottom_nav_bar_navigator"
+            android:padding="2dp"
+            android:text="@string/main_menu_button_calendar"
+            app:iconPadding="0dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="0dp" />
 
         <Button
             android:id="@+id/mainMenuButtonUniversity"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_main_menu_button_university"
-            android:text="@string/main_menu_button_university" />
+            android:drawableTop="@drawable/ic_bottom_nav_bar_university"
+            android:padding="2dp"
+            android:text="@string/main_menu_button_university"
+            app:iconPadding="0dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="0dp" />
 
         <Button
             android:id="@+id/mainMenuButtonPerson"
             style="@style/mainMenuViewStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_main_menu_button_profile"
-            android:text="@string/main_menu_button_profile" />
-
+            android:drawableTop="@drawable/ic_bottom_nav_bar_person"
+            android:padding="2dp"
+            android:text="@string/main_menu_button_profile"
+            app:iconPadding="0dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="0dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

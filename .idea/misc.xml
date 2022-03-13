@@ -13,15 +13,17 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_main_menu_button_university.xml" value="0.2635" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_schedule_fragment_audience_button.xml" value="0.296" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/certain_class_element.xml" value="0.67" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/certain_class_element.xml" value="0.47074468085106386" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/certain_day_element.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_info.xml" value="0.2942708333333333" />
-        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_main_menu.xml" value="0.2760416666666667" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_main_menu.xml" value="0.67" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_navigator.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_personal_calendar.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule_day.xml" value="0.2421875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_university.xml" value="0.259375" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_not_done_yet.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.281" />
       </map>
     </option>
