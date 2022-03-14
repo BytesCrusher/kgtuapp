@@ -20,4 +20,6 @@
     <string name="kgtuapp_telegram_word">telegram:</string>
     <string name="not_done_yet_description_text">This section is under development. If you have any suggestions or complaints about the application, then write to us at</string>
     <string name="not_done_yet_text_title">Not done yet...</string>
+    <string name="tv_profileTitleText">Расписание</string>
+    <string name="tv_profileSettingsText">Настройки</string>
 </resources>

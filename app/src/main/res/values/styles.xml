@@ -105,5 +105,7 @@
         <item name="android:textStyle">bold</item>
         <item name="textFillColor">@color/scheduleCertainDayTitleText</item>
     </style>
-
+    <style name="profileTitleTextStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">24sp</item>
+    </style>
 </resources>
