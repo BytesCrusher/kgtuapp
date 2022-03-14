@@ -85,7 +85,7 @@
     </style>
 
     <style name="navBarsStyle">
-        <item name="android:background">@color/navBarsBackgroudColors</item>
+        <item name="android:background">@color/navBarsBackgroundColors</item>
     </style>
 
     <style name="logoTextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
