@@ -2,6 +2,7 @@ package com.application.kgtuapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
@@ -16,13 +17,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.fragment_info)
+
+        val handler = Handler()
+        handler.postDelayed({
+            // do something after 1000ms
+            setContentView(binding.root)
+        }, 3000)
 
 
 
-        fun changeToolbarTitle(newTitle: String){
+
+        /*fun changeToolbarTitle(newTitle: String){
             binding.mainToolBar.setTitle(newTitle)
-        }
+        }*/
 
         //openFragment(R.id.contentLayout, InfoFragment.newInstance())
         //openFragment(R.id.mainMenuContainer, MainMenuFragment.newInstance())
