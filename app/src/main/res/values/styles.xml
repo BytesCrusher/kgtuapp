@@ -93,7 +93,7 @@
     </style>
 
     <style name="mainMenuViewStyle" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">12sp</item>
         <!--<item name="backgroundTint">@color/choosedButtonOnBottomNavBar</item>-->
         <!--<item name="android:buttonCornerRadius">6dp</item>-->
         <!--<corners android:radius="6dp" >-->
