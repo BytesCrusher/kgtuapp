@@ -17,8 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
+        //изменние для коммита
 
         fun changeToolbarTitle(newTitle: String){
             binding.mainToolBar.setTitle(newTitle)
