@@ -23,7 +23,6 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
-
         val schedule = ScheduleTwoWeek()
         scheduleDataMap = schedule.createScheduleTwoWeek()
 
