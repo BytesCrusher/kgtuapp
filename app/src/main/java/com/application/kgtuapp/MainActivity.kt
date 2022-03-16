@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+        
         setContentView(R.layout.fragment_info)
 
         val handler = Handler()
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             // do something after 1000ms
             setContentView(binding.root)
         }, 3000)
+
 
 
 
