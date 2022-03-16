@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentMainMenuBinding
+import com.google.android.material.navigation.NavigationBarView
 
 class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
     private lateinit var binding: FragmentMainMenuBinding
@@ -21,25 +22,46 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
     ): View? {
         binding = FragmentMainMenuBinding.inflate(layoutInflater, container, false)
 
-        binding.mainMenuButtonSchedule.setOnClickListener {
-            changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleFragment.newInstance())
-            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-            /*binding.mainMenuButtonSchedule.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
-        }
-        binding.mainMenuButtonCalendar.setOnClickListener{
-            changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
-            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_navigator)
-            /*binding.mainMenuButtonCalendar.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
-        }
-        binding.mainMenuButtonUniversity.setOnClickListener {
-            changeContentFragmentByMainMenu(R.id.contentContainer, UniversityFragment.newInstance())
-            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_university)
-            /*binding.mainMenuButtonUniversity.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
-        }
-        binding.mainMenuButtonPerson.setOnClickListener {
-            changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
-            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_profile)
-            /*binding.mainMenuButtonPerson.setBackgroundResource(R.color.choosedButtonOnBottomNavBar)*/
+        //показывает кружочек типо есть оповещение
+        /*var badge = binding.bottomNavigation.getOrCreateBadge(R.id.mainMenuButtonSchedule)
+        badge.isVisible = true
+        badge.number = 1*/
+
+        //этот код позволит скрыть badge
+        /*if (badge != null) {
+            badge.isVisible = false
+            badge.clearNumber()
+        }*/
+
+
+        //установить сейчас используемый пункт меню на расписание
+        binding.bottomNavigation.selectedItemId = R.id.mainMenuButtonSchedule
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.mainMenuButtonSchedule -> {
+                    changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleFragment.newInstance())
+                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+                    true
+                }
+                R.id.mainMenuButtonNavigator -> {
+                    changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
+                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_navigator)
+                    true
+                }
+                R.id.mainMenuButtonUniversity -> {
+                    changeContentFragmentByMainMenu(R.id.contentContainer, UniversityFragment.newInstance())
+                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_university)
+                    true
+                }
+                R.id.mainMenuButtonPerson -> {
+                    changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
+                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_profile)
+                    true
+                }
+                else -> false
+            }
+
         }
 
         return binding.root

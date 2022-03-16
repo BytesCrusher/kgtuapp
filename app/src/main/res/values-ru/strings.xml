@@ -5,7 +5,7 @@
     <string name="app_logo_text">КГТУ Апп.</string>
 
     <string name="main_menu_button_schedule">Расписание</string>
-    <string name="main_menu_button_calendar">Навигатор</string>
+    <string name="main_menu_button_navigator">Навигатор</string>
     <string name="main_menu_button_university">Университет</string>
     <string name="main_menu_button_profile">Профиль</string>
 

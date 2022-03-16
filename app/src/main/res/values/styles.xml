@@ -66,7 +66,25 @@
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
+
+
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
     </style>
+
+    <!--Стили для bottom nav bar-->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/navBarsBackgroundColors</item>
+        <item name="colorOnPrimary">@color/navBarsTextColor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+
+
 
     <style name="headerTextStyle" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textSize">32sp</item>
@@ -84,9 +102,17 @@
         <item name="android:textColor">@color/linkText</item>
     </style>
 
-    <style name="navBarsStyle">
+    <!--<style name="Theme.App" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="colorPrimary">@color/navBarsBackgroundColors</item>
+        <item name="colorOnPrimary">@color/navBarsTextColor</item>
+    </style>-->
+
+    <!--<style name="navBarsStyle">
         <item name="android:background">@color/navBarsBackgroundColors</item>
-    </style>
+        <item name="android:textColor">@color/navBarsTextColor</item>
+    </style>-->
 
     <style name="logoTextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textSize">20sp</item>

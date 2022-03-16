@@ -55,6 +55,7 @@
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope"
             android:strokeColor="@color/strokeAudienceInScheduleButton"
             android:text="@string/b_changeLanguageString"
             android:textSize="16sp"

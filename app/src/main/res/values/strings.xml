@@ -5,7 +5,7 @@
     <string name="app_logo_text">KSTU App.</string>
 
     <string name="main_menu_button_schedule">Schedule</string>
-    <string name="main_menu_button_calendar">Navigator</string>
+    <string name="main_menu_button_navigator">Navigator</string>
     <string name="main_menu_button_university">University</string>
     <string name="main_menu_button_profile">Profile</string>
 

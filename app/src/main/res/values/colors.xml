@@ -12,6 +12,10 @@
     <color name="linkText">#0193DE</color>
     <color name="m3_button_outline_color_selector">@color/strokeAudienceInScheduleButton</color>
 
+    <!--Цвета для bottom Nav Bar-->
+    <color name="navBarsTextColor">#41474D</color>
+
+
     <!--цвета для виджетов конкретных пар из расписания-->
     <color name="scheduleClassStartTimeText">#006D34</color>
     <color name="scheduleClassTypeLectureText">#B08D0A</color>
