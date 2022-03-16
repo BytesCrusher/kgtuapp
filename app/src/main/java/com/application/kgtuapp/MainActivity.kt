@@ -13,14 +13,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     private val dataModel: DataModel by viewModels()
-    //коммент
-    //git pull
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        
+
         setContentView(R.layout.fragment_info)
 
         val handler = Handler()
