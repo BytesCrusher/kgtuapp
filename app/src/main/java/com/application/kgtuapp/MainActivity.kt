@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private val dataModel: DataModel by viewModels()
     //коммент
+    //git pull
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
