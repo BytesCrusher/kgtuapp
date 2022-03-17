@@ -15,6 +15,7 @@ import com.application.kgtuapp.databinding.FragmentScheduleBinding
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
+    //этот коммент надо удалить
 
     var scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 

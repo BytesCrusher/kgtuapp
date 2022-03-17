@@ -13,6 +13,7 @@ import com.google.android.material.navigation.NavigationBarView
 
 class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
     private lateinit var binding: FragmentMainMenuBinding
+    //бесполезный коммент
 
     private val dataModel : DataModel by activityViewModels()
 
