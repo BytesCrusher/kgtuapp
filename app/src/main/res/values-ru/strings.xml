@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">kgtuapp</string>
+    <string name="app_name">КГТУ Апп.</string>
     <string name="exampleTextView_text">Привет, мир!</string>
-    <string name="app_logo_text">КГТУ Апп.</string>
+    <!--<string name="app_logo_text">КГТУ Апп.</string>-->
 
     <string name="main_menu_button_schedule">Расписание</string>
     <string name="main_menu_button_navigator">Навигатор</string>

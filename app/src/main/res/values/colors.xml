@@ -11,6 +11,7 @@
 
     <color name="linkText">#0193DE</color>
     <color name="m3_button_outline_color_selector">@color/strokeAudienceInScheduleButton</color>
+    <color name="m3_sys_light_outline">#72787F</color>
 
     <!--Цвета для bottom Nav Bar-->
     <color name="navBarsTextColor">#41474D</color>

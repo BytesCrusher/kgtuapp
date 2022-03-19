@@ -15,7 +15,6 @@ import com.application.kgtuapp.databinding.FragmentScheduleBinding
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
-    //этот коммент надо удалить
 
     var scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 
@@ -81,7 +80,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                     // в котором лежит дата и название дня. На самом деле сам список пар и
                         // этот заголовок дня должны лежать в одном контейнере (linerLayout-е)
 
-            val newDay = layoutInflater.inflate(R.layout.certain_day_element, binding.scheduleDayContentContainer, false)
+            val newDay = layoutInflater.inflate(R.layout.item_certain_day, binding.scheduleDayContentContainer, false)
             newDay.apply {
                 /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
                 tv_dayInfo.text = ""*/
@@ -91,7 +90,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             n=0
             for (key in 0..(scheduleMap[day]?.size ?: 5) -1) {
                 val view = layoutInflater.inflate(
-                    R.layout.certain_class_element,
+                    R.layout.item_certain_class,
                     binding.scheduleDayContentContainer,
                     false
                 )

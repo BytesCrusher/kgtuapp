@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <item
-            android:id="@+id/mainMenuButtonSchedule"
-            android:enabled="true"
-            android:icon="@drawable/ic_bottom_nav_bar_schedule"
-            android:title="@string/main_menu_button_schedule"
-            />
-        <item
-            android:id="@+id/mainMenuButtonNavigator"
-            android:enabled="true"
-            android:icon="@drawable/ic_bottom_nav_bar_navigator"
-            android:title="@string/main_menu_button_navigator"/>
     <item
-            android:id="@+id/mainMenuButtonUniversity"
-            android:enabled="true"
-            android:icon="@drawable/ic_bottom_nav_bar_university"
-            android:title="@string/main_menu_button_university"/>
+        android:id="@+id/mainMenuButtonSchedule"
+        android:enabled="true"
+        android:icon="@drawable/ic_bottom_nav_bar_schedule"
+        android:title="@string/main_menu_button_schedule" />
     <item
-            android:id="@+id/mainMenuButtonPerson"
-            android:enabled="true"
-            android:icon="@drawable/ic_bottom_nav_bar_person"
-            android:title="@string/main_menu_button_profile"/>
+        android:id="@+id/mainMenuButtonNavigator"
+        android:enabled="true"
+        android:icon="@drawable/ic_bottom_nav_bar_navigator"
+        android:title="@string/main_menu_button_navigator" />
+    <item
+        android:id="@+id/mainMenuButtonUniversity"
+        android:enabled="true"
+        android:icon="@drawable/ic_bottom_nav_bar_university"
+        android:title="@string/main_menu_button_university" />
+    <item
+        android:id="@+id/mainMenuButtonPerson"
+        android:enabled="true"
+        android:icon="@drawable/ic_bottom_nav_bar_person"
+        android:title="@string/main_menu_button_profile" />
 
 </menu>
