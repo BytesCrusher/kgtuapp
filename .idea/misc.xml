@@ -40,6 +40,10 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/qa/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.296" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/qa/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.296" />
         <entry key="..\:/KGTUandroid/app/src/main/res/layout/fragment_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/item_not_done_yet.xml" value="0.55" />
+        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/no_internet.xml" value="0.3109375" />
+        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/no_such_group.xml" value="0.33" />
+        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/study_group_not_chosen.xml" value="0.33" />
       </map>
     </option>
   </component>
