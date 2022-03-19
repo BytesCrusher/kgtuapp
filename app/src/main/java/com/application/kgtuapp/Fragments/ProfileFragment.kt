@@ -1,23 +1,24 @@
-package com.application.kgtuapp.Fragmets
+package com.application.kgtuapp.Fragments
 
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.application.kgtuapp.R
+import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentProfileBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.NonCancellable.cancel
-import java.util.*
 
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private val dataModel: DataModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
@@ -29,8 +30,6 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
 
         val UserGroupId = 0
-
-
 
         binding.bChangeLanguageButton.setOnClickListener {
             context?.let {
@@ -80,6 +79,7 @@ class ProfileFragment : Fragment() {
 
         }
 
+
         /*MaterialAlertDialogBuilder(context)
             // Add customization options here
             .show()*/
@@ -91,7 +91,4 @@ class ProfileFragment : Fragment() {
         @JvmStatic
         fun newInstance() = ProfileFragment()
     }
-
-    //=========================
-
 }

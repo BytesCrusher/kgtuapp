@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.circularreveal.CircularRevealLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragmets.ScheduleChooseGroupFragment"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.ScheduleChooseGroupFragment"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_searchGroup"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ti_searchgrouptext"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_groupSearch"
+            style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:endIconDrawable = "@drawable/ic_bottom_nav_bar_schedule"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.circularreveal.CircularRevealLinearLayout
+        android:id="@+id/scheduleChooseGroupContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_selectGroupAllGroups"
+            style="@style/TextAppearance.Material3.HeadlineMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Все группы"
+            android:textColor="@color/m3_sys_light_primary" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_marginTop="24dp"
+            android:id="@+id/scheduleChooseGroupChipGroup"
+            style="@style/Widget.Material3.Chip.Suggestion.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:chipSpacingHorizontal = "16dp"
+
+            />
+
+    </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+
+</com.google.android.material.circularreveal.CircularRevealLinearLayout>

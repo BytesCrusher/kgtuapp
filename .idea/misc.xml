@@ -28,12 +28,15 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_personal_calendar.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule.xml" value="0.2921875" />
-        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule_choose_group.xml" value="0.12916666666666668" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule_choose_group.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule_day.xml" value="0.2421875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_university.xml" value="0.259375" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_certain_class.xml" value="0.28958333333333336" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_no_such_group_found.xml" value="0.28958333333333336" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_not_done_yet.xml" value="0.67" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_study_group_not_choose.xml" value="0.23897707231040563" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_study_group_not_selected.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/study_group_not_chosen.xml" value="0.28958333333333336" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.281" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.296" />

@@ -7,4 +7,9 @@ open class DataModel: ViewModel() {
     val mainToolBarTitle: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
+
+    val studyGroup : MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
 }

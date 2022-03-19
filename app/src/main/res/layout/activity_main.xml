@@ -29,7 +29,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contentContainer"
-        android:name="com.application.kgtuapp.Fragmets.ScheduleFragment"
+        android:name="com.application.kgtuapp.Fragments.ScheduleFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +43,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainMenuContainer"
-        android:name="com.application.kgtuapp.Fragmets.MainMenuFragment"
+        android:name="com.application.kgtuapp.Fragments.MainMenuFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

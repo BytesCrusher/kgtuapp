@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Fragmets
+package com.application.kgtuapp.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,7 +19,10 @@ class InfoFragment: Fragment(R.layout.fragment_info) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentInfoBinding.inflate(layoutInflater)
-        dataModel.mainToolBarTitle.value = getString(R.string.app_name)
+
+        dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+        dataModel.studyGroup.value = null
+
         return binding.root
     }
 

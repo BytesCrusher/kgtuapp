@@ -78,7 +78,7 @@
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
         <item name="colorPrimary">@color/navBarsBackgroundColors</item>
-        <item name="colorOnPrimary">@color/navBarsTextColor</item>
+        <item name="colorOnPrimary">@color/paragraphTextColor</item>
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">@font/roboto</item>
     </style>
@@ -92,13 +92,14 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="paragraphTextStyle" parent="Widget.Material3.Button.OutlinedButton">
+    <!--Текст параграфов-->
+    <style name="paragraphTextStyle">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/paragraphTextColor</item>
     </style>
 
     <style name="linkTextStyle" parent="paragraphTextStyle">
-        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/linkText</item>
     </style>
 

@@ -14,7 +14,7 @@
     <color name="m3_sys_light_outline">#72787F</color>
 
     <!--Цвета для bottom Nav Bar-->
-    <color name="navBarsTextColor">#41474D</color>
+    <color name="paragraphTextColor">#41474D</color>
 
 
     <!--цвета для виджетов конкретных пар из расписания-->
@@ -24,4 +24,7 @@
     <color name="scheduleClassTypeLaboratoryWorkText">#BA1B1B</color>
 
     <color name="scheduleCertainDayTitleText">#1A1C1E</color>
+    
+    <color name="m3_sys_light_primary">#006399</color>
+    <color name="textColorPrimary">#006399</color>
 </resources>

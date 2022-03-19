@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Fragmets
+package com.application.kgtuapp.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentMainMenuBinding
-import com.google.android.material.navigation.NavigationBarView
 
 class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
     private lateinit var binding: FragmentMainMenuBinding
@@ -22,6 +21,7 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMainMenuBinding.inflate(layoutInflater, container, false)
+        /*dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)*/
 
         //показывает кружочек типо есть оповещение
         /*var badge = binding.bottomNavigation.getOrCreateBadge(R.id.mainMenuButtonSchedule)

@@ -13,29 +13,23 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     private val dataModel: DataModel by viewModels()
-    //коммент
-    //git pull
+
+    /*var studyGroup: String? = null*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_info)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        
-        setContentView(R.layout.fragment_info)
-
+        //Устаревший подход, надо переписать
         val handler = Handler()
         handler.postDelayed({
-            // do something after 1000ms
+            // do something after 2000ms
             setContentView(binding.root)
-        }, 3000)
+        }, 2000)
 
 
 
-
-
-        /*fun changeToolbarTitle(newTitle: String){
-            binding.mainToolBar.setTitle(newTitle)
-        }*/
 
         //openFragment(R.id.contentLayout, InfoFragment.newInstance())
         //openFragment(R.id.mainMenuContainer, MainMenuFragment.newInstance())
@@ -50,8 +44,6 @@ class MainActivity : AppCompatActivity() {
         }*/
 
     }
-
-    /*showFragmentButton.*/
 
     val day = ScheduleDay(0,"18-ВТ", 1)
 

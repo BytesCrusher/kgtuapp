@@ -4,4 +4,4 @@
     android:id="@+id/content_container_fragment_university"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragmets.UniversityFragment" />
+    tools:context=".Fragments.UniversityFragment" />
