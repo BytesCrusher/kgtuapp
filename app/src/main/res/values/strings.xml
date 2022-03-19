@@ -26,4 +26,11 @@
     <string name="profile_settings_choose_language_alert_title">Выбор языка</string>
     <string name="profile_settings_choose_language_alert_close">Закрыть</string>
     <string name="profile_settings_choose_language_alert_accept">Применить</string>
+    <string name="group_not_chosen">Учебная группа не выбрана</string>
+    <string name="schedule_will_appear">Расписание появится здесь после выбора своей группы</string>
+    <string name="choose_group">+ Выбрать группу</string>
+    <string name="no_such_group">Такой группы нет</string>
+    <string name="no_errors_name_group">Проверь, нет ли ошибок в написании группы. Если всё указано правильно, то пиши @kgtuapp в телеграм, мы поможем и разберемся.</string>
+    <string name="no_internet">Нет интернета</string>
+    <string name="internet_connection_is_required">Для загрузки расписания твоей группы необходимо интернет-соединение</string>
 </resources>
