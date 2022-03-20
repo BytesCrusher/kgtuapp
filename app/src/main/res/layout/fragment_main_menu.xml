@@ -12,6 +12,7 @@
 
         android:layout_height="wrap_content"
         app:labelVisibilityMode="labeled"
+        android:minHeight="60dp"
 
         android:outlineSpotShadowColor="#ffffff"
         app:menu="@menu/bottom_navigation_menu" />
