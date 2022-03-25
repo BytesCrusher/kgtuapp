@@ -65,12 +65,11 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/b_audience"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="105dp"
             android:layout_height="wrap_content"
-            android:strokeColor="@color/strokeAudienceInScheduleButton"
             android:text="261.17"
             android:textSize="12sp"
             app:icon="@drawable/ic_schedule_audience_button_door"
