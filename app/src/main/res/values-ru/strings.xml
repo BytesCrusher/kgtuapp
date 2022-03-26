@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">КГТУ Апп.</string>
     <string name="exampleTextView_text">Привет, мир!</string>
     <!--<string name="app_logo_text">КГТУ Апп.</string>-->
@@ -20,8 +20,8 @@
     <string name="kgtuapp_telegram_word">телеграм:</string>
     <string name="not_done_yet_description_text">Данный раздел находится в разработке. Если у тебя есть предложения или жалобы по приложению, то пиши нам в</string>
     <string name="not_done_yet_text_title">Пока не сделано...</string>
-    <string name="tv_profileTitleText">Расписание</string>
-    <string name="tv_profileSettingsText">Настройки</string>
+    <string name="tv_profileUserNameSurname">Счастнев Никита ауф</string>
+    <string name="tv_profileSettingsText">Приложение</string>
     <string name="b_changeLanguageString">Сменить язык приложения</string>
     <string name="profile_settings_choose_language_alert_title">Выбор языка</string>
     <string name="profile_settings_choose_language_alert_close">Закрыть</string>
@@ -34,4 +34,34 @@
     <string name="no_internet">Нет интернета</string>
     <string name="internet_connection_is_required">Для загрузки расписания твоей группы необходимо интернет-соединение</string>
     <string name="ti_searchgrouptext">Поиск группы</string>
+
+    <!--Раздел профиля-->
+    <string name="tv_scheduleUserStatusTitleText">Статус:</string>
+    <string name="tv_scheduleUserGradebookTitleText">Зачетная книга:</string>
+    <string name="tv_scheduleUserInstituteTitleText">Институт:</string>
+    <string name="tv_scheduleUserStudyGroupTitleText">Учебная группа:</string>
+    <string name="tv_scheduleUserStudySubgroupTitleText">Подгруппа:</string>
+    <string name="tv_scheduleUserStudyEmailTitleText">Почта:</string>
+    <string name="b_profileAcademicPerformanceText">Успеваемость</string>
+    <string name="b_profileCheckDebtText">Узнать задолженности</string>
+    <string name="b_profileCurriculumText">Учебный план</string>
+    <string name="b_profileSettingsText">Настройки</string>
+    <string name="b_profileAboutProjectText">О проекте</string>
+
+    <!--Настройки для шрифтов material design-->
+    <!--<string name="m3_sys_typescale_body_large_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_body_medium_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_body_small_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_display_large_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_display_medium_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_display_small_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_headline_large_font" translatable="false">manrope</string>
+    <string name="m3_sys_typescale_headline_medium_font" translatable="false" tools:ignore="PrivateResource">manrope-bold</string>
+    <string name="m3_sys_typescale_headline_small_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_label_large_font" translatable="false">sans-serif-medium</string>
+    <string name="m3_sys_typescale_label_medium_font" translatable="false">sans-serif-medium</string>
+    <string name="m3_sys_typescale_label_small_font" translatable="false">sans-serif-medium</string>
+    <string name="m3_sys_typescale_title_large_font" translatable="false">sans-serif</string>
+    <string name="m3_sys_typescale_title_medium_font" translatable="false">sans-serif-medium</string>
+    <string name="m3_sys_typescale_title_small_font" translatable="false">sans-serif-medium</string>-->
 </resources>

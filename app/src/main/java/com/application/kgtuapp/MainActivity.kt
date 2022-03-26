@@ -3,6 +3,7 @@ package com.application.kgtuapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
@@ -41,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         dataModel.mainToolBarTitle.observe(this, {
             binding.mainToolBar.setTitle(it)
         })
+
+        /*dataModel.studyGroup.observe(this, {
+            val tv_userGroup = findViewById<TextView>(R.id.tv_scheduleUserStudyGroupBody)
+            tv_userGroup.text = it
+        })*/
 
         /*binding.tryButton.setOnClickListener {
             openFragment(R.id.contentContainer, ScheduleDayFragment.newInstance())
