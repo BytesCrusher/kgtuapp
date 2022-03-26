@@ -11,6 +11,12 @@
         android:enabled="true"
         android:icon="@drawable/ic_bottom_nav_bar_navigator"
         android:title="@string/main_menu_button_navigator" />
+    <!--<item
+    android:id="@+id/mainMenuButtonNews"
+    android:enabled="true"
+
+    android:title="Новости"
+    />-->
     <item
         android:id="@+id/mainMenuButtonUniversity"
         android:enabled="true"

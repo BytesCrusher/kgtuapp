@@ -18,18 +18,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_info)
-        binding = ActivityMainBinding.inflate(layoutInflater)
 
-        //Устаревший подход, надо переписать
-        val handler = Handler()
-        handler.postDelayed({
-            // do something after 2000ms
-            setContentView(binding.root)
-        }, 2000)
+        dataModel.isUserAutorized.value = true
 
-
-
+        if (dataModel.isUserAutorized.value!!){
+            setContentView(R.layout.fragment_info)
+            binding = ActivityMainBinding.inflate(layoutInflater)
+            //Устаревший подход, надо переписать
+            val handler = Handler()
+            handler.postDelayed({
+                // do something after 2000ms
+                setContentView(binding.root)
+            }, 2000)
+        } else {
+            /*openFragment(R.id.l_mainActivityFragment, )*/
+        }
 
         //openFragment(R.id.contentLayout, InfoFragment.newInstance())
         //openFragment(R.id.mainMenuContainer, MainMenuFragment.newInstance())
