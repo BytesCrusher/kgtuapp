@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -14,9 +15,10 @@ import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentProfileBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textview.MaterialTextView
 
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private lateinit var binding: FragmentProfileBinding
     private val dataModel: DataModel by viewModels()
@@ -42,7 +44,20 @@ class ProfileFragment : Fragment() {
 
 
         binding.bProfileSettings.setOnClickListener {
-            binding.tvScheduleUserStudyGroupBody.text = dataModel.studyGroup.value
+            it.visibility = INVISIBLE
+
+            val view2 = binding.clProfileContainer.findViewById<TextView>(R.id.tvScheduleUserStudyGroupBody)
+            view2.visibility = INVISIBLE
+
+            binding.tvScheduleUserStudyGroupBody.apply {
+                this.text = dataModel.studyGroup.value
+            }
+            binding.tvScheduleUserStudyGroupBody
+            val textView1 = binding.clProfileContainer.getViewById(R.id.tvScheduleUserStudyGroupBody)
+            /*textView1.*/
+
+            binding.tvScheduleUserStudyGroupBody.text = getString(R.string.app_name)
+            binding.tvScheduleUserStudyGroupBody.text = "хуету навести охота"
             /*update()*/
             /*context?.let {
                 MaterialAlertDialogBuilder(it)

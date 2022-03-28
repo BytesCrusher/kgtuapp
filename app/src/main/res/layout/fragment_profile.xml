@@ -142,7 +142,7 @@
                         android:text="@string/tv_scheduleUserStudyGroupTitleText"
                         android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
-                    <com.google.android.material.textview.MaterialTextView
+                    <TextView
                         android:id="@+id/tvScheduleUserStudyGroupBody"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

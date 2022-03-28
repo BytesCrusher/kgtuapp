@@ -12,7 +12,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/ti_searchgrouptext"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -20,12 +23,8 @@
             style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            app:endIconDrawable = "@drawable/ic_bottom_nav_bar_schedule"
-            />
+            android:hint="@string/ti_searchgrouptext"
+            app:endIconMode="clear_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.circularreveal.CircularRevealLinearLayout
@@ -45,15 +44,17 @@
             android:textColor="@color/m3_sys_light_primary" />
 
         <com.google.android.material.chip.ChipGroup
-            android:layout_marginTop="24dp"
             android:id="@+id/scheduleChooseGroupChipGroup"
             style="@style/Widget.Material3.Chip.Suggestion.Elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
 
-            app:chipSpacingHorizontal = "16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:clipChildren="false"
 
-            />
+            app:chipSpacingHorizontal="16dp" />
 
     </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
