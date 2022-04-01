@@ -109,10 +109,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
             val newDay = layoutInflater.inflate(R.layout.item_certain_day, binding.scheduleDayContentContainer, false)
             newDay.apply {
+                this.id = day
                 /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
                 tv_dayInfo.text = ""*/
             }
+
             binding.scheduleDayContentContainer.addView(newDay)
+
+            /*binding.scheduleDayContentContainer.findViewById<ViewGroup>(R.id)*/
 
             n=0
             for (key in 0..(scheduleMap[day]?.size ?: 5) -1) {

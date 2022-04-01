@@ -3,10 +3,11 @@ package com.application.kgtuapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
+import com.application.kgtuapp.Fragments.AuthorisationFragment
+import com.application.kgtuapp.Fragments.ProfileFragment
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.ActivityMainBinding
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /*APP_ACTIVITY = this*/
 
         dataModel.isUserAutorized.value = true
 
@@ -32,7 +34,19 @@ class MainActivity : AppCompatActivity() {
                 setContentView(binding.root)
             }, 2000)
         } else {
-            /*openFragment(R.id.l_mainActivityFragment, )*/
+            //а это костыль
+            /*setContentView(R.layout.fragment_autorization)*/
+
+            //должно открываться примерно вот так
+            /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
+
+            //костыльная иммитация работы
+            binding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
+            openFragment(R.id.contentContainer, AuthorisationFragment.newInstance())
+            /*setContentView(R.layout.activity_main)*/
+            /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
         }
 
         //openFragment(R.id.contentLayout, InfoFragment.newInstance())
@@ -41,6 +55,10 @@ class MainActivity : AppCompatActivity() {
         //Про view model важный код
         dataModel.mainToolBarTitle.observe(this, {
             binding.mainToolBar.setTitle(it)
+        })
+
+        dataModel.studyGroup.observe(ProfileFragment.newInstance(), {
+
         })
 
         /*dataModel.studyGroup.observe(this, {
@@ -54,6 +72,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    companion object {
+        @JvmStatic
+        fun newInstance() = MainActivity()
+    }
+
     val day = ScheduleDay(0,"18-ВТ", 1)
 
 
@@ -65,6 +88,5 @@ class MainActivity : AppCompatActivity() {
             .replace(idHolder, newFragment)
             .commit()
     }
-
 }
 

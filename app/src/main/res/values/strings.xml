@@ -47,6 +47,29 @@
     <string name="b_profileCurriculumText">Учебный план</string>
     <string name="b_profileSettingsText">Настройки</string>
     <string name="b_profileAboutProjectText">О проекте</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="autorization_et_login">Логин</string>
+    <string name="autorization_et_password">Пароль</string>
+    <string name="autorization_b_registration">Регистрация</string>
+    <string name="autorization_b_dont_remember_password">Я не помню пароль</string>
+    <string name="autorization_b_enter_to_app">Войти в приложение</string>
+    <string name="autorization_enter_as_guest">Войти как гость</string>
+    <string name="registration_b_authorization">Вход</string>
+    <string name="registration_tv_registration_info">Для использования всех функций приложения укажите свой статус в КГТУ</string>
+    <string name="registration_b_im_student">Я студент</string>
+    <string name="registration_b_im_teacher">Я преподаватель</string>
+    <string name="registration_b_continue_registration">Продолжить</string>
+    <string name="registration_b_enterAsGuest">Войти как гость</string>
 
     <!--Настройки для шрифтов material design-->
     <!--<string name="m3_sys_typescale_body_large_font" translatable="false">sans-serif</string>

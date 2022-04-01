@@ -56,6 +56,11 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
                     true
                 }
                 R.id.mainMenuButtonPerson -> {
+                    /*if (dataModel.studyGroup.value == null){
+                        changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
+                    } else {
+                        changeContentFragmentByMainMenu(R.id.contentContainer, InfoFragment.newInstance())
+                    }*/
                     changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_profile)
                     true
