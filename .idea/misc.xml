@@ -46,11 +46,12 @@
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/fragment_navigator.xml" value="0.55" />
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/fragment_profile.xml" value="0.55" />
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/fragment_schedule.xml" value="0.55" />
-        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/fragment_university.xml" value="0.55" />
+        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/fragment_university.xml" value="0.33" />
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/item_not_done_yet.xml" value="0.55" />
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/no_internet.xml" value="0.3109375" />
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/no_such_group.xml" value="0.33" />
         <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/study_group_not_chosen.xml" value="0.33" />
+        <entry key="..\:/ProjectsKotlin_1/app/src/main/res/layout/university_fragment.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/not_done_yet_container"
+        android:id="@+id/fragment_university_container_1"
         style=""
         android:layout_width="0dp"
         android:layout_height="wrap_content"

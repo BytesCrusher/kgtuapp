@@ -26,4 +26,23 @@
     <string name="profile_settings_choose_language_alert_title">Выбор языка</string>
     <string name="profile_settings_choose_language_alert_close">Закрыть</string>
     <string name="profile_settings_choose_language_alert_accept">Применить</string>
+    <string name="site_KGTU">Сайт КГТУ</string>
+    <string name="group_not_chosen">Учебная группа не выбрана</string>
+    <string name="schedule_will_appear">Расписание появится здесь после выбора своей группы</string>
+    <string name="choose_group">+ Выбрать группу</string>
+    <string name="no_such_group">Такой группы нет</string>
+    <string name="no_errors_name_group">Проверь, нет ли ошибок в написании группы. Если всё указано правильно, то пиши @kgtuapp в телеграм, мы поможем и разберемся.</string>
+    <string name="no_internet">Нет интернета</string>
+    <string name="internet_connection_is_required">Для загрузки расписания твоей группы необходимо интернет-соединение</string>
+    <string name="kgtu_in_social_media">Кгту в социальных сетях</string>
+    <string name="eios">Образовательная среда ЭИОС</string>
+    <string name="VKontakte">ВКонтакте</string>
+    <string name="telegram">Telegram</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="institutes">Институты</string>
+    <string name="inst_fish_and_aqua">Рыболовства и аквакультуры</string>
+    <string name="inst_agro_and_food">Агроинженерии и пищевых систем</string>
+    <string name="inst_dig_tech">Цифровых технологий</string>
+    <string name="inst_tech">Морских технологий, энергетики и строительства</string>
+    <string name="inst_econom">Отраслевой экономики и управления</string>
 </resources>

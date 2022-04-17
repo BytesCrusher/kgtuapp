@@ -1,7 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_container_fragment_university"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragmets.UniversityFragment" />
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_1"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/Internet_button_link_1"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="72dp"
+                    android:layout_height="match_parent"
+                    android:width="40dp"
+                    android:height="40dp"
+                    android:src="@drawable/ic_int_icon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_1"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/site_KGTU"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                <ImageButton
+                    android:id="@+id/link_1"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:width="24dp"
+                    android:height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_vectorlink" />
+
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_2"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageButton
+                    android:id="@+id/searchImageButton"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="72dp"
+                    android:layout_height="match_parent"
+                    android:width="40dp"
+                    android:height="40dp"
+                    android:src="@drawable/ic_imgeios" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_2"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/eios"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                <ImageButton
+                    android:id="@+id/link_2"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:width="24dp"
+                    android:height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_vectorlink" />
+
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_3"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="380dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_2">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kgtu_in_social_media"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_4"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="380dp"
+                android:layout_height="136dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_3">
+
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_social_logosvk" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_4"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="122dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="28dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/VKontakte"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_social_logostg" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_5"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="122dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="28dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/telegram"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                <!--Тут костыль-->
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="-365dp"
+                    android:layout_marginTop="88dp"
+                    android:src="@drawable/ic_social_logoswhap" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_6"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="122dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="92dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/whatsapp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_5"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="380dp"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_4">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="364dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/institutes"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_6"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_5">
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_imglist" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_7"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="324dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/inst_fish_and_aqua"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_7"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_6">
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_imglist" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_8"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="324dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/inst_agro_and_food"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_8"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_7">
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_imglist" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_9"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="324dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/inst_dig_tech"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_9"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_8">
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_imglist" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_10"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="324dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/inst_tech"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_10"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="412dp"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_9">
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_imglist" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_11"
+                    style="@style/paragraphTextStyle"
+                    android:layout_width="324dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="start"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/inst_econom"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/fragment_university_container_11"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="380dp"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_10">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="364dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Популярные вопросы и ответы"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+    <!--Нужно юзать ExpandableListView, я нихухма не понял, мб у тебя получится-->
+
+            <ExpandableListView
+                style="@style/Widget.Material3.PopupMenu.ListPopupWindow"
+                android:id="@+id/expListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ExpandableListView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
