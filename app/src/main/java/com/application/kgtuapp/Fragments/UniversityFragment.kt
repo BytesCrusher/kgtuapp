@@ -17,12 +17,12 @@ class UniversityFragment : Fragment(R.layout.fragment_university) {
     ): View? {
         binding = FragmentUniversityBinding.inflate(layoutInflater, container, false)
 
-        val view = layoutInflater.inflate(
+        /*val view = layoutInflater.inflate(
             R.layout.item_not_done_yet,
-            binding.contentContainerFragmentUniversity,
+            binding.clUniversityFragment,
             false
         )
-        binding.contentContainerFragmentUniversity.addView(view)
+        binding.clUniversityFragment.addView(view)*/
         return binding.root
     }
 

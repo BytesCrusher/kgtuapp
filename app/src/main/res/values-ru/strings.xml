@@ -76,4 +76,18 @@
     <string name="m3_sys_typescale_title_large_font" translatable="false">sans-serif</string>
     <string name="m3_sys_typescale_title_medium_font" translatable="false">sans-serif-medium</string>
     <string name="m3_sys_typescale_title_small_font" translatable="false">sans-serif-medium</string>-->
+
+    <!--Раздел университета-->
+    <string name="site_KGTU">Сайт КГТУ</string>
+    <string name="kgtu_in_social_media">Кгту в социальных сетях</string>
+    <string name="eios">Образовательная среда ЭИОС</string>
+    <string name="VKontakte">ВКонтакте</string>
+    <string name="telegram">Telegram</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="institutes">Институты</string>
+    <string name="inst_fish_and_aqua">Рыболовства и аквакультуры</string>
+    <string name="inst_agro_and_food">Агроинженерии и пищевых систем</string>
+    <string name="inst_dig_tech">Цифровых технологий</string>
+    <string name="inst_tech">Морских технологий, энергетики и строительства</string>
+    <string name="inst_econom">Отраслевой экономики и управления</string>
 </resources>
