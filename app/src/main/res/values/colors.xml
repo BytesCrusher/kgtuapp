@@ -58,6 +58,7 @@
     <color name="md_theme_dark_primaryInverse">#00639B</color>
     <color name="Success">#27AE60</color>
     <color name="Warning">#F2C94C</color>
+    <color name="md_read_only_light_black">#000000</color>
 
     <!--    Старые цвета ниже-->
 

@@ -38,14 +38,14 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_1"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="284dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
-                    android:gravity="start"
                     android:layout_marginStart="16dp"
+                    android:gravity="start"
                     android:text="@string/site_KGTU"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                     />
 
                 <ImageButton
                     android:id="@+id/link_1"
@@ -80,14 +80,14 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_2"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="284dp"
                     android:layout_height="24dp"
-                    android:layout_marginStart="16dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
                     android:gravity="start"
                     android:text="@string/eios"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
                 <ImageButton
                     android:id="@+id/link_2"
@@ -115,10 +115,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_2">
 
                 <com.google.android.material.textview.MaterialTextView
+                    style="@style/HeadlineSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/kgtu_in_social_media"
-                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+                     />
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
             <com.google.android.material.circularreveal.CircularRevealLinearLayout
@@ -141,7 +142,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_4"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="122dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="12dp"
@@ -151,8 +152,7 @@
                     android:paddingTop="0dp"
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
-                    android:text="@string/VKontakte"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    android:text="@string/VKontakte"/>
 
                 <ImageButton
                     android:layout_width="32dp"
@@ -163,7 +163,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_5"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="122dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="12dp"
@@ -173,8 +173,7 @@
                     android:paddingTop="0dp"
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
-                    android:text="@string/telegram"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    android:text="@string/telegram" />
 
                 <!--Тут костыль-->
                 <ImageButton
@@ -186,7 +185,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_6"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="122dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="12dp"
@@ -197,7 +196,7 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/whatsapp"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
@@ -217,7 +216,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/institutes"
-                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+                    style="@style/HeadlineSmall" />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
@@ -241,7 +240,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_7"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="324dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="16dp"
@@ -252,7 +251,7 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/inst_fish_and_aqua"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
@@ -275,7 +274,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_8"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="324dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="16dp"
@@ -286,7 +285,7 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/inst_agro_and_food"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
@@ -309,7 +308,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_9"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="324dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="16dp"
@@ -320,7 +319,7 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/inst_dig_tech"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
             <com.google.android.material.circularreveal.CircularRevealLinearLayout
@@ -342,7 +341,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_10"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="324dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="16dp"
@@ -353,7 +352,7 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/inst_tech"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
@@ -376,7 +375,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_11"
-                    style="@style/paragraphTextStyle"
+                    style="@style/TitleMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -387,7 +386,7 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/inst_econom"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                    />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
@@ -403,11 +402,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/fragment_university_container_10">
 
                 <com.google.android.material.textview.MaterialTextView
+                    style="@style/HeadlineSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:text="Популярные вопросы и ответы"
-                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+                    />
 
             </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 

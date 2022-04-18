@@ -19,10 +19,9 @@
 
         <TextView
             android:id="@+id/tv_dayInfo"
-            style="@style/scheduleDayTitleStyle"
+            style="@style/HeadlineSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/manrope_semibold"
             android:gravity="start"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"

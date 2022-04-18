@@ -27,15 +27,16 @@
 
         <TextView
             android:id="@+id/textView_1"
-            style="@style/headerTextStyle"
+            style="@style/DisplaySmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:textColor="@color/md_theme_light_onSurface"
             android:text="@string/group_not_chosen" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView_2"
-            style="@style/paragraphTextStyle"
+            style="@style/BodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

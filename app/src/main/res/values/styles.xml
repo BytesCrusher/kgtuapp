@@ -140,6 +140,97 @@
         <item name="cornerSize">20%</item>
     </style>
 
+    <!--Переопределение используемых шрифтов-->
+
+    <!--Display-->
+    <style name="DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">49sp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">39sp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <!--Headline-->
+    <style name="HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <!--Title-->
+    <style name="TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <!--Label-->
+    <style name="LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <!--Body-->
+    <style name="BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
 
 
     <!--<style name="TextAppearance.Material3.BodyLarge" parent="TextAppearance.MaterialComponents.Body1">
