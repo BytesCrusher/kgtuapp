@@ -13,12 +13,13 @@ import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentScheduleChooseGroupBinding
 import com.google.android.material.chip.Chip
+import java.util.*
 
 class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_group) {
     private lateinit var binding: FragmentScheduleChooseGroupBinding
     private val dataModel : DataModel by activityViewModels()
 
-    val groupList = listOf<String>("18-ВТ", "20-АП", "20-МС", "20-ВТ", "20-КС", "19-ИЭ", "19-АП", "19-ВТ")
+    val groupList = listOf<String>("18-вт", "20-ап", "20-мс", "20-вт", "20-кс", "19-иэ", "19-ап", "19-вт")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,17 +32,29 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         binding.etGroupSearch.addTextChangedListener {
             binding.scheduleChooseGroupChipGroup.removeAllViews()
             binding.tvSelectGroupAllGroups.visibility = VISIBLE
+            val currentEntryString = binding.etGroupSearch.text.toString().toCharArray()
+            var fullString = ""
+
+            //Приводим строку к нижнему регистру
+            for (i in currentEntryString.indices) {
+                fullString += if (currentEntryString[i].isUpperCase()) {
+                    currentEntryString[i].lowercaseChar()
+                } else {
+                    currentEntryString[i]
+                }
+            }
+
             var viewCount = 0
             for (i in 0..groupList.size-1){
-                if (binding.etGroupSearch.text.toString() in groupList[i]){
+                if (fullString in groupList[i]){
                     viewCount+=1
                     val chip = Chip(context)
                     chip.apply {
                         this.id = i
-                        this.text = groupList[i]
+                        this.text = groupList[i].uppercase(Locale.getDefault())
                         /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
                         this.setOnClickListener{
-                            dataModel.studyGroup.value = groupList[i]
+                            dataModel.studyGroup.value = groupList[i].uppercase(Locale.getDefault())
                             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
                             changeContentFragmentByChooseGroupFragment(R.id.fc_contentContainer, ScheduleFragment.newInstance())
                         }
@@ -66,10 +79,10 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
             val chip = Chip(context)
             chip.apply {
                 this.id = i
-                this.text = groupList[i]
+                this.text = groupList[i].uppercase(Locale.getDefault())
                 /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
                 this.setOnClickListener{
-                    dataModel.studyGroup.value = groupList[i]
+                    dataModel.studyGroup.value = groupList[i].uppercase(Locale.getDefault())
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
                     changeContentFragmentByChooseGroupFragment(R.id.fc_contentContainer, ScheduleFragment.newInstance())
                 }
