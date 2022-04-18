@@ -43,7 +43,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                         this.setOnClickListener{
                             dataModel.studyGroup.value = groupList[i]
                             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                            changeContentFragmentByChooseGroupFragment(R.id.contentContainer, ScheduleFragment.newInstance())
+                            changeContentFragmentByChooseGroupFragment(R.id.fc_contentContainer, ScheduleFragment.newInstance())
                         }
                     }
                     binding.scheduleChooseGroupChipGroup.addView(chip)
@@ -71,7 +71,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                 this.setOnClickListener{
                     dataModel.studyGroup.value = groupList[i]
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                    changeContentFragmentByChooseGroupFragment(R.id.contentContainer, ScheduleFragment.newInstance())
+                    changeContentFragmentByChooseGroupFragment(R.id.fc_contentContainer, ScheduleFragment.newInstance())
                 }
             }
             binding.scheduleChooseGroupChipGroup.addView(chip)

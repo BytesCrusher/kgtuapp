@@ -41,17 +41,17 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.mainMenuButtonSchedule -> {
-                    changeContentFragmentByMainMenu(R.id.contentContainer, ScheduleFragment.newInstance())
+                    changeContentFragmentByMainMenu(R.id.fc_contentContainer, ScheduleFragment.newInstance())
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
                     true
                 }
                 R.id.mainMenuButtonNavigator -> {
-                    changeContentFragmentByMainMenu(R.id.contentContainer, PersonalCalendarFragment.newInstance())
+                    changeContentFragmentByMainMenu(R.id.fc_contentContainer, PersonalCalendarFragment.newInstance())
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_navigator)
                     true
                 }
                 R.id.mainMenuButtonUniversity -> {
-                    changeContentFragmentByMainMenu(R.id.contentContainer, UniversityFragment.newInstance())
+                    changeContentFragmentByMainMenu(R.id.fc_contentContainer, UniversityFragment.newInstance())
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_university)
                     true
                 }
@@ -61,7 +61,7 @@ class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
                     } else {
                         changeContentFragmentByMainMenu(R.id.contentContainer, InfoFragment.newInstance())
                     }*/
-                    changeContentFragmentByMainMenu(R.id.contentContainer, ProfileFragment.newInstance())
+                    changeContentFragmentByMainMenu(R.id.fc_contentContainer, ProfileFragment.newInstance())
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_profile)
                     true
                 }

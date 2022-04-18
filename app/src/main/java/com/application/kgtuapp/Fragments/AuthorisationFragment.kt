@@ -25,17 +25,17 @@ class AuthorisationFragment : Fragment() {
             /*changeContentFragmentByAuthorisationFragment(R.id.l_mainActivityFragment, RegistrationFragment.newInstance())*/
 
             //костыль
-            changeContentFragmentByAuthorisationFragment(R.id.contentContainer, RegistrationFragment.newInstance())
+            changeContentFragmentByAuthorisationFragment(R.id.fc_contentContainer, RegistrationFragment.newInstance())
         }
 
         binding.bEnterToApp.setOnClickListener {
             //Это все костыль костылей велосипедов
             // Устаревший подход, надо переписать
-            changeContentFragmentByAuthorisationFragment(R.id.contentContainer, InfoFragment.newInstance())
+            changeContentFragmentByAuthorisationFragment(R.id.fc_contentContainer, InfoFragment.newInstance())
             val handler = Handler()
             handler.postDelayed({
                 // do something after 2000ms
-                changeContentFragmentByAuthorisationFragment(R.id.contentContainer, ScheduleFragment.newInstance())
+                changeContentFragmentByAuthorisationFragment(R.id.fc_contentContainer, ScheduleFragment.newInstance())
             }, 2000)
 
 

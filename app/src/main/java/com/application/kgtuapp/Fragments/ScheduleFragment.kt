@@ -42,7 +42,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             studyGroupNotChoosed.apply {
                 val b_selectStudyGroup = this.findViewById<Button>(R.id.b_selectStudyGroup)
                 b_selectStudyGroup.setOnClickListener {
-                    changeContentFragmentByScheduleFragment(R.id.contentContainer, ScheduleChooseGroupFragment.newInstance())
+                    changeContentFragmentByScheduleFragment(R.id.fc_contentContainer, ScheduleChooseGroupFragment.newInstance())
                 }
             }
             binding.scheduleDayContentContainer.addView(studyGroupNotChoosed)

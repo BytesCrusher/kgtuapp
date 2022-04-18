@@ -7,12 +7,15 @@ import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
 import com.application.kgtuapp.Fragments.AuthorisationFragment
+import com.application.kgtuapp.Fragments.MainActivityContentFragment
 import com.application.kgtuapp.Fragments.ProfileFragment
+import com.application.kgtuapp.Fragments.UniversityFragment
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var UniversityFragmentObject:Fragment
 
     private val dataModel: DataModel by viewModels()
 
@@ -24,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         dataModel.isUserAutorized.value = true
 
+        UniversityFragmentObject = UniversityFragment.newInstance()
+
         if (dataModel.isUserAutorized.value!!){
             setContentView(R.layout.fragment_info)
             binding = ActivityMainBinding.inflate(layoutInflater)
@@ -32,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             handler.postDelayed({
                 // do something after 2000ms
                 setContentView(binding.root)
+                openFragment(R.id.l_mainActivityFragment, MainActivityContentFragment.newInstance())
             }, 2000)
         } else {
             //а это костыль
@@ -44,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
             /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
-            openFragment(R.id.contentContainer, AuthorisationFragment.newInstance())
+            openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())
             /*setContentView(R.layout.activity_main)*/
             /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
         }
@@ -54,7 +60,13 @@ class MainActivity : AppCompatActivity() {
 
         //Про view model важный код
         dataModel.mainToolBarTitle.observe(this, {
-            binding.mainToolBar.setTitle(it)
+            /*binding.mainToolBar.setTitle(it)*/
+        })
+
+        //Про view model важный код
+        dataModel.mainToolBarTitle.observe(UniversityFragmentObject/*MainActivityContentFragment.newInstance()*/, {
+            val a = MainActivityContentFragment.newInstance()
+            a.binding.fcMainToolBar.setTitle(it)
         })
 
         dataModel.studyGroup.observe(ProfileFragment.newInstance(), {
