@@ -22,7 +22,7 @@ class RegistrationFragment : Fragment() {
             /*changeContentFragmentByRegistrationFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
 
             //а это костыль
-            changeContentFragmentByRegistrationFragment(R.id.fc_contentContainer, AuthorisationFragment.newInstance())
+            changeContentFragmentByRegistrationFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())
         }
         return binding.root
     }

@@ -15,7 +15,6 @@ import com.application.kgtuapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var UniversityFragmentObject:Fragment
 
     private val dataModel: DataModel by viewModels()
 
@@ -26,21 +25,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         /*APP_ACTIVITY = this*/
 
-        dataModel.isUserAutorized.value = true
+        dataModel.isUserAutorized.value = false
 
-        UniversityFragmentObject = UniversityFragment.newInstance()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        if (dataModel.isUserAutorized.value!!){
-            setContentView(R.layout.fragment_info)
-            binding = ActivityMainBinding.inflate(layoutInflater)
+        openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())
+
+
+        /*setContentView(R.layout.fragment_info)
+        binding = ActivityMainBinding.inflate(layoutInflater)
             //Устаревший подход, надо переписать
-            val handler = Handler()
-            handler.postDelayed({
+        val handler = Handler()
+        handler.postDelayed({
                 // do something after 2000ms
                 setContentView(binding.root)
                 openFragment(R.id.l_mainActivityFragment, MainActivityContentFragment.newInstance())
-            }, 2000)
-        } else {
+                            }, 2000)*/
+
             //а это костыль
             /*setContentView(R.layout.fragment_autorization)*/
 
@@ -48,31 +50,27 @@ class MainActivity : AppCompatActivity() {
             /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
 
             //костыльная иммитация работы
-            binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+
             /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
-            openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())
-            /*setContentView(R.layout.activity_main)*/
-            /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
-        }
+
 
         //openFragment(R.id.contentLayout, InfoFragment.newInstance())
         //openFragment(R.id.mainMenuContainer, MainMenuFragment.newInstance())
 
-        //Про view model важный код
+        /*//Про view model важный код
         dataModel.mainToolBarTitle.observe(this, {
-            /*binding.mainToolBar.setTitle(it)*/
+            *//*binding.mainToolBar.setTitle(it)*//*
         })
 
         //Про view model важный код
-        dataModel.mainToolBarTitle.observe(UniversityFragmentObject/*MainActivityContentFragment.newInstance()*/, {
+        dataModel.mainToolBarTitle.observe(UniversityFragmentObject*//*MainActivityContentFragment.newInstance()*//*, {
             val a = MainActivityContentFragment.newInstance()
             a.binding.fcMainToolBar.setTitle(it)
         })
 
         dataModel.studyGroup.observe(ProfileFragment.newInstance(), {
 
-        })
+        })*/
 
         /*dataModel.studyGroup.observe(this, {
             val tv_userGroup = findViewById<TextView>(R.id.tv_scheduleUserStudyGroupBody)
@@ -90,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         fun newInstance() = MainActivity()
     }
 
-    val day = ScheduleDay(0,"18-ВТ", 1)
+    /*val day = ScheduleDay(0,"18-ВТ", 1)*/
 
 
     //id объекта, где показать новый фрагмент, сам новый фрагмент
