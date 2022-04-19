@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val dataModel: DataModel by viewModels()
 
     /*var studyGroup: String? = null*/
+    //Ветка рефакторинга
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
