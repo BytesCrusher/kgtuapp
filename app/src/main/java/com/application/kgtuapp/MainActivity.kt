@@ -6,10 +6,7 @@ import android.os.Handler
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.application.kgtuapp.Classes.ScheduleDay
-import com.application.kgtuapp.Fragments.AuthorisationFragment
-import com.application.kgtuapp.Fragments.MainActivityContentFragment
-import com.application.kgtuapp.Fragments.ProfileFragment
-import com.application.kgtuapp.Fragments.UniversityFragment
+import com.application.kgtuapp.Fragments.*
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.ActivityMainBinding
 
@@ -30,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())
+        /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
+        openFragment(R.id.l_mainActivityFragment, InfoFragment.newInstance())
 
 
         /*setContentView(R.layout.fragment_info)

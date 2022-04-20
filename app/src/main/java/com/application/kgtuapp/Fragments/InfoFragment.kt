@@ -1,6 +1,7 @@
 package com.application.kgtuapp.Fragments
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,19 +24,25 @@ class InfoFragment: Fragment(R.layout.fragment_info) {
         dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
         dataModel.studyGroup.value = null
 
+        //Устаревший подход, надо переписать
+        val handler = Handler()
+        handler.postDelayed({
+            changeContentFragmentByInfoFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+        }, 2000)
+
         return binding.root
     }
 
-    //Отправка с помощью view модели информации из фрагмента в активити
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.checkTextButton.setOnClickListener{
-            dataModel.mainToolBarTitle.value = "hello from info Fragment"
-        }
-    }*/
+    private fun changeContentFragmentByInfoFragment(idContainer: Int, newFragment:Fragment){
+        parentFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(idContainer, newFragment)
+            .commit()
+    }
 
     companion object {
         @JvmStatic
         fun newInstance() = InfoFragment()
     }
-
 }

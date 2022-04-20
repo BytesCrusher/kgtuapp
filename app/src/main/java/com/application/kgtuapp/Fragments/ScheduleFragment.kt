@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.application.kgtuapp.Adapters.CustomRecyclerAdapter
 import com.application.kgtuapp.Classes.CertainClassInScheduleDay
 import com.application.kgtuapp.Classes.CertainClassStartEndTime
 import com.application.kgtuapp.Classes.ScheduleTwoWeek
@@ -19,7 +22,6 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
     private val dataModel : DataModel by activityViewModels()
 
-
     var scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 
     override fun onCreateView(
@@ -29,25 +31,49 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
         /*dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)*/
 
+        //val recyclerView: RecyclerView = this.binding.scheduleDayContentContainer
+        /*recyclerView.layoutManager = LinearLayoutManager(context)
+        *//*recyclerView.adapter = CustomRecyclerAdapter(fillList("element"), R.id.tv_dayInfo, R.layout.item_certain_day)*//*
+        recyclerView.adapter = CustomRecyclerAdapter(listOf(), R.id.b_selectStudyGroup, R.layout.item_study_group_not_selected, 5)*/
+
+
         if (dataModel.studyGroup.value != null){
             dataModel.mainToolBarTitle.value = "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
+            //recyclerView.layoutManager = LinearLayoutManager(context)
+            //recyclerView.adapter = CustomRecyclerAdapter(fillList("element"))
+            val recyclerViewLayout = layoutInflater.inflate(
+                R.layout.item_schedule, binding.llScheduleContentContainer, false)
+            recyclerViewLayout.apply {
+                val recyclerView: RecyclerView = this.findViewById<RecyclerView>(R.id.scheduleDayContentContainer)
+                recyclerView.layoutManager = LinearLayoutManager(context)
+                recyclerView.adapter = CustomRecyclerAdapter(fillList("element"), R.id.tv_dayInfo, R.layout.item_certain_day)
+            }
+            binding.llScheduleContentContainer.addView(recyclerViewLayout)
 
-            val schedule = ScheduleTwoWeek()
+            /*val schedule = ScheduleTwoWeek()
             scheduleDataMap = schedule.createScheduleTwoWeek()
-            createSchedule(scheduleDataMap)
+            createSchedule(scheduleDataMap)*/
         } else {
             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+            //recyclerView.layoutManager = LinearLayoutManager(context)
+            //recyclerView.adapter = CustomRecyclerAdapter(listOf())
 
-            val studyGroupNotChoosed = layoutInflater.inflate(R.layout.item_study_group_not_selected, binding.scheduleDayContentContainer, false)
+            val studyGroupNotChoosed = layoutInflater.inflate(R.layout.item_study_group_not_selected, binding.llScheduleContentContainer, false)
             studyGroupNotChoosed.apply {
                 val b_selectStudyGroup = this.findViewById<Button>(R.id.b_selectStudyGroup)
                 b_selectStudyGroup.setOnClickListener {
                     changeContentFragmentByScheduleFragment(R.id.l_mainActivityFragment, ScheduleChooseGroupFragment.newInstance())
                 }
             }
-            binding.scheduleDayContentContainer.addView(studyGroupNotChoosed)
+            binding.llScheduleContentContainer.addView(studyGroupNotChoosed)
         }
         return binding.root
+    }
+
+    private fun fillList(element : String): List<String> {
+        val data = mutableListOf<String>()
+        (0..30).forEach { i -> data.add("$i $element") }
+        return data
     }
 
     private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment:Fragment){
@@ -107,14 +133,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                     // в котором лежит дата и название дня. На самом деле сам список пар и
                         // этот заголовок дня должны лежать в одном контейнере (linerLayout-е)
 
-            val newDay = layoutInflater.inflate(R.layout.item_certain_day, binding.scheduleDayContentContainer, false)
+            val newDay = layoutInflater.inflate(R.layout.item_certain_day, binding.llScheduleContentContainer, false)
             newDay.apply {
                 this.id = day
                 /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
                 tv_dayInfo.text = ""*/
             }
 
-            binding.scheduleDayContentContainer.addView(newDay)
+            binding.llScheduleContentContainer.addView(newDay)
 
             /*binding.scheduleDayContentContainer.findViewById<ViewGroup>(R.id)*/
 
@@ -122,7 +148,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             for (key in 0..(scheduleMap[day]?.size ?: 5) -1) {
                 val view = layoutInflater.inflate(
                     R.layout.item_certain_class,
-                    binding.scheduleDayContentContainer,
+                    binding.llScheduleContentContainer,
                     false
                 )
                 view.apply {
@@ -148,10 +174,10 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                     val b_audience = this.findViewById<Button>(R.id.b_audience)
                     b_audience.text = audienceList[scheduleMap[day]!![key].idClassAudience]
                     b_audience.setOnClickListener {
-                        binding.scheduleDayContentContainer.removeView(this)
+                        binding.llScheduleContentContainer.removeView(this)
                     }
                 }
-                binding.scheduleDayContentContainer.addView(view)
+                binding.llScheduleContentContainer.addView(view)
                 n += 1
             }
         }
