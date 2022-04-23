@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.application.kgtuapp.Adapters.CustomRecyclerAdapter
+import com.application.kgtuapp.Adapters.ScheduleRecyclerAdapter
 import com.application.kgtuapp.Classes.CertainClassInScheduleDay
 import com.application.kgtuapp.Classes.CertainClassStartEndTime
 import com.application.kgtuapp.Classes.ScheduleTwoWeek
@@ -38,8 +38,8 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         //val recyclerView: RecyclerView = this.binding.scheduleDayContentContainer
         /*recyclerView.layoutManager = LinearLayoutManager(context)
-        *//*recyclerView.adapter = CustomRecyclerAdapter(fillList("element"), R.id.tv_dayInfo, R.layout.item_certain_day)*//*
-        recyclerView.adapter = CustomRecyclerAdapter(listOf(), R.id.b_selectStudyGroup, R.layout.item_study_group_not_selected, 5)*/
+        *//*recyclerView.adapter = ScheduleRecyclerAdapter(fillList("element"), R.id.tv_dayInfo, R.layout.item_certain_day)*//*
+        recyclerView.adapter = ScheduleRecyclerAdapter(listOf(), R.id.b_selectStudyGroup, R.layout.item_study_group_not_selected, 5)*/
 
 
         if (dataModel.studyGroup.value != null){
@@ -47,7 +47,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             binding.mainToolBar.title = dataModel.mainToolBarTitle.value
 
             //recyclerView.layoutManager = LinearLayoutManager(context)
-            //recyclerView.adapter = CustomRecyclerAdapter(fillList("element"))
+            //recyclerView.adapter = ScheduleRecyclerAdapter(fillList("element"))
 
             val schedule = ScheduleTwoWeek()
             if (scheduleDataMap.isEmpty()){
@@ -59,7 +59,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             recyclerViewLayout.apply {
                 val recyclerView: RecyclerView = this.findViewById<RecyclerView>(R.id.scheduleDayContentContainer)
                 recyclerView.layoutManager = LinearLayoutManager(context)
-                recyclerView.adapter = CustomRecyclerAdapter(listOf(), R.id.tv_dayInfo, R.layout.item_certain_day, 15)
+                recyclerView.adapter = ScheduleRecyclerAdapter(scheduleDataMap, listOf(), R.id.tv_dayInfo, R.layout.item_certain_day, 15)
             }
             binding.llScheduleContentContainer.addView(recyclerViewLayout)
             //createSchedule(scheduleDataMap)
@@ -84,7 +84,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 
         //recyclerView.layoutManager = LinearLayoutManager(context)
-        //recyclerView.adapter = CustomRecyclerAdapter(listOf())
+        //recyclerView.adapter = ScheduleRecyclerAdapter(listOf())
 
         val studyGroupNotChoosed = layoutInflater.inflate(R.layout.item_study_group_not_selected, binding.llScheduleContentContainer, false)
         studyGroupNotChoosed.apply {
