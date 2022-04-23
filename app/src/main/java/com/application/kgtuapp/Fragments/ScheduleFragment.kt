@@ -29,6 +29,11 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
+
+        binding.ibToolbarSettings.setOnClickListener {
+            dataModel.studyGroup.value = null
+            studyGroupNotSelected()
+        }
         /*dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)*/
 
         //val recyclerView: RecyclerView = this.binding.scheduleDayContentContainer
@@ -39,33 +44,27 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         if (dataModel.studyGroup.value != null){
             dataModel.mainToolBarTitle.value = "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
+            binding.mainToolBar.title = dataModel.mainToolBarTitle.value
+
             //recyclerView.layoutManager = LinearLayoutManager(context)
             //recyclerView.adapter = CustomRecyclerAdapter(fillList("element"))
+
+            val schedule = ScheduleTwoWeek()
+            if (scheduleDataMap.isEmpty()){
+                scheduleDataMap = schedule.createScheduleTwoWeek()
+            }
+
             val recyclerViewLayout = layoutInflater.inflate(
                 R.layout.item_schedule, binding.llScheduleContentContainer, false)
             recyclerViewLayout.apply {
                 val recyclerView: RecyclerView = this.findViewById<RecyclerView>(R.id.scheduleDayContentContainer)
                 recyclerView.layoutManager = LinearLayoutManager(context)
-                recyclerView.adapter = CustomRecyclerAdapter(fillList("element"), R.id.tv_dayInfo, R.layout.item_certain_day)
+                recyclerView.adapter = CustomRecyclerAdapter(listOf(), R.id.tv_dayInfo, R.layout.item_certain_day, 15)
             }
             binding.llScheduleContentContainer.addView(recyclerViewLayout)
-
-            /*val schedule = ScheduleTwoWeek()
-            scheduleDataMap = schedule.createScheduleTwoWeek()
-            createSchedule(scheduleDataMap)*/
+            //createSchedule(scheduleDataMap)
         } else {
-            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-            //recyclerView.layoutManager = LinearLayoutManager(context)
-            //recyclerView.adapter = CustomRecyclerAdapter(listOf())
-
-            val studyGroupNotChoosed = layoutInflater.inflate(R.layout.item_study_group_not_selected, binding.llScheduleContentContainer, false)
-            studyGroupNotChoosed.apply {
-                val b_selectStudyGroup = this.findViewById<Button>(R.id.b_selectStudyGroup)
-                b_selectStudyGroup.setOnClickListener {
-                    changeContentFragmentByScheduleFragment(R.id.l_mainActivityFragment, ScheduleChooseGroupFragment.newInstance())
-                }
-            }
-            binding.llScheduleContentContainer.addView(studyGroupNotChoosed)
+            studyGroupNotSelected()
         }
         return binding.root
     }
@@ -74,6 +73,27 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         val data = mutableListOf<String>()
         (0..30).forEach { i -> data.add("$i $element") }
         return data
+    }
+
+    //когда группа не выбрана отобразить соответствующее окно
+    private fun studyGroupNotSelected(){
+        //обнуляем что есть
+        binding.llScheduleContentContainer.removeAllViews()
+        dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+        binding.mainToolBar.title = dataModel.mainToolBarTitle.value
+        scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
+
+        //recyclerView.layoutManager = LinearLayoutManager(context)
+        //recyclerView.adapter = CustomRecyclerAdapter(listOf())
+
+        val studyGroupNotChoosed = layoutInflater.inflate(R.layout.item_study_group_not_selected, binding.llScheduleContentContainer, false)
+        studyGroupNotChoosed.apply {
+            val b_selectStudyGroup = this.findViewById<Button>(R.id.b_selectStudyGroup)
+            b_selectStudyGroup.setOnClickListener {
+                changeContentFragmentByScheduleFragment(R.id.l_mainActivityFragment, ScheduleChooseGroupFragment.newInstance())
+            }
+        }
+        binding.llScheduleContentContainer.addView(studyGroupNotChoosed)
     }
 
     private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment:Fragment){

@@ -15,7 +15,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextAppearance="@style/TitleLarge"
-        app:title="@string/app_name" />
+        app:title="@string/app_name" >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ib_toolbarSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_settings_gear_wheel"/>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <LinearLayout
         android:id="@+id/ll_scheduleContentContainer"
