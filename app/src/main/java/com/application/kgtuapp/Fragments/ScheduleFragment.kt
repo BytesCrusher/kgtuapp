@@ -217,14 +217,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
                         val tv_class_start_time =
                             this.findViewById<TextView>(R.id.tv_class_start_time)
-                        tv_class_start_time.text =
-                            classNumberMap[scheduleMap[day]!![key].idClassNumber!!]!!.getStartClassTime()
+                        /*tv_class_start_time.text =
+                            classNumberMap[scheduleMap[day]!![key].idClassNumber!!]!!.getStartClassTime()*/
 
                         val tv_class_type_name =
                             this.findViewById<TextView>(R.id.tv_class_type_name)
                         tv_class_type_name.text = classTypeMap[scheduleMap[day]!![key].idClassType]
 
-                        if (tv_class_type_name.text.toString() == "практические"){
+                        /*if (tv_class_type_name.text.toString() == "практические"){
                             tv_class_type_name
                                 .setTextColor(AppCompatResources.getColorStateList(
                                     context,
@@ -236,7 +236,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                                 .setTextColor(AppCompatResources.getColorStateList(
                                     context,
                                     R.color.scheduleClassTypeLaboratoryWorkText))
-                        }
+                        }*/
                         //hint = "@color/colorPrimary"
                         //when (tv_class_type_name.getTe){
                             /*"лекции"-> tv_class_type_name
