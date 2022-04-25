@@ -74,7 +74,6 @@
             android:fontFamily="@font/roboto_medium"
             android:text="261.17"
             android:textSize="12sp"
-            app:icon="@drawable/ic_schedule_audience_button_door"
             app:iconGravity="start"
             app:iconPadding="0dp"
             app:strokeWidth="1dp" />
