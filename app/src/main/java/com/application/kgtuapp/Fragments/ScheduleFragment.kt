@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -150,26 +151,24 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         for (day in 0.. 13) {
             //название нового дна
-                // здесь есть косяк. Сейчас перед каждым списком пар выводится item
-                    // в котором лежит дата и название дня. На самом деле сам список пар и
-                        // этот заголовок дня должны лежать в одном контейнере (linerLayout-е)
 
+            val daysList = mutableListOf<View>()
             val newDay = layoutInflater.inflate(R.layout.item_certain_day, binding.llScheduleContentContainer, false)
             newDay.apply {
                 this.id = day
                 /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
                 tv_dayInfo.text = ""*/
             }
-
+            daysList.add(newDay)
             binding.llScheduleContentContainer.addView(newDay)
 
             /*binding.scheduleDayContentContainer.findViewById<ViewGroup>(R.id)*/
-
+            val dayContainer = newDay.findViewById<LinearLayout>(R.id.ll_certainDayItemContainer)
             n=0
             for (key in 0..(scheduleMap[day]?.size ?: 5) -1) {
                 val view = layoutInflater.inflate(
                     R.layout.item_certain_class,
-                    binding.llScheduleContentContainer,
+                    dayContainer,
                     false
                 )
                 view.apply {
@@ -198,7 +197,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                         binding.llScheduleContentContainer.removeView(this)
                     }
                 }
-                binding.llScheduleContentContainer.addView(view)
+                dayContainer.addView(view)
                 n += 1
             }
         }
