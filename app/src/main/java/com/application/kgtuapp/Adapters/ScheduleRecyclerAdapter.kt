@@ -32,22 +32,26 @@ class ScheduleRecyclerAdapter(
 
 
     class MyViewHolder(itemView: View, textElementId: Int) : RecyclerView.ViewHolder(itemView){
-        val textElement: TextView = itemView.findViewById(textElementId)
+        /*val textElement: TextView = itemView.findViewById(textElementId)*/
+
         /*val dayContentContainer: LinearLayout = itemView.findViewById(R.id.ll_certainDayItemContainer)*/
     }
 
     //идентификатор макета для отдельного элемента списка
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context)
+        val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_certain_day, parent, false)
+        val dayContentContainer: LinearLayout = itemView.findViewById(R.id.ll_certainDayItemContainer)
+        val itemClass = LayoutInflater.from(dayContentContainer.context)
+            .inflate(R.layout.item_certain_class, parent, false)
 
-        itemView.apply {
+
+        /*itemView.apply {
             val dayContentContainer: LinearLayout = itemView.findViewById(R.id.ll_certainDayItemContainer)
             val itemCertainClassView =
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_certain_class, parent, false)
-        }
+        }*/
         /*parent.addView(LayoutInflater.from(parent.context)
             .inflate(R.layout.item_certain_class, parent, false))*/
 
@@ -61,9 +65,7 @@ class ScheduleRecyclerAdapter(
     // нужные данные.
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         if (stringsList.isNotEmpty()){
-            holder.textElement.text = stringsList[position]
-
-
+            /*holder.textElement.text = stringsList[position]*/
         }
     }
 

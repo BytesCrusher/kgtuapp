@@ -54,15 +54,16 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                 scheduleDataMap = schedule.createScheduleTwoWeek()
             }
 
-            val recyclerViewLayout = layoutInflater.inflate(
+            createSchedule(scheduleDataMap)
+            /*val recyclerViewLayout = layoutInflater.inflate(
                 R.layout.item_schedule, binding.llScheduleContentContainer, false)
             recyclerViewLayout.apply {
                 val recyclerView: RecyclerView = this.findViewById<RecyclerView>(R.id.scheduleDayContentContainer)
                 recyclerView.layoutManager = LinearLayoutManager(context)
                 recyclerView.adapter = ScheduleRecyclerAdapter(scheduleDataMap, listOf(), R.id.tv_dayInfo, R.layout.item_certain_day, 15)
             }
-            binding.llScheduleContentContainer.addView(recyclerViewLayout)
-            //createSchedule(scheduleDataMap)
+            binding.llScheduleContentContainer.addView(recyclerViewLayout)*/
+            //
         } else {
             studyGroupNotSelected()
         }
