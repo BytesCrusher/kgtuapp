@@ -90,4 +90,5 @@
     <string name="inst_dig_tech">Цифровых технологий</string>
     <string name="inst_tech">Морских технологий, энергетики и строительства</string>
     <string name="inst_econom">Отраслевой экономики и управления</string>
+    <string name="b_today_is_a_day_off_text">Сегодня отдыхаем!</string>
 </resources>

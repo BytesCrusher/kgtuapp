@@ -47,11 +47,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/b_selectStudyGroup"
-            style="@style/Widget.Material3.Button"
+            style="@style/buttonStudyGroupNotSelected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
+
+            android:backgroundTint="@color/m3_sys_light_primary"
             app:icon="@drawable/ic_select_a_group_button_plus"
             android:text="@string/choose_group" />
     </com.google.android.material.circularreveal.CircularRevealLinearLayout>

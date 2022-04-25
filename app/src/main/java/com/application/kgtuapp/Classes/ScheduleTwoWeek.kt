@@ -49,17 +49,19 @@ class ScheduleTwoWeek() {
     private fun addDataToScheduleDay(idScheduleDay: Int): MutableList<CertainClassInScheduleDay> {
         val listOfClasses = mutableListOf<CertainClassInScheduleDay>()
 
-        val classCount =  Random.nextInt(1,5)//количество пар, которое будет сгенерено
+        val classCount =  Random.nextInt(0,6)//количество пар, которое будет сгенерено
 
-        for (i in (0.. classCount)){
-            val classNumberId = i//classNumberMap[Random.nextInt(0,classNumberMap.size-1)]?.getId()
-            val classAudienceId = Random.nextInt(0, audienceList.size)//audienceList.indexOf(audienceList[Random.nextInt(0,audienceList.size-1)])
-            val classTypeId = Random.nextInt(0,classTypeMap.size)
+        if (classCount != 0){
+            for (i in (0.. classCount)){
+                val classNumberId = i//classNumberMap[Random.nextInt(0,classNumberMap.size-1)]?.getId()
+                val classAudienceId = Random.nextInt(0, audienceList.size)//audienceList.indexOf(audienceList[Random.nextInt(0,audienceList.size-1)])
+                val classTypeId = Random.nextInt(0,classTypeMap.size)
 
-            val className = Random.nextInt(0, classNameList.size)//[Random.nextInt(0, classNameList.size-1)]
+                val className = Random.nextInt(0, classNameList.size)//[Random.nextInt(0, classNameList.size-1)]
 
-            val newClass = CertainClassInScheduleDay(i, idScheduleDay, classNumberId, classAudienceId, classTypeId, className)
-            listOfClasses.add(newClass)
+                val newClass = CertainClassInScheduleDay(i, idScheduleDay, classNumberId, classAudienceId, classTypeId, className)
+                listOfClasses.add(newClass)
+            }
         }
         return listOfClasses
     }

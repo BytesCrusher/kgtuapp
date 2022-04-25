@@ -1,5 +1,6 @@
 package com.application.kgtuapp.Fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +23,7 @@ import com.application.kgtuapp.databinding.FragmentScheduleBinding
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
-    private val dataModel : DataModel by activityViewModels()
+    private val dataModel: DataModel by activityViewModels()
 
     var scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 
@@ -43,15 +45,16 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         recyclerView.adapter = ScheduleRecyclerAdapter(listOf(), R.id.b_selectStudyGroup, R.layout.item_study_group_not_selected, 5)*/
 
 
-        if (dataModel.studyGroup.value != null){
-            dataModel.mainToolBarTitle.value = "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
+        if (dataModel.studyGroup.value != null) {
+            dataModel.mainToolBarTitle.value =
+                "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
             binding.mainToolBar.title = dataModel.mainToolBarTitle.value
 
             //recyclerView.layoutManager = LinearLayoutManager(context)
             //recyclerView.adapter = ScheduleRecyclerAdapter(fillList("element"))
 
             val schedule = ScheduleTwoWeek()
-            if (scheduleDataMap.isEmpty()){
+            if (scheduleDataMap.isEmpty()) {
                 scheduleDataMap = schedule.createScheduleTwoWeek()
             }
 
@@ -71,14 +74,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         return binding.root
     }
 
-    private fun fillList(element : String): List<String> {
+    private fun fillList(element: String): List<String> {
         val data = mutableListOf<String>()
         (0..30).forEach { i -> data.add("$i $element") }
         return data
     }
 
     //когда группа не выбрана отобразить соответствующее окно
-    private fun studyGroupNotSelected(){
+    private fun studyGroupNotSelected() {
         //обнуляем что есть
         binding.llScheduleContentContainer.removeAllViews()
         dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
@@ -88,17 +91,24 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         //recyclerView.layoutManager = LinearLayoutManager(context)
         //recyclerView.adapter = ScheduleRecyclerAdapter(listOf())
 
-        val studyGroupNotChoosed = layoutInflater.inflate(R.layout.item_study_group_not_selected, binding.llScheduleContentContainer, false)
+        val studyGroupNotChoosed = layoutInflater.inflate(
+            R.layout.item_study_group_not_selected,
+            binding.llScheduleContentContainer,
+            false
+        )
         studyGroupNotChoosed.apply {
             val b_selectStudyGroup = this.findViewById<Button>(R.id.b_selectStudyGroup)
             b_selectStudyGroup.setOnClickListener {
-                changeContentFragmentByScheduleFragment(R.id.l_mainActivityFragment, ScheduleChooseGroupFragment.newInstance())
+                changeContentFragmentByScheduleFragment(
+                    R.id.l_mainActivityFragment,
+                    ScheduleChooseGroupFragment.newInstance()
+                )
             }
         }
         binding.llScheduleContentContainer.addView(studyGroupNotChoosed)
     }
 
-    private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment:Fragment){
+    private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment: Fragment) {
         parentFragmentManager
             .beginTransaction()
             .addToBackStack(null)
@@ -124,7 +134,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         2 to CertainClassStartEndTime(2, "12:10", "13:35"),
         3 to CertainClassStartEndTime(3, "14:15", "15:40"),
         4 to CertainClassStartEndTime(4, "15:50", "17:15"),
-        )
+        6 to CertainClassStartEndTime(5, "17:25", "18:50"),
+        7 to CertainClassStartEndTime(6, "19:00", "20:25"),
+    )
 
     val classNameList = listOf<String>(
         "Технологические машины и оборудование",
@@ -132,7 +144,8 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         "Математическая логика и теория алгоритмов",
         "Практическая подготовка по физической культуре и занятия спортом (элективные курсы)",
         "Иностранный язык",
-        "Методы научных исследований")
+        "Методы научных исследований"
+    )
 
     val classTypeMap = mapOf<Int, String>(
         0 to "лекции",
@@ -146,14 +159,17 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     //Реализация т.н. контроллера для того, чтобы генерировать виджеты расписания
     // в зависимости от этого самого расписания
     //=============================(2)===================================
-    private fun createSchedule(scheduleMap: MutableMap<Int, MutableList<CertainClassInScheduleDay>>){
+    private fun createSchedule(scheduleMap: MutableMap<Int, MutableList<CertainClassInScheduleDay>>) {
         var n = 0
 
-        for (day in 0.. 13) {
+        for (day in 0..13) {
             //название нового дна
-
             val daysList = mutableListOf<View>()
-            val newDay = layoutInflater.inflate(R.layout.item_certain_day, binding.llScheduleContentContainer, false)
+            val newDay = layoutInflater.inflate(
+                R.layout.item_certain_day,
+                binding.llScheduleContentContainer,
+                false
+            )
             newDay.apply {
                 this.id = day
                 /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
@@ -164,41 +180,88 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
             /*binding.scheduleDayContentContainer.findViewById<ViewGroup>(R.id)*/
             val dayContainer = newDay.findViewById<LinearLayout>(R.id.ll_certainDayItemContainer)
-            n=0
-            for (key in 0..(scheduleMap[day]?.size ?: 5) -1) {
-                val view = layoutInflater.inflate(
-                    R.layout.item_certain_class,
-                    dayContainer,
-                    false
-                )
-                view.apply {
-                    this.id = day*100 + n
+            n = 0
+            val todayClassCount = scheduleMap[day]?.isEmpty()
+            /*?.size ?: 0*/
+            if (todayClassCount == true) {
+                //if (todayClassCount == 0) {
+                    val view = layoutInflater.inflate(
+                        R.layout.item_today_is_a_day_off,
+                        dayContainer,
+                        false
+                    )
+                    dayContainer.addView(view)
+                //}
+            } else {
+                for (key in 0 until (scheduleMap[day]?.size ?: 0)) {
+                    val view = layoutInflater.inflate(
+                        R.layout.item_certain_class,
+                        dayContainer,
+                        false
+                    )
+                    view.apply {
+                        this.id = day * 100 + n
 
-                    //далее идут варианты как можно вывести на экран данные
-                    //вывести реальное значение, после комментария айдишник
-                    //здесь используется устаревший findViewById, по факту так делать уже нельзя,
-                    // нужно каким-то образом все равно мигрировать на binding, как я понял
+                        //далее идут варианты как можно вывести на экран данные
+                        //вывести реальное значение, после комментария айдишник
+                        //здесь используется устаревший findViewById, по факту так делать уже нельзя,
+                        // нужно каким-то образом все равно мигрировать на binding, как я понял
 
-                    val tv_class_number = this.findViewById<TextView>(R.id.tv_class_number)
-                    tv_class_number.text = (scheduleMap[day]!![key].idClassNumber?.plus(1)).toString()//n.toString()
+                        val tv_class_number = this.findViewById<TextView>(R.id.tv_class_number)
+                        tv_class_number.text =
+                            (scheduleMap[day]!![key].idClassNumber?.plus(1)).toString()//n.toString()
 
-                    val tv_class_name = this.findViewById<TextView>(R.id.tv_class_name)
-                    tv_class_name.text = classNameList[scheduleMap[day]!![key].idClassName]//scheduleMap[day]?.get(key)?.idClassName.toString()
+                        val tv_class_name = this.findViewById<TextView>(R.id.tv_class_name)
+                        tv_class_name.text =
+                            classNameList[scheduleMap[day]!![key].idClassName]//scheduleMap[day]?.get(key)?.idClassName.toString()
 
-                    val tv_class_start_time = this.findViewById<TextView>(R.id.tv_class_start_time)
-                    tv_class_start_time.text = classNumberMap[scheduleMap[day]!![key].idClassNumber!!]!!.getStartClassTime()
+                        val tv_class_start_time =
+                            this.findViewById<TextView>(R.id.tv_class_start_time)
+                        tv_class_start_time.text =
+                            classNumberMap[scheduleMap[day]!![key].idClassNumber!!]!!.getStartClassTime()
 
-                    val tv_class_type_name = this.findViewById<TextView>(R.id.tv_class_type_name)
-                    tv_class_type_name.text =  classTypeMap[scheduleMap[day]!![key].idClassType]
+                        val tv_class_type_name =
+                            this.findViewById<TextView>(R.id.tv_class_type_name)
+                        tv_class_type_name.text = classTypeMap[scheduleMap[day]!![key].idClassType]
 
-                    val b_audience = this.findViewById<Button>(R.id.b_audience)
-                    b_audience.text = audienceList[scheduleMap[day]!![key].idClassAudience]
-                    b_audience.setOnClickListener {
-                        binding.llScheduleContentContainer.removeView(this)
+                        if (tv_class_type_name.text.toString() == "практические"){
+                            tv_class_type_name
+                                .setTextColor(AppCompatResources.getColorStateList(
+                                    context,
+                                    R.color.scheduleClassTypePracticeText))
+                        }
+
+                        if (tv_class_type_name.text.toString() == "лабораторные"){
+                            tv_class_type_name
+                                .setTextColor(AppCompatResources.getColorStateList(
+                                    context,
+                                    R.color.scheduleClassTypeLaboratoryWorkText))
+                        }
+                        //hint = "@color/colorPrimary"
+                        //when (tv_class_type_name.getTe){
+                            /*"лекции"-> tv_class_type_name
+                                    .setTextColor(AppCompatResources.getColorStateList(
+                                        context,
+                                        R.color.m3_sys_light_primary))*/
+                            /*"практические" -> tv_class_type_name
+                                .setTextColor(AppCompatResources.getColorStateList(
+                                    context,
+                                    R.color.material_dynamic_primary40))
+                            "лабораторные"-> tv_class_type_name
+                                .setTextColor(AppCompatResources.getColorStateList(
+                                    context,
+                                    R.color.design_default_color_error))*/
+                        //}
+
+                        val b_audience = this.findViewById<Button>(R.id.b_audience)
+                        b_audience.text = audienceList[scheduleMap[day]!![key].idClassAudience]
+                        b_audience.setOnClickListener {
+                            binding.llScheduleContentContainer.removeView(this)
+                        }
                     }
+                    dayContainer.addView(view)
+                    n += 1
                 }
-                dayContainer.addView(view)
-                n += 1
             }
         }
     }
