@@ -26,24 +26,27 @@
             android:src="@drawable/ic_settings_gear_wheel" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar">
 
-        <LinearLayout
-            android:id="@+id/ll_scheduleContentContainer"
+
+        <ScrollView
+            android:id="@+id/scrollViewForSchedule"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
+            >
 
-            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/ll_scheduleContentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
 
     <!--<LinearLayout
         android:id="@+id/bottomNavContainer"
