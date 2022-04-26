@@ -33,6 +33,13 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     ): View? {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
 
+        binding.ibToolbarNotifications.setOnClickListener {
+            changeContentFragmentByScheduleFragment(
+                R.id.l_mainActivityFragment,
+                NotificationsFragment.newInstance()
+            )
+        }
+
         binding.ibToolbarSettings.setOnClickListener {
             dataModel.studyGroup.value = null
             studyGroupNotSelected()
