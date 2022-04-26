@@ -9,7 +9,7 @@ class CertainClassInScheduleDay(
     val idClassNumber: Int?,
     val idClassAudience: Int,
     val idClassType: Int,
-    val idClassName: Int
+    val idClassName: String
 ) {
 
 

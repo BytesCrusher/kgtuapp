@@ -102,6 +102,8 @@
     <string name="inst_tech">Морских технологий, энергетики и строительства</string>
     <string name="inst_econom">Отраслевой экономики и управления</string>
     <string name="b_today_is_a_day_off_text">Today is a day off!</string>
+    <string name="tv_schedule_choose_group_all_groups">Все группы</string>
+    <string name="tv_schedule_choose_group_groups_found">Найденные группы</string>
 
     <!--Шрифты проекта-->
     <!--<string name="m3_sys_typescale_body_large_font" translatable="false">sans-serif</string>

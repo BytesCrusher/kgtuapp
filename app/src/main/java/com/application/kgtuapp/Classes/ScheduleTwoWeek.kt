@@ -9,15 +9,6 @@ class ScheduleTwoWeek() {
     //где CertainClassInScheduleDay - конкретная пара, которая хранит в себе всю инфу
     //данные будут выгружаться из таблиц БД, на данный момент рандомная генерация из заглушек
 
-    //сопоставление номера пары в расписании и времени ее начала/окончания
-    private val classNumberMap = mapOf<Int, CertainClassStartEndTime>(
-        0 to CertainClassStartEndTime(0, "9:00", "10:25"),
-        1 to CertainClassStartEndTime(1, "10:35", "12:00"),
-        2 to CertainClassStartEndTime(2, "12:10", "13:35"),
-        3 to CertainClassStartEndTime(3, "14:15", "15:40"),
-        4 to CertainClassStartEndTime(4, "15:50", "17:15"),
-    )
-
     val classNameList = listOf<String>(
         "Технологические машины и оборудование",
         "Операционные системы",
@@ -49,7 +40,7 @@ class ScheduleTwoWeek() {
     private fun addDataToScheduleDay(idScheduleDay: Int): MutableList<CertainClassInScheduleDay> {
         val listOfClasses = mutableListOf<CertainClassInScheduleDay>()
 
-        val classCount =  Random.nextInt(0,6)//количество пар, которое будет сгенерено
+        val classCount =  Random.nextInt(0,7)//количество пар, которое будет сгенерено
 
         if (classCount != 0){
             for (i in (0.. classCount)){
@@ -57,7 +48,7 @@ class ScheduleTwoWeek() {
                 val classAudienceId = Random.nextInt(0, audienceList.size)//audienceList.indexOf(audienceList[Random.nextInt(0,audienceList.size-1)])
                 val classTypeId = Random.nextInt(0,classTypeMap.size)
 
-                val className = Random.nextInt(0, classNameList.size)//[Random.nextInt(0, classNameList.size-1)]
+                val className = classNameList[Random.nextInt(0, classNameList.size)]//[Random.nextInt(0, classNameList.size-1)]
 
                 val newClass = CertainClassInScheduleDay(i, idScheduleDay, classNumberId, classAudienceId, classTypeId, className)
                 listOfClasses.add(newClass)

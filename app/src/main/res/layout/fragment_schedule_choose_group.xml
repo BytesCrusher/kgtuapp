@@ -21,6 +21,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_groupSearch"
             style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+            android:textAppearance="@style/BodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ti_searchgrouptext"
@@ -35,7 +36,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_selectGroupAllGroups"
-            style="@style/TextAppearance.Material3.HeadlineMedium"
+            style="@style/TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

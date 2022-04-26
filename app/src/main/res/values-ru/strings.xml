@@ -91,4 +91,6 @@
     <string name="inst_tech">Морских технологий, энергетики и строительства</string>
     <string name="inst_econom">Отраслевой экономики и управления</string>
     <string name="b_today_is_a_day_off_text">Сегодня отдыхаем!</string>
+    <string name="tv_schedule_choose_group_all_groups">Все группы</string>
+    <string name="tv_schedule_choose_group_groups_found">Найденные группы</string>
 </resources>
