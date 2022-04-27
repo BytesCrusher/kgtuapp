@@ -84,6 +84,7 @@
     <color name="scheduleClassTypeLectureText">#B08D0A</color>
     <color name="scheduleClassTypePracticeText">#006399</color>
     <color name="scheduleClassTypeLaboratoryWorkText">#BA1B1B</color>
+    <color name="scheduleClassTypeExamen">#9B51E0</color>
 
     <color name="scheduleCertainDayTitleText">#1A1C1E</color>
     

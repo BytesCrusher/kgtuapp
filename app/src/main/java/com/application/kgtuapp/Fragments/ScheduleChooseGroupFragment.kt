@@ -1,5 +1,6 @@
 package com.application.kgtuapp.Fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,15 +10,24 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentScheduleChooseGroupBinding
 import com.google.android.material.chip.Chip
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.*
 
 class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_group) {
     private lateinit var binding: FragmentScheduleChooseGroupBinding
     private val dataModel : DataModel by activityViewModels()
+
+    //доступ к файлу Preferences
+    /*val sharedPrefs =
+        requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)*/
+    private val sharedPrefs by lazy{
+        requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}
 
     val groupList = listOf<String>("18-вт", "20-ап", "20-мс", "20-вт", "20-кс", "19-иэ", "19-ап", "19-вт", "21-ПБм")
 
@@ -26,7 +36,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentScheduleChooseGroupBinding.inflate(layoutInflater, container, false)
-        /*scheduleChooseGroupChipGroup*/
+
 
         //Поисковик по группам
         binding.etGroupSearch.addTextChangedListener {
@@ -63,7 +73,8 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                         this.text = groupList[i].uppercase(Locale.getDefault())
                         /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
                         this.setOnClickListener{
-                            dataModel.studyGroup.value = groupList[i].uppercase(Locale.getDefault())
+                            it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                            saveStudyGroupToPreferences(i)
                             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
                             changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
                         }
@@ -92,6 +103,24 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         return binding.root
     }
 
+    private fun saveStudyGroupToPreferences(index: Int){
+        dataModel.studyGroup.value = groupList[index].uppercase(Locale.getDefault())
+        /*val sharedPrefs =
+            requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)*/
+        lifecycleScope.launch(Dispatchers.IO) {
+            sharedPrefs.edit()
+                .putString(USER_STUDY_GROUP, dataModel.studyGroup.value.toString())
+                .apply()
+        }
+    }
+
+    //в этом фрагменте не используется
+    private fun checkStudyGroupFromPreferences(){
+        lifecycleScope.launch(Dispatchers.IO) {
+            sharedPrefs.getString(USER_STUDY_GROUP, null)
+        }
+    }
+
     private fun makeChips(): Int{
         var viewCount = 0
         for (i in 0..groupList.size-1){
@@ -105,7 +134,8 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                 //chip_element.text = groupList[i].uppercase(Locale.getDefault())
                 /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
                 this.setOnClickListener{
-                    dataModel.studyGroup.value = groupList[i].uppercase(Locale.getDefault())
+                    it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                    saveStudyGroupToPreferences(i)
                     dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
                     changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
                 }
@@ -118,6 +148,8 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
     companion object {
         @JvmStatic
         fun newInstance() = ScheduleChooseGroupFragment()
+        private const val SHARED_PREFS_NAME = "user_data_shared_prefs"
+        private const val USER_STUDY_GROUP = "user study group"
     }
 
     private fun changeContentFragmentByChooseGroupFragment(idContainer: Int, newFragment:Fragment){

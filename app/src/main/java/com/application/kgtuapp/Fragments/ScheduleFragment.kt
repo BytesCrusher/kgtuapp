@@ -1,6 +1,7 @@
 package com.application.kgtuapp.Fragments
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +10,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.application.kgtuapp.Adapters.ScheduleRecyclerAdapter
@@ -20,10 +24,15 @@ import com.application.kgtuapp.Classes.ScheduleTwoWeek
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
     private val dataModel: DataModel by activityViewModels()
+
+    private val sharedPrefs by lazy{
+        requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}
 
     var scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 
@@ -51,6 +60,12 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         *//*recyclerView.adapter = ScheduleRecyclerAdapter(fillList("element"), R.id.tv_dayInfo, R.layout.item_certain_day)*//*
         recyclerView.adapter = ScheduleRecyclerAdapter(listOf(), R.id.b_selectStudyGroup, R.layout.item_study_group_not_selected, 5)*/
 
+        /*val a = checkStudyGroupFromPreferences()
+        dataModel.studyGroup.value = a*/
+
+        //я не знаю почему это работает, в интернете пишут что надо указывать:
+        // lifecycleScope.launch(Dispatchers.IO) {
+            dataModel.studyGroup.value = sharedPrefs.getString(USER_STUDY_GROUP, null)
 
         if (dataModel.studyGroup.value != null) {
             dataModel.mainToolBarTitle.value =
@@ -79,6 +94,17 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             studyGroupNotSelected()
         }
         return binding.root
+    }
+
+    //метод должен быть какой-то такой, но чет не получается
+    // его реализовать в отдельном потоке
+    private fun checkStudyGroupFromPreferences(): String?{
+        var userStudyGroup: String? = null
+        lifecycleScope.launch(Dispatchers.IO) {
+            userStudyGroup = sharedPrefs.getString(USER_STUDY_GROUP, null)
+
+        }
+        return userStudyGroup
     }
 
     private fun fillList(element: String): List<String> {
@@ -126,6 +152,8 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     companion object {
         @JvmStatic
         fun newInstance() = ScheduleFragment()
+        private const val SHARED_PREFS_NAME = "user_data_shared_prefs"
+        private const val USER_STUDY_GROUP = "user study group"
     }
 
     //Здесь пока в костыльном варианте идет генерация дня расписания так, как
@@ -157,7 +185,8 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     val classTypeMap = mapOf<Int, String>(
         0 to "лекции",
         1 to "практические",
-        2 to "лабораторные"
+        2 to "лабораторные",
+        3 to "экзамен"
     )
 
     val audienceList = listOf<String>("261.6", "261.17", "382", "266", "256", "230")
@@ -241,6 +270,10 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                                 .setTextColor(AppCompatResources.getColorStateList(
                                     context,
                                     R.color.scheduleClassTypeLaboratoryWorkText))
+                            "экзамен" -> tv_class_type_name
+                                .setTextColor(AppCompatResources.getColorStateList(
+                                    context,
+                                    R.color.scheduleClassTypeExamen))
                         }
 
                         val b_audience = this.findViewById<Button>(R.id.b_audience)

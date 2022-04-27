@@ -15,12 +15,14 @@ class ScheduleTwoWeek() {
         "Математическая логика и теория алгоритмов",
         "Практическая подготовка по физической культуре и занятия спортом (элективные курсы)",
         "Иностранный язык",
-        "Методы научных исследований")
+        "Методы научных исследований"
+    )
 
     val classTypeMap = mapOf<Int, String>(
         0 to "лекции",
         1 to "практические",
-        2 to "лабораторные"
+        2 to "лабораторные",
+        3 to "экзамен"
     )
 
     val audienceList = listOf<String>("261.6", "261.17", "382", "266", "256", "230")
@@ -29,7 +31,7 @@ class ScheduleTwoWeek() {
 
     //заполнить информацией 2-х недельное расписание
     fun createScheduleTwoWeek(): MutableMap<Int, MutableList<CertainClassInScheduleDay>> {
-        for (i in 0.. 13){
+        for (i in 0..13) {
             val scheduleDay = addDataToScheduleDay(i)
             scheduleMap[i] = scheduleDay
         }
@@ -40,17 +42,31 @@ class ScheduleTwoWeek() {
     private fun addDataToScheduleDay(idScheduleDay: Int): MutableList<CertainClassInScheduleDay> {
         val listOfClasses = mutableListOf<CertainClassInScheduleDay>()
 
-        val classCount =  Random.nextInt(0,7)//количество пар, которое будет сгенерено
+        val classCount = Random.nextInt(0, 7)//количество пар, которое будет сгенерено
 
-        if (classCount != 0){
-            for (i in (0.. classCount)){
-                val classNumberId = i//classNumberMap[Random.nextInt(0,classNumberMap.size-1)]?.getId()
-                val classAudienceId = Random.nextInt(0, audienceList.size)//audienceList.indexOf(audienceList[Random.nextInt(0,audienceList.size-1)])
-                val classTypeId = Random.nextInt(0,classTypeMap.size)
+        if (classCount != 0) {
+            for (i in (0..classCount)) {
+                val classNumberId =
+                    i//classNumberMap[Random.nextInt(0,classNumberMap.size-1)]?.getId()
+                val classAudienceId = Random.nextInt(
+                    0,
+                    audienceList.size
+                )//audienceList.indexOf(audienceList[Random.nextInt(0,audienceList.size-1)])
+                val classTypeId = Random.nextInt(0, classTypeMap.size)
 
-                val className = classNameList[Random.nextInt(0, classNameList.size)]//[Random.nextInt(0, classNameList.size-1)]
+                val className = classNameList[Random.nextInt(
+                    0,
+                    classNameList.size
+                )]//[Random.nextInt(0, classNameList.size-1)]
 
-                val newClass = CertainClassInScheduleDay(i, idScheduleDay, classNumberId, classAudienceId, classTypeId, className)
+                val newClass = CertainClassInScheduleDay(
+                    i,
+                    idScheduleDay,
+                    classNumberId,
+                    classAudienceId,
+                    classTypeId,
+                    className
+                )
                 listOfClasses.add(newClass)
             }
         }
