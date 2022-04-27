@@ -1,5 +1,6 @@
 package com.application.kgtuapp
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -15,12 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     private val dataModel: DataModel by viewModels()
 
-    /*var studyGroup: String? = null*/
-    //Ветка рефакторинга
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /*APP_ACTIVITY = this*/
+        //setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         dataModel.isUserAutorized.value = false
 

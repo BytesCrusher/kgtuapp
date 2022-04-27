@@ -37,6 +37,12 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
     ): View? {
         binding = FragmentScheduleChooseGroupBinding.inflate(layoutInflater, container, false)
 
+        binding.ibToolbarGoBack.setOnClickListener {
+            changeContentFragmentByChooseGroupFragment(
+                R.id.l_mainActivityFragment,
+                ScheduleFragment.newInstance()
+            )
+        }
 
         //Поисковик по группам
         binding.etGroupSearch.addTextChangedListener {

@@ -7,6 +7,30 @@
     tools:context=".Fragments.ScheduleChooseGroupFragment"
     android:orientation="vertical">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mainToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#14006399"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ib_toolbarGoBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_toolbar_go_back_arrow" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/main_menu_button_schedule" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_searchGroup"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

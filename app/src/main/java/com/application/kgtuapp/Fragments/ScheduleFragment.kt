@@ -26,6 +26,7 @@ import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
@@ -51,6 +52,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         binding.ibToolbarSettings.setOnClickListener {
             dataModel.studyGroup.value = null
+            saveStudyGroupToPreferences(null)
             studyGroupNotSelected()
         }
         /*dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)*/
@@ -139,6 +141,15 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             }
         }
         /*binding.llScheduleContentContainer.addView(studyGroupNotChoosed)*/
+    }
+
+    private fun saveStudyGroupToPreferences(data: String?){
+        dataModel.studyGroup.value = data
+        lifecycleScope.launch(Dispatchers.IO) {
+            sharedPrefs.edit()
+                .putString(USER_STUDY_GROUP, data)
+                .apply()
+        }
     }
 
     private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment: Fragment) {
