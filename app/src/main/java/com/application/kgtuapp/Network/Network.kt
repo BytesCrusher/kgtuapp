@@ -15,8 +15,6 @@ object Network {
             //.addEncodedQueryParameter("apikey", "fff")
             .build()*/
 
-        //var json: String = "6"
-        //var txt: String = ""
         val request: Request = Request.Builder()
             .url(URL)
             .build()
