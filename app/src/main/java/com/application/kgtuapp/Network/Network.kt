@@ -8,7 +8,7 @@ object Network {
     val okHttpClient: OkHttpClient = OkHttpClient()
 
     fun getData():Call{
-        val URL = "https://api.icndb.com/jokes/random"
+        val URL = "https://api.kstuapp.ru/structure/"
         /*val URL = HttpUrl.Builder()
             .scheme("https")
             .host("api.icndb.com")

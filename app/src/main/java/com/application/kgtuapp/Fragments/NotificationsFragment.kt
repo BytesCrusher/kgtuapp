@@ -24,7 +24,7 @@ import java.io.IOException
 class NotificationsFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsBinding
 
-
+    var data = "st"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +45,9 @@ class NotificationsFragment : Fragment() {
         """//.trimIndent()
 
         loadRandomFact()
+
+        binding.tvApkVersion.text = data
+
         return binding.root
     }
 
@@ -70,7 +73,9 @@ class NotificationsFragment : Fragment() {
                 //binding.tvApkVersion.text = Html.fromHtml(txt)
             }
         })*/
-        binding.tvApkVersion.text = "json"
+        //binding.tvApkVersion.text = "json"
+
+
 
         Thread {
             try {
@@ -78,7 +83,11 @@ class NotificationsFragment : Fragment() {
 
                 val responseString = response.body?.string().orEmpty()
 
+                data = responseString
+
+                //binding.tvApkVersion.text = data
                 val dataList = parseResponse(responseString)
+
 
                 dataList.forEach {
                     binding.tvApkVersion.text = "${binding.tvApkVersion.text} + $it"
@@ -99,6 +108,7 @@ class NotificationsFragment : Fragment() {
             //callback(emptyList())
         }.start()
 
+        //binding.tvApkVersion.text = data
     }
     //{
     //   "type":"success",
@@ -110,13 +120,36 @@ class NotificationsFragment : Fragment() {
     //   }
     //}
 
-    private fun parseResponse(responseBodyString: String): MutableList<String>{
+    private fun parseResponse(responseBodyString: String): List<String>{
         try {
             val jsonObject = JSONObject(responseBodyString)
 
-            val list = mutableListOf<String>()
-            val type = jsonObject.getString("type")
-            list.add(type)
+            //val list = mutableListOf<String>()
+
+            //val type = jsonObject.getString("type")
+            //list.add(type)
+
+            //val movieArray = jsonObject.toJSONArray()
+            val institutesDataList = mutableListOf<String>()
+
+            for (i in 0 until jsonObject.length()){
+                jsonObject
+            }
+
+            //Log.d("Server", "jsonObject.length = ${jsonObject.length()}")
+            //println(jsonObject.length())
+
+
+                //.map {   }
+            /*.map {
+                    movieJsonObject ->
+                val title = movieJsonObject.getString("Title")
+                val year = movieJsonObject.getString("Year")
+                val id = movieJsonObject.getString("imdbID")
+
+                //RemoteMovie(id = id, title = title, year = year)
+            }*/
+            //return movies
 
             //получить список JSON объектов
             //это из другой оперы
@@ -132,12 +165,14 @@ class NotificationsFragment : Fragment() {
                 }
             return movies*/
 
-            return list
+            //return list
+            return institutesDataList
+            //return emptyList()
 
         } catch (e: JSONException){
             val list = mutableListOf<String>()
             Log.e("Server", "parse response error = ${e.message}", e)
-            return list
+            return emptyList()
         }
 
     }
