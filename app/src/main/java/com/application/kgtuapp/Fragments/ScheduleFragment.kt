@@ -14,6 +14,7 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,7 @@ import com.application.kgtuapp.Classes.CertainClassStartEndTime
 import com.application.kgtuapp.Classes.ScheduleTwoWeek
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
+import com.application.kgtuapp.ViewModels.ScheduleListDataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,6 +33,8 @@ import java.util.*
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
     private val dataModel: DataModel by activityViewModels()
+
+    private val scheduleViewModel: ScheduleListDataModel by viewModels()
 
     private val sharedPrefs by lazy{
         requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}
@@ -42,6 +46,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
+
+        val studyGroupId = checkStudyGroupIdFromPreferences()
+        //scheduleViewModel.search(studyGroupId.toString())
 
         binding.ibToolbarNotifications.setOnClickListener {
             changeContentFragmentByScheduleFragment(
@@ -100,13 +107,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
     //метод должен быть какой-то такой, но чет не получается
     // его реализовать в отдельном потоке
-    private fun checkStudyGroupFromPreferences(): String?{
+    private fun checkStudyGroupIdFromPreferences(): Int{
         var userStudyGroup: String? = null
+        var userStudyGroupID: Int = 0
         lifecycleScope.launch(Dispatchers.IO) {
             userStudyGroup = sharedPrefs.getString(USER_STUDY_GROUP, null)
-
+            userStudyGroupID = sharedPrefs.getInt(USER_STUDY_GROUP_ID, 0)
         }
-        return userStudyGroup
+        return userStudyGroupID
     }
 
     private fun fillList(element: String): List<String> {
@@ -197,6 +205,23 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         "Методы научных исследований"
     )*/
 
+    val daysCalendarList = listOf<String>(
+        "Пятница, 29 апреля",
+        "Суббота, 30 апреля",
+        "Воскресенье, 1 мая",
+        "Понедельник, 2 мая",
+        "Вторник, 3 мая",
+        "Среда, 4 мая",
+        "Четверг, 5 мая",
+        "Пятница, 6 мая",
+        "Суббота, 7 мая",
+        "Воскресенье, 8 мая",
+        "Понедельник, 9 мая",
+        "Вторник, 10 мая",
+        "Среда, 11 мая",
+        "Четверг, 12 мая"
+    )
+
     val classTypeMap = mapOf<Int, String>(
         0 to "лекции",
         1 to "практические",
@@ -213,6 +238,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private fun createSchedule(scheduleMap: MutableMap<Int, MutableList<CertainClassInScheduleDay>>) {
         var n = 0
 
+
         for (day in 0..13) {
             //название нового дна
             val daysList = mutableListOf<View>()
@@ -223,6 +249,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             )
             newDay.apply {
                 this.id = day
+                val textView = this.findViewById<TextView>(R.id.tv_dayInfo)
+                textView.text = daysCalendarList[day]
+
                 /*val tv_dayInfo = this.findViewById<TextView>(R.id.tv_dayInfo)
                 tv_dayInfo.text = ""*/
             }
@@ -293,9 +322,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
                         val b_audience = this.findViewById<Button>(R.id.b_audience)
                         b_audience.text = audienceList[scheduleMap[day]!![key].idClassAudience]
-                        b_audience.setOnClickListener {
+                        /*b_audience.setOnClickListener {
                             dayContainer.removeView(this)
-                        }
+                        }*/
                     }
                     dayContainer.addView(view)
                     n += 1
