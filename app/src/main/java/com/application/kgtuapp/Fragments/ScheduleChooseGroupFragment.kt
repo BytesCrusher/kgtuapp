@@ -84,27 +84,66 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
             }
 
             var viewCount = 0
-            /*val viewCount = makeChips()*/
-            for (i in 0..groupList.size-1){
-                if (fullString in groupList[i]){
-                    viewCount+=1
-                    val chip = Chip(context)//Chip(context)//layoutInflater.inflate(R.layout.item_chip_choose_group, binding.scheduleChooseGroupChipGroup, false)
-                    chip.apply {
-                        //val chip_element = this.findViewById<Chip>(R.id.chip_studyGroup)
-                        this.id = i
-                        this.text = groupList[i].uppercase(Locale.getDefault())
-                        /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
-                        this.setOnClickListener{
-                            it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
-                            saveStudyGroupToPreferences("да")
-                            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                            changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+            viewModel.institutesDataListLiveData.value?.forEach {
+                //заголовок института
+                val newDay = layoutInflater.inflate(
+                    R.layout.item_institute_name,
+                    binding.scheduleChooseGroupChipGroup,
+                    false
+                )
+                newDay.apply {
+                    val instituteTitle = this.findViewById<TextView>(R.id.tv_instituteName)
+                    instituteTitle.text = it.instituteName
+                    if (viewCount>0){
+                        instituteTitle.marginTop.plus(20)
+                    }
+                }
+                binding.scheduleChooseGroupChipGroup.addView(newDay)
+
+                it.groups.forEach {
+                    val studyGroupName = it.name
+                    if (fullString in studyGroupName){
+                        viewCount+=1
+                        if (it.subGroups.isEmpty()){
+                            viewCount+=1
+                            val chip = Chip(context)
+                            chip.apply {
+                                val chipId = it.id
+                                this.id = chipId
+                                this.text = studyGroupName//groupList[i].uppercase(Locale.getDefault())
+                                this.setOnClickListener{
+                                    //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                                    saveStudyGroupToPreferences(studyGroupName, chipId)
+                                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+                                    changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                                }
+                            }
+                            binding.scheduleChooseGroupChipGroup.addView(chip)
+                        } else {
+                            it.subGroups.forEach {
+                                viewCount+=1
+                                val chip = Chip(context)
+                                chip.apply {
+                                    val studySubGroupName = it.subGroupName
+                                    val chipId = it.id
+                                    this.id = chipId
+                                    this.text = studySubGroupName
+                                    this.setOnClickListener{
+                                        //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                                        saveStudyGroupToPreferences(studySubGroupName, chipId)
+                                        dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+                                        changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                                    }
+                                }
+                                binding.scheduleChooseGroupChipGroup.addView(chip)
+                            }
                         }
                     }
-                    binding.scheduleChooseGroupChipGroup.addView(chip)
                 }
             }
+
             if (viewCount==0){
+                binding.scheduleChooseGroupChipGroup.removeAllViews()
                 binding.tvSelectGroupAllGroups.visibility = INVISIBLE
                 val studyGroupNotFound =
                     layoutInflater.inflate(R.layout.item_no_such_group_found,
@@ -125,11 +164,14 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         return binding.root
     }
 
-    private fun saveStudyGroupToPreferences(studyGroupName: String){
+    private fun saveStudyGroupToPreferences(studyGroupName: String, studyGroupId: Int){
         dataModel.studyGroup.value = studyGroupName
         lifecycleScope.launch(Dispatchers.IO) {
             sharedPrefs.edit()
                 .putString(USER_STUDY_GROUP, studyGroupName)
+                .apply()
+            sharedPrefs.edit()
+                .putInt(USER_STUDY_GROUP_ID, studyGroupId)
                 .apply()
         }
     }
@@ -162,42 +204,43 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
             binding.scheduleChooseGroupChipGroup.addView(newDay)
 
             it.groups.forEach {
-                viewCount+=1
-                val chip = Chip(context)
-                chip.apply {
-                    val studyGroupName = it.name
-                    this.id = viewCount
-                    this.text = studyGroupName//groupList[i].uppercase(Locale.getDefault())
-                    this.setOnClickListener{
-                        //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
-                        saveStudyGroupToPreferences(studyGroupName)
-                        dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                        changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                if (it.subGroups.isEmpty()){
+                    viewCount+=1
+                    val chip = Chip(context)
+                    chip.apply {
+                        val studyGroupName = it.name
+                        val chipId = it.id
+                        this.id = chipId
+                        this.text = studyGroupName//groupList[i].uppercase(Locale.getDefault())
+                        this.setOnClickListener{
+                            //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                            saveStudyGroupToPreferences(studyGroupName, chipId)
+                            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+                            changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                        }
+                    }
+                    binding.scheduleChooseGroupChipGroup.addView(chip)
+                } else {
+                    it.subGroups.forEach {
+                        viewCount+=1
+                        val chip = Chip(context)
+                        chip.apply {
+                            val studySubGroupName = it.subGroupName
+                            val shipId = it.id
+                            this.id = shipId
+                            this.text = studySubGroupName
+                            this.setOnClickListener{
+                                //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                                saveStudyGroupToPreferences(studySubGroupName, shipId)
+                                dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+                                changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                            }
+                        }
+                        binding.scheduleChooseGroupChipGroup.addView(chip)
                     }
                 }
-                binding.scheduleChooseGroupChipGroup.addView(chip)
             }
         }
-
-        /*for (i in 0..groupList.size-1){
-            viewCount+=1
-            //val chipStyle = R.style.Widget_Material3_Chip_Suggestion_Elevated
-            val chip = Chip(context)//Chip(context)//layoutInflater.inflate(R.layout.item_chip_choose_group, binding.scheduleChooseGroupChipGroup, false)
-            chip.apply {
-                //val chip_element = this.findViewById<Chip>(R.id.chip_studyGroup)
-                this.id = i
-                this.text = groupList[i].uppercase(Locale.getDefault())
-                //chip_element.text = groupList[i].uppercase(Locale.getDefault())
-                *//*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*//*
-                this.setOnClickListener{
-                    it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
-                    saveStudyGroupToPreferences(i)
-                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                    changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
-                }
-            }
-            binding.scheduleChooseGroupChipGroup.addView(chip)
-        }*/
         return viewCount
     }
 
@@ -206,6 +249,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         fun newInstance() = ScheduleChooseGroupFragment()
         private const val SHARED_PREFS_NAME = "user_data_shared_prefs"
         private const val USER_STUDY_GROUP = "user study group"
+        private const val USER_STUDY_GROUP_ID = "user study group id"
     }
 
     private fun changeContentFragmentByChooseGroupFragment(idContainer: Int, newFragment:Fragment){

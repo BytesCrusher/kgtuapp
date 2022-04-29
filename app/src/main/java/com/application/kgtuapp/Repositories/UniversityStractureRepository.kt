@@ -4,6 +4,7 @@ import android.util.Log
 import com.application.kgtuapp.Classes.CertainClassInScheduleDay
 import com.application.kgtuapp.DataClasses.RemoteInstitute
 import com.application.kgtuapp.DataClasses.RemoteStudyGroup
+import com.application.kgtuapp.DataClasses.RemoteStudySubGroup
 import com.application.kgtuapp.Network.Network
 import okhttp3.HttpUrl
 import okhttp3.Request
@@ -68,7 +69,24 @@ class UniversityStractureRepository {
                         val id = groupJsonObject.getInt("id")
                         val name = groupJsonObject.getString("name")
                         val institute = groupJsonObject.getInt("institute")
-                        RemoteStudyGroup(id = id, name = name, institute = institute)
+
+                        //Обрабатываем список подгрупп
+                        val subGroups = groupJsonObject.getJSONArray("subGroups")
+                        if (subGroups.length()==0){
+                            val subGroupsList = emptyList<RemoteStudySubGroup>()
+                            RemoteStudyGroup(id = id, name = name, institute = institute, subGroupsList)
+                        } else{
+                            val subGroupsList =  (0 until subGroups.length()).map { index -> subGroups.getJSONObject(index) }
+                                .map { subGroupJsonObject ->
+                                    val id = subGroupJsonObject.getInt("id")
+                                    val parentStudyGroupId = subGroupJsonObject.getInt("studyGroup")
+                                    val numberInGroup = subGroupJsonObject.getInt("numberInGroup")
+                                    val subGroupName = subGroupJsonObject.getString("name")
+                                    RemoteStudySubGroup(id = id, parentStudyGroupId = parentStudyGroupId,
+                                        numberInParentGroup = numberInGroup, subGroupName = subGroupName)
+                                }
+                            RemoteStudyGroup(id = id, name = name, institute = institute, subGroupsList)
+                        }
                     }
 
                     RemoteInstitute(id = id, instituteName = name, groups = groupsList)

@@ -14,7 +14,7 @@ import com.application.kgtuapp.databinding.FragmentNotificationsBinding
 class NotificationsFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsBinding
 
-    private val viewModel: InstitutesDataListModel by viewModels()
+    //private val viewModel: InstitutesDataListModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,12 +34,12 @@ class NotificationsFragment : Fragment() {
             Код версии приложения = ${BuildConfig.VERSION_CODE}
         """//.trimIndent()
 
-        viewModel.search()
+        /*viewModel.search()
         viewModel.institutesDataListLiveData.observe(viewLifecycleOwner){
             it.forEach {
                 binding.tvApkVersion.text = "${binding.tvApkVersion.text} + ${it.id} + ${it.instituteName} ||"
             }
-        }
+        }*/
         return binding.root
     }
 

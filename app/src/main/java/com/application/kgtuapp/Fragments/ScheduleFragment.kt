@@ -149,6 +149,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             sharedPrefs.edit()
                 .putString(USER_STUDY_GROUP, data)
                 .apply()
+            sharedPrefs.edit()
+                .putString(USER_STUDY_GROUP_ID, data)
+                .apply()
         }
     }
 
@@ -165,6 +168,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         fun newInstance() = ScheduleFragment()
         private const val SHARED_PREFS_NAME = "user_data_shared_prefs"
         private const val USER_STUDY_GROUP = "user study group"
+        private const val USER_STUDY_GROUP_ID = "user study group id"
     }
 
     //Здесь пока в костыльном варианте идет генерация дня расписания так, как

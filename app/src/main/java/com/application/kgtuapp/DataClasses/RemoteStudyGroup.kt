@@ -4,6 +4,6 @@ data class RemoteStudyGroup(
     val id: Int,
     val name: String,
     val institute: Int,
-    //val subGroups: List<RemoteStudySubGroup>
+    val subGroups: List<RemoteStudySubGroup>
 ) {
 }
