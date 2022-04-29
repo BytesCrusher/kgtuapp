@@ -8,11 +8,16 @@ import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.marginBottom
+import androidx.core.view.marginTop
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
+import com.application.kgtuapp.ViewModels.InstitutesDataListModel
 import com.application.kgtuapp.databinding.FragmentScheduleChooseGroupBinding
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +36,8 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
 
     val groupList = listOf<String>("18-вт", "20-ап", "20-мс", "20-вт", "20-кс", "19-иэ", "19-ап", "19-вт", "21-ПБм")
 
+    private val viewModel: InstitutesDataListModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +49,15 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                 R.id.l_mainActivityFragment,
                 ScheduleFragment.newInstance()
             )
+        }
+
+        //получение данных с API
+        viewModel.search()
+        viewModel.institutesDataListLiveData.observe(viewLifecycleOwner){
+            it.forEach {
+                makeChips()
+                //binding.tvApkVersion.text = "${binding.tvApkVersion.text} + ${it.id} + ${it.instituteName} ||"
+            }
         }
 
         //Поисковик по группам
@@ -80,7 +96,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                         /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
                         this.setOnClickListener{
                             it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
-                            saveStudyGroupToPreferences(i)
+                            saveStudyGroupToPreferences("да")
                             dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
                             changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
                         }
@@ -109,13 +125,11 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         return binding.root
     }
 
-    private fun saveStudyGroupToPreferences(index: Int){
-        dataModel.studyGroup.value = groupList[index].uppercase(Locale.getDefault())
-        /*val sharedPrefs =
-            requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)*/
+    private fun saveStudyGroupToPreferences(studyGroupName: String){
+        dataModel.studyGroup.value = studyGroupName
         lifecycleScope.launch(Dispatchers.IO) {
             sharedPrefs.edit()
-                .putString(USER_STUDY_GROUP, dataModel.studyGroup.value.toString())
+                .putString(USER_STUDY_GROUP, studyGroupName)
                 .apply()
         }
     }
@@ -128,8 +142,44 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
     }
 
     private fun makeChips(): Int{
+        binding.scheduleChooseGroupChipGroup.removeAllViews()
         var viewCount = 0
-        for (i in 0..groupList.size-1){
+
+        viewModel.institutesDataListLiveData.value?.forEach {
+            //заголовок института
+            val newDay = layoutInflater.inflate(
+                R.layout.item_institute_name,
+                binding.scheduleChooseGroupChipGroup,
+                false
+            )
+            newDay.apply {
+                val instituteTitle = this.findViewById<TextView>(R.id.tv_instituteName)
+                instituteTitle.text = it.instituteName
+                if (viewCount>0){
+                    instituteTitle.marginTop.plus(20)
+                }
+            }
+            binding.scheduleChooseGroupChipGroup.addView(newDay)
+
+            it.groups.forEach {
+                viewCount+=1
+                val chip = Chip(context)
+                chip.apply {
+                    val studyGroupName = it.name
+                    this.id = viewCount
+                    this.text = studyGroupName//groupList[i].uppercase(Locale.getDefault())
+                    this.setOnClickListener{
+                        //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
+                        saveStudyGroupToPreferences(studyGroupName)
+                        dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
+                        changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                    }
+                }
+                binding.scheduleChooseGroupChipGroup.addView(chip)
+            }
+        }
+
+        /*for (i in 0..groupList.size-1){
             viewCount+=1
             //val chipStyle = R.style.Widget_Material3_Chip_Suggestion_Elevated
             val chip = Chip(context)//Chip(context)//layoutInflater.inflate(R.layout.item_chip_choose_group, binding.scheduleChooseGroupChipGroup, false)
@@ -138,7 +188,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                 this.id = i
                 this.text = groupList[i].uppercase(Locale.getDefault())
                 //chip_element.text = groupList[i].uppercase(Locale.getDefault())
-                /*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*/
+                *//*this.style="@style/Widget.Material3.Chip.Suggestion.Elevated"*//*
                 this.setOnClickListener{
                     it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
                     saveStudyGroupToPreferences(i)
@@ -147,7 +197,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
                 }
             }
             binding.scheduleChooseGroupChipGroup.addView(chip)
-        }
+        }*/
         return viewCount
     }
 

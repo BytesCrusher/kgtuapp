@@ -3,6 +3,7 @@ package com.application.kgtuapp.Repositories
 import android.util.Log
 import com.application.kgtuapp.Classes.CertainClassInScheduleDay
 import com.application.kgtuapp.DataClasses.RemoteInstitute
+import com.application.kgtuapp.DataClasses.RemoteStudyGroup
 import com.application.kgtuapp.Network.Network
 import okhttp3.HttpUrl
 import okhttp3.Request
@@ -52,15 +53,25 @@ class UniversityStractureRepository {
         try {
             val jsonObject = JSONObject(responseBodyString)
 
+            //обрабатываем список институтов
             val movieArray = jsonObject.getJSONArray("structure")
             val institutesDataList = (0 until movieArray.length()).map { index -> movieArray.getJSONObject(index) }
                 .map {
-                        movieJsonObject ->
-                    val id = movieJsonObject.getInt("id")
-                    val name = movieJsonObject.getString("name")
+                        instituteJsonObject ->
+                    val id = instituteJsonObject.getInt("id")
+                    val name = instituteJsonObject.getString("name")
 
-                    println("there $id")
-                    RemoteInstitute(id = id, instituteName = name)
+                    //обрабатываем список групп в составе института
+                    val groups = instituteJsonObject.getJSONArray("groups")
+                    val groupsList =  (0 until groups.length()).map { index -> groups.getJSONObject(index) }
+                    .map { groupJsonObject ->
+                        val id = groupJsonObject.getInt("id")
+                        val name = groupJsonObject.getString("name")
+                        val institute = groupJsonObject.getInt("institute")
+                        RemoteStudyGroup(id = id, name = name, institute = institute)
+                    }
+
+                    RemoteInstitute(id = id, instituteName = name, groups = groupsList)
                     //RemoteMovie(id = id, title = title, year = year)
                 }
             Log.d("Server", "parse response successful")

@@ -36,7 +36,6 @@ class NotificationsFragment : Fragment() {
 
         viewModel.search()
         viewModel.institutesDataListLiveData.observe(viewLifecycleOwner){
-
             it.forEach {
                 binding.tvApkVersion.text = "${binding.tvApkVersion.text} + ${it.id} + ${it.instituteName} ||"
             }

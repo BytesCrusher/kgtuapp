@@ -1,4 +1,9 @@
 package com.application.kgtuapp.DataClasses
 
-class RemoteStudySubGroup {
+data class RemoteStudySubGroup(
+    val id: Int,
+    val parentStudyGroupId: Int,
+    val numberInParentGroup: Int,
+    val subGroupName: String
+) {
 }
