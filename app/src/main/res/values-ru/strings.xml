@@ -94,4 +94,5 @@
     <string name="tv_schedule_choose_group_all_groups">Все группы</string>
     <string name="tv_schedule_choose_group_groups_found">Найденные группы</string>
     <string name="toolbar_tv_fragment_notifications">Уведомления</string>
+    <string name="schedule_critical_error_b_reload">Перезайти</string>
 </resources>
