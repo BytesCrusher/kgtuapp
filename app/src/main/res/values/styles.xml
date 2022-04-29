@@ -249,12 +249,7 @@
     <style name="buttonStudyGroupNotSelected" parent="@style/Widget.Material3.Button">
         <item name="android:textAppearance">@style/LabelLarge</item>
         <item name="fontFamily">@font/roboto_medium</item>
-
     </style>
-
-
-
-
 
     <!--<style name="TextAppearance.Material3.BodyLarge" parent="TextAppearance.MaterialComponents.Body1">
         <item name="fontFamily">@string/m3_sys_typescale_body_large_font</item>

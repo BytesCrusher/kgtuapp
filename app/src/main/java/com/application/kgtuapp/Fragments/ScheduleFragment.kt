@@ -1,6 +1,5 @@
 package com.application.kgtuapp.Fragments
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,15 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.application.kgtuapp.Adapters.ScheduleRecyclerAdapter
 import com.application.kgtuapp.Classes.CertainClassInScheduleDay
 import com.application.kgtuapp.Classes.CertainClassStartEndTime
 import com.application.kgtuapp.Classes.ScheduleTwoWeek
@@ -26,9 +20,10 @@ import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.ViewModels.ScheduleListDataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
+import kotlin.system.exitProcess
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
@@ -77,6 +72,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             dataModel.studyGroup.value = sharedPrefs.getString(USER_STUDY_GROUP, null)
 
         if (dataModel.studyGroup.value != null) {
+
+            //invokeCriticalErrorByScheduleFragment()
+
             dataModel.mainToolBarTitle.value =
                 "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
             binding.mainToolBar.title = dataModel.mainToolBarTitle.value
@@ -162,6 +160,18 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                 .apply()
         }
     }
+
+    private fun invokeCriticalErrorByScheduleFragment() {
+        context?.let {
+            MaterialAlertDialogBuilder(it)
+                .setView(R.layout.item_critical_error_schedule)
+                .setPositiveButton(resources.getString(R.string.schedule_critical_error_b_reload)) { dialog, which ->
+                    exitProcess(0)
+                }
+                .show()
+        }
+    }
+
 
     private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment: Fragment) {
         parentFragmentManager
