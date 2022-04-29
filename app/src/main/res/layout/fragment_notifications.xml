@@ -96,6 +96,20 @@
                     style="@style/BodyMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Для быстрой связи с нашей командой используй телеграм бота:" />
+
+                <EditText
+                    style="@style/BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:inputType="none"
+                    android:text="https://t.me/kstuapp_bot" />
+
+                <TextView
+                    style="@style/BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Ссылка на скачивание новой версии приложения:" />
 
                 <EditText
