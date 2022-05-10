@@ -161,7 +161,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         }
     }
 
-    private fun invokeCriticalErrorByScheduleFragment() {
+    /*private fun invokeCriticalErrorByScheduleFragment() {
         context?.let {
             MaterialAlertDialogBuilder(it)
                 .setView(R.layout.item_critical_error_schedule)
@@ -170,7 +170,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                 }
                 .show()
         }
-    }
+    }*/
 
 
     private fun changeContentFragmentByScheduleFragment(idContainer: Int, newFragment: Fragment) {
