@@ -9,7 +9,6 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
@@ -22,17 +21,17 @@ import com.application.kgtuapp.databinding.FragmentScheduleChooseGroupBinding
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 
 class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_group) {
     private lateinit var binding: FragmentScheduleChooseGroupBinding
-    private val dataModel : DataModel by activityViewModels()
+    private val dataModel: DataModel by activityViewModels()
 
     //доступ к файлу Preferences
     /*val sharedPrefs =
         requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)*/
-    private val sharedPrefs by lazy{
-        requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}
+    private val sharedPrefs by lazy {
+        requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+    }
 
     //val groupList = listOf<String>("18-вт", "20-ап", "20-мс", "20-вт", "20-кс", "19-иэ", "19-ап", "19-вт", "21-ПБм")
 
@@ -53,7 +52,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
 
         //получение данных с API
         viewModel.search()
-        viewModel.institutesDataListLiveData.observe(viewLifecycleOwner){
+        viewModel.institutesDataListLiveData.observe(viewLifecycleOwner) {
             makeChips()
             //здесь какой кринж написан
             /*it.forEach {
@@ -77,7 +76,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         return binding.root
     }
 
-    private fun saveStudyGroupToPreferences(studyGroupName: String, studyGroupId: Int){
+    private fun saveStudyGroupToPreferences(studyGroupName: String, studyGroupId: Int) {
         dataModel.studyGroup.value = studyGroupName
         lifecycleScope.launch(Dispatchers.IO) {
             sharedPrefs.edit()
@@ -90,34 +89,41 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
     }
 
     //в этом фрагменте не используется
-    private fun checkStudyGroupFromPreferences(){
+    private fun checkStudyGroupFromPreferences() {
         lifecycleScope.launch(Dispatchers.IO) {
             sharedPrefs.getString(USER_STUDY_GROUP, null)
         }
+    }
+
+    private fun stringToLowerCase(initialString: String): String {
+        var lowerString = ""
+
+        //Приводим строку к нижнему регистру
+        initialString.forEach {
+            lowerString += if (it.isUpperCase()) {
+                it.lowercaseChar()
+            } else {
+                it
+            }
+        }
+        return lowerString
     }
 
     //поиск группы
     private fun groupSearch() {
         binding.scheduleChooseGroupChipGroup.removeAllViews()
         binding.tvSelectGroupAllGroups.visibility = VISIBLE
-        val currentEntryString = binding.etGroupSearch.text.toString().toCharArray()
+        val currentEntryString = binding.etGroupSearch.text.toString()
 
-        if (binding.etGroupSearch.text.toString()==""){
-            binding.tvSelectGroupAllGroups.text = getString(R.string.tv_schedule_choose_group_all_groups)
+        if (binding.etGroupSearch.text.toString() == "") {
+            binding.tvSelectGroupAllGroups.text =
+                getString(R.string.tv_schedule_choose_group_all_groups)
         } else {
-            binding.tvSelectGroupAllGroups.text = getString(R.string.tv_schedule_choose_group_groups_found)
+            binding.tvSelectGroupAllGroups.text =
+                getString(R.string.tv_schedule_choose_group_groups_found)
         }
 
-        var fullString = ""
-
-        //Приводим строку к нижнему регистру
-        for (i in currentEntryString.indices) {
-            fullString += if (currentEntryString[i].isUpperCase()) {
-                currentEntryString[i].lowercaseChar()
-            } else {
-                currentEntryString[i]
-            }
-        }
+        val userInputForGroupSearch = stringToLowerCase(currentEntryString)//""
 
         var viewCount = 0
         viewModel.institutesDataListLiveData.value?.forEach {
@@ -130,45 +136,55 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
             newDay.apply {
                 val instituteTitle = this.findViewById<TextView>(R.id.tv_instituteName)
                 instituteTitle.text = it.instituteName
-                if (viewCount>0){
+                if (viewCount > 0) {
                     instituteTitle.marginTop.plus(20)
                 }
             }
             binding.scheduleChooseGroupChipGroup.addView(newDay)
 
+            //проверка самих групп
             it.groups.forEach {
                 val studyGroupName = it.name
-                if (fullString in studyGroupName){
-                    viewCount+=1
-                    if (it.subGroups.isEmpty()){
-                        viewCount+=1
+                if (it.subGroups.isEmpty()) {
+                    if (userInputForGroupSearch in stringToLowerCase(studyGroupName)) {
+                        viewCount += 1
                         val chip = Chip(context)
                         chip.apply {
                             val chipId = it.id
                             this.id = chipId
-                            this.text = studyGroupName//groupList[i].uppercase(Locale.getDefault())
-                            this.setOnClickListener{
+                            this.text = studyGroupName
+                            this.setOnClickListener {
                                 //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
                                 saveStudyGroupToPreferences(studyGroupName, chipId)
-                                dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                                changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                                dataModel.mainToolBarTitle.value =
+                                    getString(R.string.main_toolbar_description_schedule)
+                                changeContentFragmentByChooseGroupFragment(
+                                    R.id.l_mainActivityFragment,
+                                    ScheduleFragment.newInstance()
+                                )
                             }
                         }
                         binding.scheduleChooseGroupChipGroup.addView(chip)
-                    } else {
-                        it.subGroups.forEach {
-                            viewCount+=1
+                    }
+                } else {
+                    it.subGroups.forEach {
+                        val studySubGroupName = it.subGroupName
+                        if (userInputForGroupSearch in stringToLowerCase(studySubGroupName)) {
+                            viewCount += 1
                             val chip = Chip(context)
                             chip.apply {
-                                val studySubGroupName = it.subGroupName
                                 val chipId = it.id
                                 this.id = chipId
                                 this.text = studySubGroupName
-                                this.setOnClickListener{
+                                this.setOnClickListener {
                                     //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
                                     saveStudyGroupToPreferences(studySubGroupName, chipId)
-                                    dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                                    changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                                    dataModel.mainToolBarTitle.value =
+                                        getString(R.string.main_toolbar_description_schedule)
+                                    changeContentFragmentByChooseGroupFragment(
+                                        R.id.l_mainActivityFragment,
+                                        ScheduleFragment.newInstance()
+                                    )
                                 }
                             }
                             binding.scheduleChooseGroupChipGroup.addView(chip)
@@ -178,20 +194,19 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
             }
         }
 
-        if (viewCount==0){
+        if (viewCount == 0) {
             binding.scheduleChooseGroupChipGroup.removeAllViews()
             binding.tvSelectGroupAllGroups.visibility = INVISIBLE
             val studyGroupNotFound =
-                layoutInflater.inflate(R.layout.item_no_such_group_found,
+                layoutInflater.inflate(
+                    R.layout.item_no_such_group_found,
                     binding.scheduleChooseGroupChipGroup,
-                    true)
-            /*studyGroupNotFound.apply {
-            }
-            binding.scheduleChooseGroupChipGroup.addView(studyGroupNotFound)*/
+                    true
+                )
         }
     }
 
-    private fun makeChips(): Int{
+    private fun makeChips(): Int {
         binding.scheduleChooseGroupChipGroup.removeAllViews()
         var viewCount = 0
 
@@ -205,43 +220,51 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
             newDay.apply {
                 val instituteTitle = this.findViewById<TextView>(R.id.tv_instituteName)
                 instituteTitle.text = it.instituteName
-                if (viewCount>0){
+                if (viewCount > 0) {
                     instituteTitle.marginTop.plus(20)
                 }
             }
             binding.scheduleChooseGroupChipGroup.addView(newDay)
 
             it.groups.forEach {
-                if (it.subGroups.isEmpty()){
-                    viewCount+=1
+                if (it.subGroups.isEmpty()) {
+                    viewCount += 1
                     val chip = Chip(context)
                     chip.apply {
                         val studyGroupName = it.name
                         val chipId = it.id
                         this.id = chipId
                         this.text = studyGroupName//groupList[i].uppercase(Locale.getDefault())
-                        this.setOnClickListener{
+                        this.setOnClickListener {
                             //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
                             saveStudyGroupToPreferences(studyGroupName, chipId)
-                            dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                            changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                            dataModel.mainToolBarTitle.value =
+                                getString(R.string.main_toolbar_description_schedule)
+                            changeContentFragmentByChooseGroupFragment(
+                                R.id.l_mainActivityFragment,
+                                ScheduleFragment.newInstance()
+                            )
                         }
                     }
                     binding.scheduleChooseGroupChipGroup.addView(chip)
                 } else {
                     it.subGroups.forEach {
-                        viewCount+=1
+                        viewCount += 1
                         val chip = Chip(context)
                         chip.apply {
                             val studySubGroupName = it.subGroupName
                             val shipId = it.id
                             this.id = shipId
                             this.text = studySubGroupName
-                            this.setOnClickListener{
+                            this.setOnClickListener {
                                 //it.setBackgroundColor(resources.getColor(R.color.md_theme_light_secondaryContainer))
                                 saveStudyGroupToPreferences(studySubGroupName, shipId)
-                                dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-                                changeContentFragmentByChooseGroupFragment(R.id.l_mainActivityFragment, ScheduleFragment.newInstance())
+                                dataModel.mainToolBarTitle.value =
+                                    getString(R.string.main_toolbar_description_schedule)
+                                changeContentFragmentByChooseGroupFragment(
+                                    R.id.l_mainActivityFragment,
+                                    ScheduleFragment.newInstance()
+                                )
                             }
                         }
                         binding.scheduleChooseGroupChipGroup.addView(chip)
@@ -260,7 +283,10 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         private const val USER_STUDY_GROUP_ID = "user study group id"
     }
 
-    private fun changeContentFragmentByChooseGroupFragment(idContainer: Int, newFragment:Fragment){
+    private fun changeContentFragmentByChooseGroupFragment(
+        idContainer: Int,
+        newFragment: Fragment
+    ) {
         parentFragmentManager
             .beginTransaction()
             .addToBackStack(null)
