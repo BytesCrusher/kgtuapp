@@ -10,7 +10,7 @@
         android:id="@+id/mainToolBar"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#14006399"
+        android:background="@color/m3_read_only_light_surface2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

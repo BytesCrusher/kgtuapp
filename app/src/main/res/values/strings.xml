@@ -30,7 +30,7 @@
     <string name="schedule_will_appear">The schedule will appear here after you select your group</string>
     <string name="choose_group">Select a group</string>
     <string name="no_such_group">There is no such group</string>
-    <string name="no_errors_name_group">Check if there are any errors in the spelling of the group. If everything is indicated correctly, then write to @kgtuapp in telegram, we will help and figure it out.</string>
+    <string name="no_errors_name_group">Check if there are any errors in the spelling of the group. If everything is indicated correctly, then write to @kstuapp in telegram, we will help and figure it out.</string>
     <string name="internet_connection_is_required">To download your group\'s schedule, you need an internet connection</string>
     <string name="no_internet">There is no Internet connection</string>
     <string name="ti_searchgrouptext">Поиск группы</string>
