@@ -10,7 +10,9 @@ import com.application.kgtuapp.Classes.ScheduleDay
 import com.application.kgtuapp.Fragments.*
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 

@@ -23,19 +23,21 @@
 
         <TextView
             android:id="@+id/textView_1"
-            style="@style/headerTextStyle"
+            style="@style/HeadlineLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="8dp"
             android:text="@string/no_internet" />
 
         <TextView
             android:id="@+id/textView_2"
-            style="@style/paragraphTextStyle"
+            style="@style/BodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingBottom="0dp"
+            android:layout_marginTop="16dp"
             android:text="@string/internet_connection_is_required" />
 
     </LinearLayout>

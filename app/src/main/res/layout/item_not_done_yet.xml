@@ -24,19 +24,21 @@
 
         <TextView
             android:id="@+id/textView2"
-            style="@style/headerTextStyle"
+            style="@style/HeadlineLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:text="@string/not_done_yet_text_title" />
 
         <TextView
             android:id="@+id/textView3"
-            style="@style/paragraphTextStyle"
+            style="@style/BodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingBottom="0dp"
+            android:layout_marginTop="8dp"
             android:text="@string/not_done_yet_description_text" />
 
         <LinearLayout
@@ -46,23 +48,26 @@
 
             <TextView
                 android:id="@+id/textView4"
-                style="@style/paragraphTextStyle"
+                style="@style/BodyLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
                 android:paddingRight="2dp"
-                android:text="@string/kgtuapp_telegram_word" />
+                android:text="@string/kgtuapp_telegram_word"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
 
             <TextView
                 android:id="@+id/textView5"
-                style="@style/linkTextStyle"
+                style="@style/BodyLarge"
+                android:textColor="@color/linkText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
                 android:paddingLeft="2dp"
-                android:text="@string/kgtuapp_telegram_link" />
+                android:text="@string/kgtuapp_telegram_link"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

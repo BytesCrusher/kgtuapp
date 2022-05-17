@@ -17,19 +17,23 @@ import com.application.kgtuapp.Classes.CertainClassInScheduleDay
 import com.application.kgtuapp.Classes.CertainClassStartEndTime
 import com.application.kgtuapp.Classes.ScheduleTwoWeek
 import com.application.kgtuapp.R
+import com.application.kgtuapp.Schedule.ProfileViewModel
 import com.application.kgtuapp.ViewModels.DataModel
-import com.application.kgtuapp.ViewModels.ScheduleListDataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.system.exitProcess
 
+@AndroidEntryPoint
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private lateinit var binding: FragmentScheduleBinding
     private val dataModel: DataModel by activityViewModels()
 
-    private val scheduleViewModel: ScheduleListDataModel by viewModels()
+    //добавили вот эту вью модель
+    private val viewModel: ProfileViewModel by viewModels()
+    //private val scheduleViewModelTraining: RealScheduleViewModel by viewModels()
+    //private val scheduleViewModelTraining: ScheduleViewModel by viewModels()
+    //private val scheduleViewModel: ScheduleListDataModel by viewModels()
 
     private val sharedPrefs by lazy{
         requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}
@@ -39,11 +43,22 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
 
         val studyGroupId = checkStudyGroupIdFromPreferences()
         //scheduleViewModel.search(studyGroupId.toString())
+
+
+
+        //вызов к апи
+        sendPostRequest()
+
+
+
+        //scheduleViewModelTraining.fetchHeroes()
+
+
 
         binding.ibToolbarNotifications.setOnClickListener {
             changeContentFragmentByScheduleFragment(
@@ -101,6 +116,10 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             studyGroupNotSelected()
         }
         return binding.root
+    }
+
+    private fun sendPostRequest(){
+        viewModel.sendPostRequest()
     }
 
     //метод должен быть какой-то такой, но чет не получается

@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/textView_1"
-            style="@style/DisplaySmall"
+            style="@style/HeadlineLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -47,11 +47,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/b_selectStudyGroup"
-            style="@style/buttonStudyGroupNotSelected"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
+            android:textAppearance="@style/LabelLarge"
 
             android:backgroundTint="@color/m3_sys_light_primary"
             app:icon="@drawable/ic_select_a_group_button_plus"

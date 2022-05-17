@@ -20,7 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="6dp"
+            android:padding="10dp"
             android:src="@drawable/ic_toolbar_go_back_arrow" />
 
         <com.google.android.material.textview.MaterialTextView

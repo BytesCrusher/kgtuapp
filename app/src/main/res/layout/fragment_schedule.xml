@@ -19,23 +19,22 @@
         app:titleTextAppearance="@style/TitleLarge">
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ib_toolbarNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_bell_toolbar_notifications" />
+
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ib_toolbarSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:padding="10dp"
-            android:paddingEnd="20dp"
             android:src="@drawable/ic_settings_gear_wheel"
             tools:ignore="RtlSymmetry" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ib_toolbarNotifications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:focusableInTouchMode="true"
-            android:padding="10dp"
-            android:src="@drawable/ic_bell_toolbar_notifications" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 

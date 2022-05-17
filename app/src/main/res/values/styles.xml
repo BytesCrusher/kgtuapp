@@ -1,10 +1,10 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@font/manrope</item>
+
+        <!--Чтобы в шторке смартфона все было написано черным цветом-->
         <item name="android:windowLightStatusBar">true</item>
 
         <!-- MaterialComponents attributes (needed if parent="Theme.AppCompat"). -->
@@ -92,41 +92,10 @@
         <item name="fontFamily">@font/roboto</item>
     </style>
 
-
-
-
-    <style name="headerTextStyle" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:textSize">32sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <!--Текст параграфов-->
-    <style name="paragraphTextStyle">
-        <item name="android:textSize">16sp</item>
-        <item name="fontFamily">@font/roboto</item>
-        <item name="android:textColor">@color/paragraphTextColor</item>
-    </style>
-
-    <style name="linkTextStyle" parent="paragraphTextStyle">
-        <item name="android:textColor">@color/linkText</item>
-    </style>
-
-    <!--<style name="Theme.App" parent="Theme.MaterialComponents.Light.NoActionBar">
-
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
-        <item name="colorPrimary">@color/navBarsBackgroundColors</item>
-        <item name="colorOnPrimary">@color/navBarsTextColor</item>
-    </style>-->
-
     <!--<style name="navBarsStyle">
         <item name="android:background">@color/navBarsBackgroundColors</item>
         <item name="android:textColor">@color/navBarsTextColor</item>
     </style>-->
-
-    <style name="logoTextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textSize">20sp</item>
-    </style>
 
     <style name="mainMenuViewStyle" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textSize">12sp</item>
@@ -245,85 +214,4 @@
         <item name="fontFamily">@font/roboto_medium</item>
         <item name="android:textColor">@color/m3_sys_light_primary</item>
     </style>
-
-    <style name="buttonStudyGroupNotSelected" parent="@style/Widget.Material3.Button">
-        <item name="android:textAppearance">@style/LabelLarge</item>
-        <item name="fontFamily">@font/roboto_medium</item>
-    </style>
-
-    <!--<style name="TextAppearance.Material3.BodyLarge" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="fontFamily">@string/m3_sys_typescale_body_large_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_body_large_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_body_large_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_body_large_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_body_large_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.BodyMedium" parent="TextAppearance.MaterialComponents.Body2">
-        <item name="fontFamily">@string/m3_sys_typescale_body_medium_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_body_medium_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_body_medium_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_body_medium_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_body_medium_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.BodySmall" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="fontFamily">@string/m3_sys_typescale_body_small_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_body_small_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_body_small_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_body_small_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_body_small_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.DisplayLarge" parent="TextAppearance.MaterialComponents.Headline2">
-        <item name="fontFamily">@string/m3_sys_typescale_display_large_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_display_large_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_display_large_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_display_large_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_display_large_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.DisplayMedium" parent="TextAppearance.MaterialComponents.Headline3">
-        <item name="fontFamily">@string/m3_sys_typescale_display_medium_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_display_medium_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_display_medium_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_display_medium_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_display_medium_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.DisplaySmall" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="fontFamily">@string/m3_sys_typescale_display_small_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_display_small_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_display_small_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_display_small_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_display_small_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.HeadlineLarge" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="fontFamily">@string/m3_sys_typescale_headline_large_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_headline_large_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_headline_large_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_headline_large_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_headline_large_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.HeadlineMedium" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="fontFamily">@string/m3_sys_typescale_headline_medium_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_headline_medium_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_headline_medium_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_headline_medium_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_headline_medium_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.HeadlineSmall" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@string/m3_sys_typescale_headline_small_font</item>
-        <item name="android:fontFamily">@string/m3_sys_typescale_headline_small_font</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">@bool/m3_sys_typescale_headline_small_text_all_caps</item>
-        <item name="android:textSize">@dimen/m3_sys_typescale_headline_small_text_size</item>
-        <item name="android:letterSpacing">@dimen/m3_sys_typescale_headline_small_letter_spacing</item>
-    </style>
-    <style name="TextAppearance.Material3.LabelLarge" parent="Base.TextAppearance.Material3.LabelLarge"/>
-    <style name="TextAppearance.Material3.LabelMedium" parent="Base.TextAppearance.Material3.LabelMedium"/>
-    <style name="TextAppearance.Material3.LabelSmall" parent="Base.TextAppearance.Material3.LabelSmall"/>-->
 </resources>
