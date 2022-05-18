@@ -1,7 +1,7 @@
-package com.application.kgtuapp.Schedule
+package com.application.kgtuapp.screens.schedule
 
 import com.google.gson.annotations.SerializedName
 
-data class RetrofitCreateElementRequest(
+data class RetrofitCreatePostScheduleRequest(
     @SerializedName("group") val group: String
 )

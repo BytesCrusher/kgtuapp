@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Fragments
+package com.application.kgtuapp.screens.schedule
 
 import android.content.Context
 import android.os.Bundle
@@ -13,11 +13,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.application.kgtuapp.Classes.CertainClassInScheduleDay
-import com.application.kgtuapp.Classes.CertainClassStartEndTime
-import com.application.kgtuapp.Classes.ScheduleTwoWeek
+import com.application.kgtuapp.screens.notifications.NotificationsFragment
+import com.application.kgtuapp.screens.scheduleChooseGroup.ScheduleChooseGroupFragment
 import com.application.kgtuapp.R
-import com.application.kgtuapp.Schedule.ProfileViewModel
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +28,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     private val dataModel: DataModel by activityViewModels()
 
     //добавили вот эту вью модель
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel: ScheduleViewModel by viewModels()
 
     private val sharedPrefs by lazy{
         requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}

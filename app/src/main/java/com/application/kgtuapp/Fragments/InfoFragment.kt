@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.application.kgtuapp.R
+import com.application.kgtuapp.screens.schedule.ScheduleFragment
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentInfoBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class InfoFragment: Fragment(R.layout.fragment_info) {
     lateinit var binding: FragmentInfoBinding
     private val dataModel : DataModel by activityViewModels()

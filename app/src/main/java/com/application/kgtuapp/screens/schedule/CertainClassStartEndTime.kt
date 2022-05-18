@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Classes
+package com.application.kgtuapp.screens.schedule
 
 class CertainClassStartEndTime(private var id: Int, private var startClassTime: String, private var endClassTime: String) {
 

@@ -1,4 +1,4 @@
-package com.application.kgtuapp.DataClasses
+package com.application.kgtuapp.screens.schedule.data
 
 data class RemoteSchedule(
     val id: Int,

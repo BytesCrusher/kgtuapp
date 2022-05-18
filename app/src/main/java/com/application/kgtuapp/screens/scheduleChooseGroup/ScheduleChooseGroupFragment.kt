@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Fragments
+package com.application.kgtuapp.screens.scheduleChooseGroup
 
 import android.content.Context
 import android.os.Bundle
@@ -15,15 +15,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.application.kgtuapp.R
+import com.application.kgtuapp.screens.schedule.ScheduleFragment
 import com.application.kgtuapp.ViewModels.DataModel
-import com.application.kgtuapp.ViewModels.InstitutesDataListModel
 import com.application.kgtuapp.databinding.FragmentScheduleChooseGroupBinding
 import com.google.android.material.chip.Chip
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
 class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_group) {
     private lateinit var binding: FragmentScheduleChooseGroupBinding
     private val dataModel: DataModel by activityViewModels()
@@ -37,7 +35,7 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
 
     //val groupList = listOf<String>("18-вт", "20-ап", "20-мс", "20-вт", "20-кс", "19-иэ", "19-ап", "19-вт", "21-ПБм")
 
-    private val viewModel: InstitutesDataListModel by viewModels()
+    private val viewModel: ScheduleChooseGroupViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,4 +1,4 @@
-package com.application.kgtuapp.DataClasses
+package com.application.kgtuapp.screens.scheduleChooseGroup.data
 
 data class RemoteStudyGroup(
     val id: Int,

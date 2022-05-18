@@ -39,21 +39,17 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '1.8'
     }
 
     namespace 'com.application.kgtuapp'
 }
 
 dependencies {
-
-    //неизвестно что это и зачем надо
-    //implementation 'com.intuit.sdp:sdp-android:1.0.6'
-
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -80,191 +76,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    //скорее всего ненужгный кринж
-    /*api 'com.google.dagger:dagger-android:2.37'
-    api 'com.google.dagger:dagger-android-support:2.37'
-    kapt 'com.google.dagger:dagger-android-processor:2.37'
-    implementation "com.google.dagger:dagger:$hilt_version"
-    kapt "com.google.dagger:dagger-compiler:$hilt_version"
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation "com.google.dagger:hilt-android:$hilt_version"*/
 }
-
-/*
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
-}
-
-android {
-    compileSdkVersion 32
-
-    defaultConfig {
-        applicationId "com.application.kgtuapp"
-        minSdkVersion 23
-        targetSdkVersion 32
-        versionCode 1
-        versionName "0.1"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures {
-        viewBinding = true
-    }
-
-    buildTypes {
-        debug {
-            applicationIdSuffix ".debug"
-        }
-
-        qa {
-            initWith debug
-            applicationIdSuffix ".test"
-        }
-
-        release {
-            signingConfig signingConfigs.debug
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    namespace 'com.application.kgtuapp'
-}
-
-dependencies {
-    */
-/*//*
-/ Dagger Core
-    //implementation "com.google.dagger:dagger:$hilt_version"
-    kapt "com.google.dagger:dagger-compiler:$hilt_version"
-
-// Dagger Android
-    *//*
-/*api 'com.google.dagger:dagger-android:2.37'
-    api 'com.google.dagger:dagger-android-support:2.37'
-    kapt 'com.google.dagger:dagger-android-processor:2.37'*//*
-/*
-
-// Dagger - Hilt
-    //implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    *//*
-/*implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"*//*
-/*
-    //kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'com.google.android.material:material:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'androidx.appcompat:appcompat:1.6.0-alpha03'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    implementation "androidx.activity:activity-ktx:1.4.0"
-    implementation 'androidx.fragment:fragment-ktx:1.4.1'
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-
-    implementation 'androidx.annotation:annotation:1.3.0'
-
-    testImplementation 'junit:junit:4.13.2'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-
-    //Retrofit
-    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
-
-    def moshiVersion = '1.9.3'
-
-    //Moshi
-    implementation "com.squareup.moshi:moshi:$moshiVersion"
-    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
-
-    def retrofitVersion = '2.9.0'
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
-
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'*//*
-
-
-    //чужие имплементации
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'androidx.appcompat:appcompat:1.6.0-alpha03'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    //implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    //implementation 'com.google.android.material:material:1.3.0'
-    //implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-
-    //уберу вот это
-    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
-
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
-    implementation 'com.vk:android-sdk-core:3.1.0'
-    implementation 'com.vk:android-sdk-api:3.1.0'
-
-    implementation "androidx.activity:activity-ktx:1.4.0"
-    implementation "androidx.fragment:fragment-ktx:1.4.1"
-
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-
-    // Dagger Core
-    implementation "com.google.dagger:dagger:$hilt_version"
-    kapt "com.google.dagger:dagger-compiler:$hilt_version"
-
-// Dagger Android
-    api 'com.google.dagger:dagger-android:2.37'
-    api 'com.google.dagger:dagger-android-support:2.37'
-    kapt 'com.google.dagger:dagger-android-processor:2.37'
-
-// Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    //kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-
-    testImplementation 'junit:junit:4.13.2'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-
-
-    */
-/*implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'*//*
-
-
-    //noinspection GradleCompatible
-    */
-/*implementation 'com.android.support:design:28.0.0'*//*
-
-    */
-/*implementation 'com.github.d-max:spots-dialog:1.1@aar'*//*
-
-
-    //наши имплементации
-
-}*/

@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*APP_ACTIVITY = this*/
-        //setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         dataModel.isUserAutorized.value = false
 

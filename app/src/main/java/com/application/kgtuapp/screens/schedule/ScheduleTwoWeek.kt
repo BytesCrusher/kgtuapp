@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Classes
+package com.application.kgtuapp.screens.schedule
 
 import kotlin.random.Random
 

@@ -1,15 +1,15 @@
-package com.application.kgtuapp.Repositories
+package com.application.kgtuapp.screens.scheduleChooseGroup
 
 import android.util.Log
-import com.application.kgtuapp.DataClasses.RemoteInstitute
-import com.application.kgtuapp.DataClasses.RemoteStudyGroup
-import com.application.kgtuapp.DataClasses.RemoteStudySubGroup
+import com.application.kgtuapp.screens.scheduleChooseGroup.data.RemoteInstitute
+import com.application.kgtuapp.screens.scheduleChooseGroup.data.RemoteStudyGroup
+import com.application.kgtuapp.screens.scheduleChooseGroup.data.RemoteStudySubGroup
 import com.application.kgtuapp.Network.Network
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 
-class UniversityStractureRepository {
+class ScheduleChooseGroupRepository {
 
     fun searchGroupSchedule(callback: (List<RemoteInstitute>) -> Unit) {
         Thread {

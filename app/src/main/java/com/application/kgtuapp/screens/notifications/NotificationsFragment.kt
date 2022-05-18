@@ -1,22 +1,19 @@
-package com.application.kgtuapp.Fragments
+package com.application.kgtuapp.screens.notifications
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import com.application.kgtuapp.BuildConfig
 import com.application.kgtuapp.R
-import com.application.kgtuapp.ViewModels.InstitutesDataListModel
+import com.application.kgtuapp.screens.schedule.ScheduleFragment
 import com.application.kgtuapp.databinding.FragmentNotificationsBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class NotificationsFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsBinding
 
-    //private val viewModel: InstitutesDataListModel by viewModels()
+    //private val viewModel: ScheduleChooseGroupViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

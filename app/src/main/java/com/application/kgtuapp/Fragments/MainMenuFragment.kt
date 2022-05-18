@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.application.kgtuapp.R
+import com.application.kgtuapp.screens.schedule.ScheduleFragment
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentMainMenuBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainMenuFragment:Fragment(R.layout.fragment_main_menu) {
     private lateinit var binding: FragmentMainMenuBinding
-    //бесполезный коммент
 
     private val dataModel : DataModel by activityViewModels()
 

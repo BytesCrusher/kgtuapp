@@ -1,4 +1,4 @@
-package com.application.kgtuapp.Classes
+package com.application.kgtuapp.screens.schedule
 
 //Здесь описывается конкретная пара, которая в дальнейшем кладется в день расписания
 //И день расписания затем собирается из набора таких пар

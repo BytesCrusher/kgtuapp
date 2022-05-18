@@ -4,9 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.application.kgtuapp.Classes.CertainClassInScheduleDay
+import com.application.kgtuapp.screens.schedule.CertainClassInScheduleDay
 import com.application.kgtuapp.R
 
 class ScheduleRecyclerAdapter(

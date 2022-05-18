@@ -6,13 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.application.kgtuapp.R
-import com.application.kgtuapp.databinding.ActivityMainBinding
+import com.application.kgtuapp.screens.schedule.ScheduleFragment
 import com.application.kgtuapp.databinding.FragmentAutorizationBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class AuthorisationFragment : Fragment() {
     private lateinit var binding: FragmentAutorizationBinding
 
