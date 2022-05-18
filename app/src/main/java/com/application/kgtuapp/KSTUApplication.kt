@@ -1,8 +1,8 @@
-package com.application.kgtuapp.Schedule
+package com.application.kgtuapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 import retrofit2.Retrofit
 
 @HiltAndroidApp
-class GamesApplication : Application()
+class KSTUApplication : Application()

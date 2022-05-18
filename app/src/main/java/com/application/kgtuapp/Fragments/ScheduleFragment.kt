@@ -31,9 +31,6 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
     //добавили вот эту вью модель
     private val viewModel: ProfileViewModel by viewModels()
-    //private val scheduleViewModelTraining: RealScheduleViewModel by viewModels()
-    //private val scheduleViewModelTraining: ScheduleViewModel by viewModels()
-    //private val scheduleViewModel: ScheduleListDataModel by viewModels()
 
     private val sharedPrefs by lazy{
         requireContext().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)}
@@ -47,18 +44,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
 
         val studyGroupId = checkStudyGroupIdFromPreferences()
-        //scheduleViewModel.search(studyGroupId.toString())
-
-
 
         //вызов к апи
         sendPostRequest()
-
-
-
-        //scheduleViewModelTraining.fetchHeroes()
-
-
 
         binding.ibToolbarNotifications.setOnClickListener {
             changeContentFragmentByScheduleFragment(
@@ -224,15 +212,6 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         5 to CertainClassStartEndTime(5, "17:25", "18:50"),
         6 to CertainClassStartEndTime(6, "19:00", "20:25"),
     )
-
-    /*val classNameList = listOf<String>(
-        "Технологические машины и оборудование",
-        "Операционные системы",
-        "Математическая логика и теория алгоритмов",
-        "Практическая подготовка по физической культуре и занятия спортом (элективные курсы)",
-        "Иностранный язык",
-        "Методы научных исследований"
-    )*/
 
     val daysCalendarList = listOf<String>(
         "Пятница, 29 апреля",

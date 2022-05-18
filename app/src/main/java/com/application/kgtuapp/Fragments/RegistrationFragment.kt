@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.FragmentRegistrationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegistrationFragment : Fragment() {
     private lateinit var binding:FragmentRegistrationBinding
 

@@ -61,7 +61,7 @@ class RetrofitModule {
             .addInterceptor(httpLoggingInterceptor)
             .build()
 
-    @Provides
+    /*@Provides
     @Singleton
     @DotaRetrofitClient
     fun dotaRetrofit(okHttpClient: OkHttpClient): Retrofit =
@@ -79,7 +79,7 @@ class RetrofitModule {
             .baseUrl("https://api.vk.com/method/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            .build()*/
 
     @Provides
     @Singleton
@@ -91,10 +91,10 @@ class RetrofitModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    @Provides
+    /*@Provides
     @Singleton
     fun provideDotaApi(@DotaRetrofitClient retrofit: Retrofit): DotaApi =
-        retrofit.create(DotaApi::class.java)
+        retrofit.create(DotaApi::class.java)*/
 
     @Provides
     @Singleton

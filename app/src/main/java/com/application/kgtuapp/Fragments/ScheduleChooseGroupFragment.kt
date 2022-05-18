@@ -19,9 +19,11 @@ import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.ViewModels.InstitutesDataListModel
 import com.application.kgtuapp.databinding.FragmentScheduleChooseGroupBinding
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_group) {
     private lateinit var binding: FragmentScheduleChooseGroupBinding
     private val dataModel: DataModel by activityViewModels()

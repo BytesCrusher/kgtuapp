@@ -10,7 +10,9 @@ import com.application.kgtuapp.BuildConfig
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.InstitutesDataListModel
 import com.application.kgtuapp.databinding.FragmentNotificationsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NotificationsFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsBinding
 

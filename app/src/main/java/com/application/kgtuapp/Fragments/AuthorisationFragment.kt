@@ -10,8 +10,9 @@ import android.widget.Toast
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.ActivityMainBinding
 import com.application.kgtuapp.databinding.FragmentAutorizationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class AuthorisationFragment : Fragment() {
     private lateinit var binding: FragmentAutorizationBinding
 
