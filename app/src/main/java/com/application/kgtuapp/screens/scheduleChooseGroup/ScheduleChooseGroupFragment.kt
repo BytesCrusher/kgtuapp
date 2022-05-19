@@ -2,6 +2,7 @@ package com.application.kgtuapp.screens.scheduleChooseGroup
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.application.kgtuapp.Network.Network
 import com.application.kgtuapp.R
 import com.application.kgtuapp.screens.schedule.ScheduleFragment
 import com.application.kgtuapp.ViewModels.DataModel
@@ -51,29 +53,55 @@ class ScheduleChooseGroupFragment : Fragment(R.layout.fragment_schedule_choose_g
         }
 
         //получение данных с API
-        viewModel.search()
-        viewModel.institutesDataListLiveData.observe(viewLifecycleOwner) {
-            makeChips()
-            //здесь какой кринж написан
-            /*it.forEach {
-                makeChips()
-                //binding.tvApkVersion.text = "${binding.tvApkVersion.text} + ${it.id} + ${it.instituteName} ||"
-            }*/
-        }
-
-        //Поисковик по группам
-        binding.etGroupSearch.addTextChangedListener {
-            groupSearch()
-
-        }
-
-        //Для безопасности, чтобы выбрать можно было только лишь один чип (дейл)
-        binding.scheduleChooseGroupChipGroup.isSingleSelection = true
-
-        //Создание чипов
-        makeChips()
+        getGroupListFromApi()
 
         return binding.root
+    }
+
+    private fun getGroupListFromApi(){
+        if (checkInternetConnection() == true){
+            viewModel.search()
+            viewModel.institutesDataListLiveData.observe(viewLifecycleOwner) {
+                makeChips()
+                //здесь какой кринж написан
+                /*it.forEach {
+                    makeChips()
+                    //binding.tvApkVersion.text = "${binding.tvApkVersion.text} + ${it.id} + ${it.instituteName} ||"
+                }*/
+            }
+
+            //Поисковик по группам
+            binding.etGroupSearch.addTextChangedListener {
+                groupSearch()
+            }
+
+            //Для безопасности, чтобы выбрать можно было только лишь один чип (дейл)
+            binding.scheduleChooseGroupChipGroup.isSingleSelection = true
+
+            //Создание чипов
+            makeChips()
+        } else {
+            showThisIfNoInternetConnection()
+        }
+    }
+
+    private fun checkInternetConnection(): Boolean? {
+        return context?.let { Network.isOnline(it.applicationContext) }
+    }
+
+    private fun showThisIfNoInternetConnection(){
+        Log.i("Internet",
+            "There are no internet connection\n" +
+                    "Network.isOnline = ${context?.let { Network.isOnline(it.applicationContext) }}")
+
+        binding.scheduleChooseGroupChipGroup.removeAllViews()
+        binding.tvSelectGroupAllGroups.visibility = INVISIBLE
+
+        layoutInflater.inflate(
+                R.layout.item_no_internet_connection,
+                binding.scheduleChooseGroupChipGroup,
+                true
+        )
     }
 
     private fun saveStudyGroupToPreferences(studyGroupName: String, studyGroupId: Int) {

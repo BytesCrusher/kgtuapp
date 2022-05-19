@@ -37,6 +37,25 @@
             tools:ignore="RtlSymmetry" />
 
     </com.google.android.material.appbar.MaterialToolbar>
+    <!--<com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/AppBarLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/m3_read_only_light_surface2">
+
+        &lt;!&ndash;android:layout_height="?attr/actionBarSize"&ndash;&gt;
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            app:title="Title"
+            app:menu="@menu/app_bar"
+            app:navigationIcon="@drawable/ic_toolbar_go_back_arrow"
+            android:background="@color/m3_read_only_light_surface2"/>
+
+    </com.google.android.material.appbar.AppBarLayout>-->
 
     <ScrollView
         android:id="@+id/scrollViewForSchedule"

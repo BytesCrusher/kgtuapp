@@ -2,6 +2,7 @@ package com.application.kgtuapp.screens.schedule
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.application.kgtuapp.Network.InternetConnection
+import com.application.kgtuapp.Network.Network
 import com.application.kgtuapp.screens.notifications.NotificationsFragment
 import com.application.kgtuapp.screens.scheduleChooseGroup.ScheduleChooseGroupFragment
 import com.application.kgtuapp.R
@@ -21,6 +24,7 @@ import com.application.kgtuapp.databinding.FragmentScheduleBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.internal.cache2.Relay.Companion.edit
 
 @AndroidEntryPoint
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
@@ -43,8 +47,32 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         val studyGroupId = checkStudyGroupIdFromPreferences()
 
-        //вызов к апи
-        sendPostRequest()
+       /* binding.topAppBar.setNavigationOnClickListener {
+            // Handle navigation icon press
+        }
+
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.notifications -> {
+                    changeContentFragmentByScheduleFragment(
+                        R.id.l_mainActivityFragment,
+                        NotificationsFragment.newInstance()
+                    )
+                    true
+                }
+                R.id.settings -> {
+                    dataModel.studyGroup.value = null
+                    saveStudyGroupToPreferences(null)
+                    studyGroupNotSelected()
+                    true
+                }
+                *//*R.id.more -> {
+                    // Handle more item (inside overflow menu) press
+                    true
+                }*//*
+                else -> false
+            }
+        }*/
 
         binding.ibToolbarNotifications.setOnClickListener {
             changeContentFragmentByScheduleFragment(
@@ -58,7 +86,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             saveStudyGroupToPreferences(null)
             studyGroupNotSelected()
         }
-        /*dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)*/
+        dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
 
         //val recyclerView: RecyclerView = this.binding.scheduleDayContentContainer
         /*recyclerView.layoutManager = LinearLayoutManager(context)
@@ -70,15 +98,15 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
 
         //я не знаю почему это работает, в интернете пишут что надо указывать:
         // lifecycleScope.launch(Dispatchers.IO) {
-            dataModel.studyGroup.value = sharedPrefs.getString(USER_STUDY_GROUP, null)
-
+        dataModel.studyGroup.value = sharedPrefs.getString(USER_STUDY_GROUP, null)
+        dataModel.studyGroup.value = "20-АП"
         if (dataModel.studyGroup.value != null) {
 
             //invokeCriticalErrorByScheduleFragment()
 
             dataModel.mainToolBarTitle.value =
                 "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
-            binding.mainToolBar.title = dataModel.mainToolBarTitle.value
+            //binding.mainToolBar.title = dataModel.mainToolBarTitle.value
 
             //recyclerView.layoutManager = LinearLayoutManager(context)
             //recyclerView.adapter = ScheduleRecyclerAdapter(fillList("element"))
@@ -101,11 +129,36 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         } else {
             studyGroupNotSelected()
         }
+
+        //вызов к апи
+        sendPostRequest()
+
         return binding.root
     }
 
     private fun sendPostRequest(){
-        viewModel.sendPostRequest()
+        if (checkInternetConnection() == true){
+            viewModel.sendPostRequest()
+        } else {
+            showThisInNoInternetConnection()
+        }
+    }
+
+    private fun checkInternetConnection(): Boolean? {
+        return context?.let { Network.isOnline(it.applicationContext) }
+    }
+
+    private fun showThisInNoInternetConnection(){
+        Log.i("Internet",
+            "There are no internet connection\n" +
+                    "Network.isOnline = ${context?.let { Network.isOnline(it.applicationContext) }}")
+
+        binding.llScheduleContentContainer.removeAllViews()
+        layoutInflater.inflate(
+            R.layout.item_no_internet_connection,
+            binding.llScheduleContentContainer,
+            true
+        )
     }
 
     //метод должен быть какой-то такой, но чет не получается
@@ -131,7 +184,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         //обнуляем что есть
         binding.llScheduleContentContainer.removeAllViews()
         dataModel.mainToolBarTitle.value = getString(R.string.main_toolbar_description_schedule)
-        binding.mainToolBar.title = dataModel.mainToolBarTitle.value
+        //binding.mainToolBar.title = dataModel.mainToolBarTitle.value
         scheduleDataMap = mutableMapOf<Int, MutableList<CertainClassInScheduleDay>>()
 
         //recyclerView.layoutManager = LinearLayoutManager(context)

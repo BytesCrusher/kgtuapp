@@ -25,6 +25,7 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/font/manrope.xml" value="0.31979166666666664" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/font/manrope_bold.xml" value="0.3223958333333333" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/activity_main.xml" value="0.25842696629213485" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/app_bar.xml" value="0.23072916666666668" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/certain_class_element.xml" value="0.47074468085106386" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/certain_day_element.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_autorization.xml" value="0.34375" />
@@ -37,7 +38,7 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_personal_calendar.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_registration.xml" value="0.3296875" />
-        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule_choose_group.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_schedule_day.xml" value="0.2421875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_university.xml" value="0.259375" />
