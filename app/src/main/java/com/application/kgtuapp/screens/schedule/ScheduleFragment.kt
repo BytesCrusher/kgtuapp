@@ -99,14 +99,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         //я не знаю почему это работает, в интернете пишут что надо указывать:
         // lifecycleScope.launch(Dispatchers.IO) {
         dataModel.studyGroup.value = sharedPrefs.getString(USER_STUDY_GROUP, null)
-        dataModel.studyGroup.value = "20-АП"
+        //dataModel.studyGroup.value = "20-АП"
         if (dataModel.studyGroup.value != null) {
 
             //invokeCriticalErrorByScheduleFragment()
 
             dataModel.mainToolBarTitle.value =
                 "${getString(R.string.main_toolbar_description_schedule)} ${dataModel.studyGroup.value}"
-            //binding.mainToolBar.title = dataModel.mainToolBarTitle.value
+            binding.mainToolBar.title = dataModel.mainToolBarTitle.value
 
             //recyclerView.layoutManager = LinearLayoutManager(context)
             //recyclerView.adapter = ScheduleRecyclerAdapter(fillList("element"))

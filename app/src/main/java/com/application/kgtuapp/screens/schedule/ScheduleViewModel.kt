@@ -19,6 +19,7 @@ class ScheduleViewModel @Inject constructor(private val scheduleGoApi: ScheduleG
                     )
                 )
                 Log.d("Server", "response string = ${responseString}")
+
             } catch (e: Exception) {
                 Log.e("TAG", "Exception during request -> ${e.localizedMessage}")
             }

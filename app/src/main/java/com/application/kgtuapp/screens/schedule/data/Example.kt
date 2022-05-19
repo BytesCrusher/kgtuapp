@@ -24,7 +24,7 @@ class Example : Parcelable {
         remoteStudyGroup = `in`.readValue(RemoteStudyGroup::class.java.getClassLoader()) as RemoteStudyGroup?
         `in`.readList(
             remoteTimetable!!,
-            com.application.kgtuapp.screens.schedule.data.RemoteTimetable::class.java.getClassLoader()
+            RemoteTimetable::class.java.getClassLoader()
         )
     }
 
