@@ -14,7 +14,7 @@ object Network {
     val okHttpClient: OkHttpClient = OkHttpClient()
 
     fun getData():Call{
-        val URL = "https://api.kstuapp.ru/structure/"
+        val URL = "https://api.kstuapp.ru/v1/structure/"
         /*val URL = HttpUrl.Builder()
             .scheme("https")
             .host("api.icndb.com")

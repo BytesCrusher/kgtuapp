@@ -5,6 +5,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ScheduleGoApi {
-    @POST("/schedule/")
+    @POST("/v1/schedule/")
     suspend fun sendElementRequest(@Body elementModel: RetrofitCreatePostScheduleRequest) : Example
 }

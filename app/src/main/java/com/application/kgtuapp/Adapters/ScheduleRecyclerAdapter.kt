@@ -68,6 +68,11 @@ class ScheduleRecyclerAdapter(
         }
     }
 
+    //
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+
     //Возвращает количество элементов списка.
     override fun getItemCount(): Int {
         /*if (scheduleDataMap.isEmpty()){
