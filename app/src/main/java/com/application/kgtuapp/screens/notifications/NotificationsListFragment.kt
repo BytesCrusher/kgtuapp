@@ -55,7 +55,7 @@ class NotificationsListFragment : Fragment() {
 
             mainToolBar.setOnClickListener {
                 val notification = Notification(
-                    notificationId = "hex",
+                    notificationId = 0,
                     isViewed = false,
                     imageId = imageIdList.random(),
                     titleText = "Добро пожаловать в КГТУ Апп.",

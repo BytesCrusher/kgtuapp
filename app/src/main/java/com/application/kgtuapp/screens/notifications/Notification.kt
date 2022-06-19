@@ -1,7 +1,7 @@
 package com.application.kgtuapp.screens.notifications
 
 data class Notification(
-    val notificationId: String,
+    val notificationId: Int,
     val isViewed: Boolean,
     val imageId: Int,
     val titleText: String,
