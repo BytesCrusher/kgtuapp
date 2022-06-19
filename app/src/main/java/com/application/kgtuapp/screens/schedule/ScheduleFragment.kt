@@ -14,17 +14,16 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.application.kgtuapp.Network.InternetConnection
 import com.application.kgtuapp.Network.Network
-import com.application.kgtuapp.screens.notifications.NotificationsFragment
+import com.application.kgtuapp.screens.notifications.NotificationFragment
 import com.application.kgtuapp.screens.scheduleChooseGroup.ScheduleChooseGroupFragment
 import com.application.kgtuapp.R
 import com.application.kgtuapp.ViewModels.DataModel
 import com.application.kgtuapp.databinding.FragmentScheduleBinding
+import com.application.kgtuapp.screens.notifications.NotificationsListFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.internal.cache2.Relay.Companion.edit
 
 @AndroidEntryPoint
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
@@ -56,7 +55,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                 R.id.notifications -> {
                     changeContentFragmentByScheduleFragment(
                         R.id.l_mainActivityFragment,
-                        NotificationsFragment.newInstance()
+                        NotificationFragment.newInstance()
                     )
                     true
                 }
@@ -77,7 +76,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         binding.ibToolbarNotifications.setOnClickListener {
             changeContentFragmentByScheduleFragment(
                 R.id.l_mainActivityFragment,
-                NotificationsFragment.newInstance()
+                NotificationsListFragment.newInstance()
             )
         }
 

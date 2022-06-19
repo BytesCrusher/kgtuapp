@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.application.kgtuapp.BuildConfig
 import com.application.kgtuapp.R
+import com.application.kgtuapp.databinding.FragmentNotificationBinding
 import com.application.kgtuapp.screens.schedule.ScheduleFragment
-import com.application.kgtuapp.databinding.FragmentNotificationsBinding
 
-class NotificationsFragment : Fragment() {
-    private lateinit var binding: FragmentNotificationsBinding
+class NotificationFragment : Fragment() {
+    private lateinit var binding: FragmentNotificationBinding
 
     //private val viewModel: ScheduleChooseGroupViewModel by viewModels()
 
@@ -19,7 +19,7 @@ class NotificationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNotificationsBinding.inflate(layoutInflater, container, false)
+        binding = FragmentNotificationBinding.inflate(layoutInflater, container, false)
         binding.ibToolbarGoBack.setOnClickListener {
             changeContentFragmentByNotificationsFragment(
                 R.id.l_mainActivityFragment,
@@ -44,7 +44,7 @@ class NotificationsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = NotificationsFragment()
+        fun newInstance() = NotificationFragment()
     }
 
     private fun changeContentFragmentByNotificationsFragment(idContainer: Int, newFragment:Fragment){

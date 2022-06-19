@@ -17,6 +17,7 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_main_menu_button_schedule.xml" value="0.2635" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_main_menu_button_university.xml" value="0.2635" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_not_done_yet.xml" value="0.2965" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_notifications_calendar.xml" value="0.194" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_profile_academic_performance.xml" value="0.295" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_profile_academic_performance_with_background.xml" value="0.2345" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/drawable/ic_profile_check_debts.xml" value="0.295" />
@@ -34,7 +35,9 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_main_activity_content.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_main_menu.xml" value="0.233502538071066" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_navigator.xml" value="0.2921875" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_notification.xml" value="0.29545454545454547" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_notifications.xml" value="0.18900343642611683" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_notifications_list.xml" value="0.29545454545454547" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_personal_calendar.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/fragment_registration.xml" value="0.3296875" />
@@ -48,6 +51,7 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_no_internet_connection.xml" value="0.31197916666666664" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_no_such_group_found.xml" value="0.28958333333333336" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_not_done_yet.xml" value="0.30567081604426005" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_notification.xml" value="0.2911458333333333" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_schedule.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_study_group_not_choose.xml" value="0.23897707231040563" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_study_group_not_selected.xml" value="0.33" />

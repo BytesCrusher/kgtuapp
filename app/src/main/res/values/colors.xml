@@ -89,6 +89,7 @@
     
     <color name="m3_sys_light_primary">#006399</color>
     <color name="m3_read_only_light_surface2">#14006399</color>
+    <color name="m3_sys_light_inverse_on_surface">#F0F0F3</color>
 
 
 </resources>
