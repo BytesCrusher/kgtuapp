@@ -3,6 +3,8 @@ package com.application.kgtuapp.screens.notifications
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.application.kgtuapp.R
@@ -21,6 +23,10 @@ class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.Notificatio
             tvNotificationBody.text = notification.notificationText
             tvNotificationAuthor.text = notification.authorName
             tvNotificationDateTime.text = notification.dateTime
+
+            if (notification.isViewed) {
+                imNotificationIsViewed.visibility = GONE
+            }
         }
     }
 
