@@ -12,7 +12,11 @@ import com.application.kgtuapp.databinding.ItemNotificationBinding
 
 class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.NotificationsHolder>() {
 
-    val notificationList = ArrayList<Notification>()
+    var notificationList: List<Notification> = emptyList()
+        set(newValue) {
+            field = newValue
+            notifyDataSetChanged()
+        }
 
     class NotificationsHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = ItemNotificationBinding.bind(item)
@@ -30,7 +34,8 @@ class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.Notificatio
         }
     }
 
-    //берет разметку, надувает ее и создает класс NotificationsHolder
+    //Метод работает когда нужно создать новый элемент списка
+    // берет разметку, надувает ее и создает класс NotificationsHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_notification, parent, false)
@@ -48,9 +53,9 @@ class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.Notificatio
     }
 
     //функция для добавления нового элемента
-    fun addNotification(notification: Notification):Unit{
+    /*fun addNotification(notification: Notification):Unit{
         notificationList.add(notification)
         notifyDataSetChanged()
-    }
+    }*/
 }
 

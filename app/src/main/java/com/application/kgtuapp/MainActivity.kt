@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     private val dataModel: DataModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*openFragment(R.id.l_mainActivityFragment, AuthorisationFragment.newInstance())*/
         openFragment(R.id.l_mainActivityFragment, InfoFragment.newInstance())
 
 
@@ -85,9 +83,6 @@ class MainActivity : AppCompatActivity() {
         @JvmStatic
         fun newInstance() = MainActivity()
     }
-
-    /*val day = ScheduleDay(0,"18-ВТ", 1)*/
-
 
     //id объекта, где показать новый фрагмент, сам новый фрагмент
     //R.id.mainMenuContainer, MainMenuFragment.newInstance()
