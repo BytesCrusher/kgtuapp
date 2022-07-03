@@ -1,16 +1,17 @@
 package com.application.kgtuapp.screens.notifications
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.INVISIBLE
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.ItemNotificationBinding
 
-class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.NotificationsHolder>() {
+class NotificationsAdapter(
+    private val actionListener: NotificationsActionListener
+) : RecyclerView.Adapter<NotificationsAdapter.NotificationsHolder>(), View.OnClickListener {
 
     var notificationList: List<Notification> = emptyList()
         set(newValue) {
@@ -18,10 +19,79 @@ class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.Notificatio
             notifyDataSetChanged()
         }
 
-    class NotificationsHolder(item: View): RecyclerView.ViewHolder(item) {
-        val binding = ItemNotificationBinding.bind(item)
+    override fun onClick(view: View) {
+        println("itemView.tag в методе onClick = ${view.tag}")
+        val notification = view.tag as Notification
+        actionListener.onNotificationDetails(notification)
+        println("hello from onClick method")
+        //смотрим куда же нажал пользователь
+        when (view.id) {
+            R.id.notification_layout -> {
+                actionListener.onNotificationDetails(notification)
+            }
+            else -> {
+                actionListener.onNotificationDetails(notification)
+            }
+        }
+    }
 
-        fun bind(notification: Notification) = with(binding){
+    class NotificationsHolder(val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
+        /*val binding = ItemNotificationBinding.bind(item)
+
+        fun bind(notification: Notification) = with(binding) {
+            itemView.tag = notification
+            println("itemView.tag = ${itemView.tag}")
+            imNotificationIcon.setImageResource(notification.imageId)
+            tvNotificationTitle.text = notification.titleText
+            tvNotificationBody.text = notification.notificationText
+            tvNotificationAuthor.text = notification.authorName
+            tvNotificationDateTime.text = notification.dateTime
+
+            if (notification.isViewed) {
+                imNotificationIsViewed.visibility = GONE
+            }
+        }*/
+
+
+    }
+
+    //Метод работает когда нужно создать новый элемент списка
+    // берет разметку, надувает ее и создает класс NotificationsHolder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsHolder {
+        /*val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_notification, parent, false)
+
+        *//*val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemNotificationBinding.inflate(inflater, parent, false)
+
+        //инициализируем слушатели нажатий root - это cardNotification
+        binding.cardNotification.setOnClickListener { this }*//*
+        //cardNotification.setOnClickListener {  }
+        val notificationLayout = view.findViewById<LinearLayout>(R.id.notification_layout)
+        notificationLayout.setOnClickListener(this)
+
+        //println("view.tag from onCreateViewHolder " + view.tag)
+
+        return NotificationsHolder(view)*/
+
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemNotificationBinding.inflate(inflater, parent, false)
+
+        binding.root.setOnClickListener(this)
+
+        return NotificationsHolder(binding)
+    }
+
+    //откуда берем данные
+    override fun onBindViewHolder(holder: NotificationsHolder, position: Int) {
+        val notification = notificationList[position]
+        println("notification from onBindViewHolder => " + notification)
+        //добавляем теги каждому уведомлению
+        //holder.itemView.tag = notification
+        holder.itemView.tag = notification
+        //holder.binding.root.tag = notification
+
+        with(holder.binding) {
             imNotificationIcon.setImageResource(notification.imageId)
             tvNotificationTitle.text = notification.titleText
             tvNotificationBody.text = notification.notificationText
@@ -32,19 +102,8 @@ class NotificationsAdapter:RecyclerView.Adapter<NotificationsAdapter.Notificatio
                 imNotificationIsViewed.visibility = GONE
             }
         }
-    }
+        //holder.bind(notification)
 
-    //Метод работает когда нужно создать новый элемент списка
-    // берет разметку, надувает ее и создает класс NotificationsHolder
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_notification, parent, false)
-        return NotificationsHolder(view)
-    }
-
-    //откуда берем данные
-    override fun onBindViewHolder(holder: NotificationsHolder, position: Int) {
-        holder.bind(notificationList[position])
     }
 
     //количество создаваемых элементов

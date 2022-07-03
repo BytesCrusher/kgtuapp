@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.application.kgtuapp.BuildConfig
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.FragmentNotificationBinding
-import com.application.kgtuapp.screens.schedule.ScheduleFragment
 
 class NotificationFragment : Fragment() {
     private lateinit var binding: FragmentNotificationBinding
@@ -21,9 +20,9 @@ class NotificationFragment : Fragment() {
     ): View? {
         binding = FragmentNotificationBinding.inflate(layoutInflater, container, false)
         binding.ibToolbarGoBack.setOnClickListener {
-            changeContentFragmentByNotificationsFragment(
+            changeContentFragmentByNotificationFragment(
                 R.id.l_mainActivityFragment,
-                ScheduleFragment.newInstance()
+                NotificationsListFragment.newInstance()
             )
         }
 
@@ -47,7 +46,7 @@ class NotificationFragment : Fragment() {
         fun newInstance() = NotificationFragment()
     }
 
-    private fun changeContentFragmentByNotificationsFragment(idContainer: Int, newFragment:Fragment){
+    private fun changeContentFragmentByNotificationFragment(idContainer: Int, newFragment:Fragment){
         parentFragmentManager
             .beginTransaction()
             .addToBackStack(null)

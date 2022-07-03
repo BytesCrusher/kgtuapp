@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.application.kgtuapp.BuildConfig
 import com.application.kgtuapp.KSTUApplication
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.FragmentNotificationsListBinding
@@ -16,7 +15,22 @@ class NotificationsListFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsListBinding
 
     //адаптер для rcView
-    private var adapter = NotificationsAdapter()
+    private var adapter = NotificationsAdapter(object : NotificationsActionListener {
+        override fun onNotificationMove(notification: Notification, moveBy: Int) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onNotificationDelete(notification: Notification) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onNotificationDetails(notification: Notification) {
+            changeContentFragmentByNotificationListFragment(
+                R.id.l_mainActivityFragment,
+                NotificationFragment.newInstance()
+            )
+        }
+    })
 
     //геттер для получения доступа к модели сервиса уведомлений (NotificationsService)
     private val notificationsService: NotificationsService
