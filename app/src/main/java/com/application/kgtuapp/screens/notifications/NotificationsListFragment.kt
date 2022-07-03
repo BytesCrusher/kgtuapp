@@ -15,7 +15,7 @@ class NotificationsListFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsListBinding
 
     //адаптер для rcView
-    private var adapter = NotificationsAdapter(object : NotificationsActionListener {
+    private var adapter = NotificationsListAdapter(object : NotificationsActionListener {
         override fun onNotificationMove(notification: Notification, moveBy: Int) {
             TODO("Not yet implemented")
         }
@@ -25,6 +25,8 @@ class NotificationsListFragment : Fragment() {
         }
 
         override fun onNotificationDetails(notification: Notification) {
+            //notification.isViewed = true
+            notificationsService.makeNotificationViewed(notification)
             changeContentFragmentByNotificationListFragment(
                 R.id.l_mainActivityFragment,
                 NotificationFragment.newInstance()

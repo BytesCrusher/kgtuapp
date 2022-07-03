@@ -3,15 +3,15 @@ package com.application.kgtuapp.screens.notifications
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.application.kgtuapp.R
-import com.application.kgtuapp.databinding.ItemNotificationBinding
+import com.application.kgtuapp.databinding.ItemNotificationInNotificationListBinding
 
-class NotificationsAdapter(
+class NotificationsListAdapter(
     private val actionListener: NotificationsActionListener
-) : RecyclerView.Adapter<NotificationsAdapter.NotificationsHolder>(), View.OnClickListener {
+) : RecyclerView.Adapter<NotificationsListAdapter.NotificationsHolder>(), View.OnClickListener {
 
     var notificationList: List<Notification> = emptyList()
         set(newValue) {
@@ -23,6 +23,7 @@ class NotificationsAdapter(
         println("itemView.tag в методе onClick = ${view.tag}")
         val notification = view.tag as Notification
         actionListener.onNotificationDetails(notification)
+
         println("hello from onClick method")
         //смотрим куда же нажал пользователь
         when (view.id) {
@@ -33,9 +34,10 @@ class NotificationsAdapter(
                 actionListener.onNotificationDetails(notification)
             }
         }
+        //notifyDataSetChanged()
     }
 
-    class NotificationsHolder(val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
+    class NotificationsHolder(val binding: ItemNotificationInNotificationListBinding) : RecyclerView.ViewHolder(binding.root) {
         /*val binding = ItemNotificationBinding.bind(item)
 
         fun bind(notification: Notification) = with(binding) {
@@ -75,7 +77,7 @@ class NotificationsAdapter(
         return NotificationsHolder(view)*/
 
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemNotificationBinding.inflate(inflater, parent, false)
+        val binding = ItemNotificationInNotificationListBinding.inflate(inflater, parent, false)
 
         binding.root.setOnClickListener(this)
 
@@ -86,10 +88,9 @@ class NotificationsAdapter(
     override fun onBindViewHolder(holder: NotificationsHolder, position: Int) {
         val notification = notificationList[position]
         println("notification from onBindViewHolder => " + notification)
+
         //добавляем теги каждому уведомлению
-        //holder.itemView.tag = notification
         holder.itemView.tag = notification
-        //holder.binding.root.tag = notification
 
         with(holder.binding) {
             imNotificationIcon.setImageResource(notification.imageId)
@@ -100,6 +101,8 @@ class NotificationsAdapter(
 
             if (notification.isViewed) {
                 imNotificationIsViewed.visibility = GONE
+            } else {
+                imNotificationIsViewed.visibility = VISIBLE
             }
         }
         //holder.bind(notification)

@@ -52,6 +52,9 @@
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_no_such_group_found.xml" value="0.28958333333333336" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_not_done_yet.xml" value="0.30567081604426005" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_notification.xml" value="0.2911458333333333" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_notification_in_notification_list.xml" value="0.2328125" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_one_notification_header.xml" value="0.2328125" />
+        <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_one_notification_links.xml" value="0.2328125" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_schedule.xml" value="0.2921875" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_study_group_not_choose.xml" value="0.23897707231040563" />
         <entry key="..\:/AndroidStudioProjects/kgtuapp/app/src/main/res/layout/item_study_group_not_selected.xml" value="0.33" />

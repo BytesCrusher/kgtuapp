@@ -56,6 +56,14 @@ class NotificationsService {
         }
     }
 
+    fun makeNotificationViewed(notification: Notification){
+        notificationList[
+                notificationList.indexOfFirst {
+                    it.notificationId == notification.notificationId
+                }].isViewed = true
+        notifyChanges()
+    }
+
     //перемещение уведомления вверх/вниз
     //какое уведомление, вниз или вверх (- вверх, + вниз)
     fun moveNotification(notification: Notification, moveBy: Int){

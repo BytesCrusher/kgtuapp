@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.application.kgtuapp.BuildConfig
 import com.application.kgtuapp.R
 import com.application.kgtuapp.databinding.FragmentNotificationBinding
@@ -12,13 +13,14 @@ import com.application.kgtuapp.databinding.FragmentNotificationBinding
 class NotificationFragment : Fragment() {
     private lateinit var binding: FragmentNotificationBinding
 
-    //private val viewModel: ScheduleChooseGroupViewModel by viewModels()
+    private val viewModel: NotificationViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNotificationBinding.inflate(layoutInflater, container, false)
+
         binding.ibToolbarGoBack.setOnClickListener {
             changeContentFragmentByNotificationFragment(
                 R.id.l_mainActivityFragment,
@@ -26,11 +28,9 @@ class NotificationFragment : Fragment() {
             )
         }
 
-        binding.tvApkVersion.text = """
-            Вариант сборки = ${BuildConfig.BUILD_TYPE}            
-            Версия приложения = ${BuildConfig.VERSION_NAME}
-            Код версии приложения = ${BuildConfig.VERSION_CODE}
-        """//.trimIndent()
+        with(viewModel.notificationDataLiveData.value){
+
+        }
 
         /*viewModel.search()
         viewModel.institutesDataListLiveData.observe(viewLifecycleOwner){
