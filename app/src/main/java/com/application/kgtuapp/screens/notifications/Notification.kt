@@ -4,7 +4,7 @@ data class Notification(
     val notificationId: Int,
     var isViewed: Boolean,
     val imageId: Int,
-    val titleText: String,
+    var titleText: String,
     val notificationText: String,
     val authorName: String,
     val dateTime: String,

@@ -7,7 +7,7 @@ import java.util.*
 typealias NotificationsListener = (notificationList: List<Notification>) -> Unit
 
 //это будет класс синглтон
-class NotificationsService {
+class NotificationsService() {
 
     private var notificationList = mutableListOf<Notification>()
 

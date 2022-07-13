@@ -20,21 +20,19 @@ class NotificationsListAdapter(
         }
 
     override fun onClick(view: View) {
-        println("itemView.tag в методе onClick = ${view.tag}")
+        //println("itemView.tag в методе onClick = ${view.tag}")
         val notification = view.tag as Notification
         actionListener.onNotificationDetails(notification)
 
-        println("hello from onClick method")
         //смотрим куда же нажал пользователь
         when (view.id) {
             R.id.notification_layout -> {
                 actionListener.onNotificationDetails(notification)
             }
             else -> {
-                actionListener.onNotificationDetails(notification)
+                //actionListener.onNotificationDetails(notification)
             }
         }
-        //notifyDataSetChanged()
     }
 
     class NotificationsHolder(val binding: ItemNotificationInNotificationListBinding) : RecyclerView.ViewHolder(binding.root) {
