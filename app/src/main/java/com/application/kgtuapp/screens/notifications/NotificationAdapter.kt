@@ -22,6 +22,40 @@ class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.BaseViewHol
             notifyDataSetChanged()
         }
 
+
+
+
+            /*NotificationHeader(
+                titleText = "Заголовок",
+                notificationText = "Текст уведомления",
+                authorName = "Автор уведомления",
+                dateTime = "7 мая, 14:42"
+            ),
+
+
+
+                NotificationBody(
+                    linkTitle = "Заголовок ссылки",
+                    link = "https://t.me/kstuapp"
+                )*/
+
+    /*items.add(
+    NotificationHeader(
+    titleText = "Заголовок",
+    notificationText = "Текст уведомления",
+    authorName = "Автор уведомления",
+    dateTime = "7 мая, 14:42"
+    )
+    )
+
+    items.add(
+    NotificationBody(
+    linkTitle = "Заголовок ссылки",
+    link = "https://t.me/kstuapp"
+    )
+    )*/
+
+
     companion object {
         private const val TYPE_HEADER =  1
         private const val TYPE_LINKS =  2
@@ -80,7 +114,7 @@ class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.BaseViewHol
         private val testTextView = view.findViewById<TextView>(R.id.tv_notification_title)
 
         override fun bind(item: NotificationHeader) {
-            testTextView.text = item.titleText//notificationData.value?.titleText ?: "Нет данных"
+            //testTextView.text = item.titleText//notificationData.value?.titleText ?: "Нет данных"
         }
     }
 }

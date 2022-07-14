@@ -65,7 +65,7 @@ class NotificationFragment : Fragment() {
         //println("items = \n" + items)
 
 
-        /*items.add(
+        items.add(
             NotificationHeader(
                 titleText = "Заголовок",
                 notificationText = "Текст уведомления",
@@ -81,7 +81,28 @@ class NotificationFragment : Fragment() {
             )
         )
 
-        adapter.setData(items)*/
+        items.add(
+            NotificationBody(
+                linkTitle = "Заголовок ссылки 2",
+                link = "https://t.me/kstuapp"
+            )
+        )
+
+        items.add(
+            NotificationBody(
+                linkTitle = "Заголовок ссылки 3",
+                link = "https://t.me/kstuapp"
+            )
+        )
+
+        items.add(
+            NotificationBody(
+                linkTitle = "Заголовок ссылки 4",
+                link = "https://t.me/kstuapp"
+            )
+        )
+
+        adapter.setData(items)
 
 
         /*viewModel.search()
